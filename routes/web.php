@@ -1,5 +1,7 @@
 <?php
 
+use App\Components;
+use Livewire\Volt\Volt;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,3 +14,8 @@
 |
 */
 
+foreach (Components::get() as $component) {
+    Volt::route('/'.$component, $component);
+}
+
+Volt::route('/', 'index');
