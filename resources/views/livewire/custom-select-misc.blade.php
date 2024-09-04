@@ -31,12 +31,13 @@ new class extends Component {
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
             <div>
-                <flux:heading size="lg">Custom select causes layout shift when it is near the bottom of the page</flux:heading>
+                <flux:heading size="lg">Chrome - Custom select causes layout shift when it is near the bottom of the page</flux:heading>
 
                 <flux:subheading size="lg" class="font-medium">Issue</flux:subheading>
 
                 <flux:text>
-                    When a custom select is near the bottom of a page, the dropdown opens below the select trigger, and causes a layout shift/ page to scroll instead of opening above it.
+                    This happens in Chrome but works fine in Safari - When a custom select is near the bottom of a page, the dropdown opens below the select trigger, and causes a layout shift/ page to
+                    scroll instead of opening above it.
                 </flux:text>
 
                 <flux:subheading size="lg" class="font-medium">Instructions</flux:subheading>

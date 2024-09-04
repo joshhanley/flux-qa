@@ -54,6 +54,27 @@ new class extends Component {
             </div>
 
             <div>
+                <flux:heading size="lg">Safari - Submenu safe areas not showing the submenu above</flux:heading>
+
+                <flux:subheading size="lg" class="font-medium">Issue</flux:subheading>
+
+                <flux:text>
+                    In Safari, hovering over a submenu trigger and then move to a submenu trigger above/below it, through the safe area, then the safe area submenu eventually hides but the new submenu
+                    is not shown. Where as in Chrome, the new submenu is shown after a beat.
+                </flux:text>
+
+                <flux:subheading size="lg" class="font-medium">Instructions</flux:subheading>
+
+                <flux:text>
+                    1. Open this page in Safari.<br>
+                    2. Click on the Options dropdown below.<br>
+                    3. Hover over Sort by and the submenu is shown.<br>
+                    4. Then hover over Filter somewhere inside the safe area for Sort by submenu.<br>
+                    5. The Sort by submenu is hidden but the Filter submenu is not shown.
+                </flux:text>
+            </div>
+
+            <div>
                 <flux:heading size="lg">Dropdown menu radio and checkbox have different syntax</flux:heading>
 
                 <flux:subheading size="lg" class="font-medium">Issue</flux:subheading>
