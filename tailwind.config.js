@@ -3,6 +3,7 @@ export default {
     content: [
         './resources/**/*.blade.php',
         './resources/**/*.js',
+        './vendor/livewire/flux/stubs/**/*.blade.php',
     ],
     theme: {
         extend: {},
