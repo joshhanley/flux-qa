@@ -14,7 +14,6 @@
 <body>
     <flux:page>
         <flux:header sticky container class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
-            <flux:heading>
                 <flux:navbar>
                     <flux:brand>Logo</flux:brand>
                     <flux:navbar.item href="/">Home</flux:navbar.item>
@@ -27,7 +26,12 @@
                         </flux:navmenu>
                     </flux:dropdown>
                 </flux:navbar>
-            </flux:heading>
+
+                <flux:spacer />
+
+                <flux:navbar>
+                    <livewire:command-palette />
+                </flux:navbar>
         </flux:header>
 
         {{ $slot }}
