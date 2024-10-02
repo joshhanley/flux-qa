@@ -29,7 +29,7 @@ new class extends Component {
 };
 ?>
 
-<flux:body container class="space-y-4">
+<div class="space-y-4">
     <flux:card>
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
@@ -92,4 +92,4 @@ new class extends Component {
             @endforeach
         </flux:autocomplete.items>
     </flux:autocomplete>
-</flux:body>
+</div>

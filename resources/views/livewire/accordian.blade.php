@@ -9,15 +9,15 @@ new class extends Component {};
 
 ?>
 
-<flux:body container class="space-y-4">
-    <flux:card>
+<div class="space-y-4">
+    {{-- <flux:card>
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
             <div>
                 <flux:heading size="lg">All ok 👌</flux:heading>
             </div>
         </flux:card.body>
-    </flux:card>
+    </flux:card> --}}
 
     <flux:accordion transition exclusive>
         <flux:accordion.item heading="Test1">
@@ -42,4 +42,4 @@ new class extends Component {};
             </flux:accordion.content>
         </flux:accordion.item>
     </flux:accordion>
-</flux:body>
+</div>

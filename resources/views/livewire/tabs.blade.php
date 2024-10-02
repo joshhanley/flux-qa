@@ -49,7 +49,7 @@ new class extends Component {
 
 ?>
 
-<flux:body container class="space-y-4">
+<div class="space-y-4">
     {{-- <flux:card>
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
@@ -81,10 +81,10 @@ new class extends Component {
         <flux:tab.panel name="users">
             <flux:heading size="lg">Users</flux:heading>
 
-            <flux:table :paginate="$this->users">
+            <flux:table :paginate="$this - > users">
                 <flux:columns>
-                    <flux:column wire:click="sort('name')" sortable :sorted="$this->sortBy === 'name'" :direction="$this->sortDirection">Name</flux:column>
-                    <flux:column wire:click="sort('email')" sortable :sorted="$this->sortBy === 'email'" :direction="$this->sortDirection">Email</flux:column>
+                    <flux:column wire:click="sort('name')" sortable :sorted="$this - > sortBy === 'name'" :direction="$this - > sortDirection">Name</flux:column>
+                    <flux:column wire:click="sort('email')" sortable :sorted="$this - > sortBy === 'email'" :direction="$this - > sortDirection">Email</flux:column>
                     <flux:column>Is verified?</flux:column>
                     <flux:column>Created At</flux:column>
                     <flux:column>Updated At</flux:column>
@@ -124,7 +124,7 @@ new class extends Component {
         <flux:tab.panel name="posts">
             <flux:heading size="lg">Posts</flux:heading>
 
-            <flux:table :paginate="$this->posts">
+            <flux:table :paginate="$this - > posts">
                 <flux:columns>
                     <flux:column>ID</flux:column>
                     <flux:column>Title</flux:column>
@@ -136,7 +136,7 @@ new class extends Component {
 
                 <flux:rows>
                     @foreach ($this->posts as $post)
-                        <flux:row :key="$post->id">
+                        <flux:row :key="$post - > id">
                             <flux:cell>{{ $post->id }}</flux:cell>
                             <flux:cell>{{ $post->title }}</flux:cell>
                             <flux:cell>{{ $post->user->name }}</flux:cell>
@@ -156,4 +156,4 @@ new class extends Component {
             </flux:table>
         </flux:tab.panel>
     </flux:tabs>
-</flux:body>
+</div>

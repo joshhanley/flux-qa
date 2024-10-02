@@ -9,8 +9,8 @@ new class extends Component {};
 
 ?>
 
-<flux:body container class="space-y-4">
+<div class="space-y-4">
     <div>
         "Changelog" page
     </div>
-</flux:body>
+</div>

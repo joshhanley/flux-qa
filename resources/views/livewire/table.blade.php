@@ -13,15 +13,15 @@ new class extends Component {
     public $sortDirection = 'asc';
 
     #[Computed]
-    public function users ()
+    public function users()
     {
         return User::query()
-            ->when($this->sortBy, fn ($query) => $query->orderBy($this->sortBy, $this->sortDirection))
+            ->when($this->sortBy, fn($query) => $query->orderBy($this->sortBy, $this->sortDirection))
             ->paginate();
     }
 
     #[Computed]
-    public function posts ()
+    public function posts()
     {
         return Post::with(['user'])->simplePaginate(pageName: 'posts');
     }
@@ -49,7 +49,7 @@ new class extends Component {
 
 ?>
 
-<flux:body container class="space-y-4">
+<div class="space-y-4">
     <flux:card>
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
@@ -65,7 +65,7 @@ new class extends Component {
                 <flux:subheading size="lg" class="font-medium">Instructions</flux:subheading>
 
                 <flux:text>
-                    1. Have a look at the "OR" separator between the tables, it has mt-4 applied. <br/>
+                    1. Have a look at the "OR" separator between the tables, it has mt-4 applied. <br />
                 </flux:text>
             </div>
         </flux:card.body>
@@ -73,11 +73,11 @@ new class extends Component {
 
     <flux:heading size="lg">Users</flux:heading>
 
-    <flux:table :paginate="$this->users">
-        <flux:pagination :paginator="$this->users" />
+    <flux:table :paginate="$this - > users">
+        <flux:pagination :paginator="$this - > users" />
         <flux:columns>
-            <flux:column wire:click="sort('name')" sortable :sorted="$this->sortBy === 'name'" :direction="$this->sortDirection">Name</flux:column>
-            <flux:column wire:click="sort('email')" sortable :sorted="$this->sortBy === 'email'" :direction="$this->sortDirection">Email</flux:column>
+            <flux:column wire:click="sort('name')" sortable :sorted="$this - > sortBy === 'name'" :direction="$this - > sortDirection">Name</flux:column>
+            <flux:column wire:click="sort('email')" sortable :sorted="$this - > sortBy === 'email'" :direction="$this - > sortDirection">Email</flux:column>
             <flux:column>Is verified?</flux:column>
             <flux:column>Created At</flux:column>
             <flux:column>Updated At</flux:column>
@@ -117,8 +117,8 @@ new class extends Component {
 
     <flux:heading class="mt-12" size="lg">Posts</flux:heading>
 
-    <flux:table :paginate="$this->posts">
-        <flux:pagination :paginator="$this->posts" />
+    <flux:table :paginate="$this - > posts">
+        <flux:pagination :paginator="$this - > posts" />
         <flux:columns>
             <flux:column>ID</flux:column>
             <flux:column>Title</flux:column>
@@ -130,7 +130,7 @@ new class extends Component {
 
         <flux:rows>
             @foreach ($this->posts as $post)
-                <flux:row :key="$post->id">
+                <flux:row :key="$post - > id">
                     <flux:cell>{{ $post->id }}</flux:cell>
                     <flux:cell>{{ $post->title }}</flux:cell>
                     <flux:cell>{{ $post->user->name }}</flux:cell>
@@ -148,4 +148,4 @@ new class extends Component {
             @endforeach
         </flux:rows>
     </flux:table>
-</flux:body>
+</div>

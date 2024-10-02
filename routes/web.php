@@ -18,4 +18,5 @@ foreach (Components::get() as $component) {
     Volt::route('/'.$component, $component);
 }
 
-Volt::route('/', 'index');
+Volt::route('/', 'index')->name('home');
+Volt::route('/other', 'index')->name('other');

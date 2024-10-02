@@ -11,31 +11,40 @@
     @fluxStyles
 </head>
 
-<body>
-    <flux:page>
-        <flux:header sticky container class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
-                <flux:navbar>
-                    <flux:brand>Logo</flux:brand>
-                    <flux:navbar.item href="/">Home</flux:navbar.item>
-                    <flux:dropdown>
-                        <flux:navbar.item icon-trailing="chevron-down">Components</flux:navbar.item>
-                        <flux:navmenu>
-                            @foreach (\App\Components::get() as $componentName)
-                                <flux:navmenu.item href="/{{ $componentName }}">{{ str($componentName)->headline() }}</flux:navmenu.item>
-                            @endforeach
-                        </flux:navmenu>
-                    </flux:dropdown>
-                </flux:navbar>
+<body class="min-h-screen bg-white dark:bg-zinc-800">
+    {{-- <flux:sidebar sticky stashable class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
+        <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
+        <flux:navlist>
+            <flux:navlist.item icon="home" href="/">Home1</flux:navlist.item>
+            <flux:navlist.item icon="home" :href="route('other')">Other</flux:navlist.item>
+            <flux:navlist.item icon="puzzle-piece" href="#">Features</flux:navlist.item>
+            <flux:navlist.item icon="currency-dollar" href="#">Pricing</flux:navlist.item>
+            <flux:navlist.item icon="user" href="#">About</flux:navlist.item>
+        </flux:navlist>
+    </flux:sidebar> --}}
+    <flux:header class=" bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
+            <flux:navbar>
+                <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+                <flux:brand>Logo</flux:brand>
+                <flux:navbar.item href="/">Home</flux:navbar.item>
+                <flux:dropdown>
+                    <flux:navbar.item icon-trailing="chevron-down">Components</flux:navbar.item>
+                    <flux:navmenu>
+                        @foreach (\App\Components::get() as $componentName)
+                            <flux:navmenu.item href="/{{ $componentName }}">{{ str($componentName)->headline() }}</flux:navmenu.item>
+                        @endforeach
+                    </flux:navmenu>
+                </flux:dropdown>
+            </flux:navbar>
 
-                <flux:spacer />
+            <flux:spacer />
 
-                <flux:navbar>
-                    <livewire:command-palette />
-                </flux:navbar>
-        </flux:header>
+            <flux:navbar>
+                {{-- <livewire:command-palette /> --}}
+            </flux:navbar>
+    </flux:header>
 
-        {{ $slot }}
-    </flux:page>
+    {{ $slot }}
 
     @fluxScripts
 </body>

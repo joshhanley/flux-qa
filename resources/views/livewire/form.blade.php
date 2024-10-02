@@ -24,23 +24,13 @@ new class extends Component {
 
     public function save()
     {
-        dump(
-            'saved',
-            $this->name,
-            $this->email,
-            $this->enableNotifications,
-            $this->location,
-            $this->gender,
-            $this->notificationPreferences,
-            $this->bio,
-            $this->referrer
-        );
+        dump('saved', $this->name, $this->email, $this->enableNotifications, $this->location, $this->gender, $this->notificationPreferences, $this->bio, $this->referrer);
     }
 };
 
 ?>
 
-<flux:body container class="space-y-4">
+<div class="space-y-4">
     <flux:card>
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
@@ -56,7 +46,7 @@ new class extends Component {
                 <flux:subheading size="lg" class="font-medium">Instructions</flux:subheading>
 
                 <flux:text>
-                    1. Have a look at the Gender field below, only Male is disabled but all look disabled. <br/>
+                    1. Have a look at the Gender field below, only Male is disabled but all look disabled. <br />
                     2. Female and Other still work just look disabled.
                 </flux:text>
             </div>
@@ -127,4 +117,4 @@ new class extends Component {
             <flux:button>Cancel</flux:button>
         </div>
     </form>
-</flux:body>
+</div>
