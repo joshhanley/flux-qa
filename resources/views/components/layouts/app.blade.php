@@ -33,7 +33,7 @@
         <flux:input as="button" variant="filled" placeholder="Search..." icon="magnifying-glass" />
 
         <flux:navlist variant="outline">
-            <flux:navlist.item icon="home" href="#" current>Home</flux:navlist.item>
+            <flux:navlist.item icon="home" href="/">Home</flux:navlist.item>
             <flux:navlist.item icon="inbox" badge="12" href="#">Inbox</flux:navlist.item>
             <flux:navlist.item icon="document-text" href="#">Documents</flux:navlist.item>
             <flux:navlist.item icon="calendar" href="#">Calendar</flux:navlist.item>
