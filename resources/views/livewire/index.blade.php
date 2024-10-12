@@ -10,7 +10,7 @@ new class extends Component {};
 
 ?>
 
-<div container>
+<flux:main container>
     <ul class="list-disc space-y-1">
         @foreach (Components::get() as $componentName)
             <li>
@@ -18,4 +18,4 @@ new class extends Component {};
             </li>
         @endforeach
     </ul>
-</div>
+</flux:main>
