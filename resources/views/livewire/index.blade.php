@@ -4,9 +4,12 @@ use App\Components;
 use App\Models\Post;
 use App\Models\User;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new class extends Component {};
+new
+#[Layout('components.layouts.sidebar')]
+class extends Component {};
 
 ?>
 
