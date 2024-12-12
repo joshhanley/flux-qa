@@ -20,13 +20,13 @@
         }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @fluxStyles
+    @fluxStyles()
 </head>
 
-<body class="min-h-screen bg-white dark:bg-zinc-800">
+<body class="min-h-screen bg-white dark:bg-zinc-800 dark">
     {{ $slot }}
 
-    @fluxScripts
+    @fluxScripts()
 </body>
 
 </html>
