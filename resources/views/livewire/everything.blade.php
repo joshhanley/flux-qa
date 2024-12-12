@@ -10,6 +10,8 @@ new class extends Component {
 ?>
 
 <div class="space-y-4 bg-zinc-400 dark:bg-zinc-800">
+    <flux:input type="date" label="Date of birth" />
+    <flux:input label="Test" placeholder="other" />
     <flux:accordion>
         <flux:accordion.item>
             <flux:accordion.heading>What's your refund policy?</flux:accordion.heading>
