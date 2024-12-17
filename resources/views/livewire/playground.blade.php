@@ -2,11 +2,14 @@
 
 use Livewire\Volt\Component;
 
-new class extends Component {
+new class extends Component
+{
     //
 };
 ?>
 
 <div>
-    <x-test :model="new \App\Models\User()" :prefix="'primary-data.permissions'" :parameter="'permission'" />
+    <flux:tooltip content="Settings">
+        <flux:input />
+    </flux:tooltip>
 </div>
