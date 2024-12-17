@@ -9,7 +9,5 @@ new class extends Component
 ?>
 
 <div>
-    <flux:tooltip content="Settings">
-        <flux:input />
-    </flux:tooltip>
+    
 </div>
