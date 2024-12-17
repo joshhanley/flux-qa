@@ -9,7 +9,7 @@ new class extends Component {
 };
 ?>
 
-<div class="space-y-4 bg-zinc-400 dark:bg-zinc-800">
+<div class="space-y-4 bg-teal-200 dark:bg-teal-800">
     <flux:input type="date" label="Date of birth" />
     <flux:input label="Test" placeholder="other" />
     <flux:accordion>
