@@ -1827,11 +1827,11 @@
         },
         {
             "name": "livewire/flux",
-            "version": "1.0.29",
+            "version": "1.1.0",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux",
-                "reference": "70ff95669c46a7dba7c4d1929ef77144f8af25f6"
+                "reference": "6851d5f4bbff7d7cdc3f136b2cc46c695d03d0d7"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
@@ -1881,18 +1881,18 @@
         },
         {
             "name": "livewire/flux-pro",
-            "version": "1.0.29",
+            "version": "1.1.0",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "22ced01ebde58b18ee9795f15b1f33eeb5b382bd"
+                "reference": "400e3edbb76cd82543a1bef7adfa793b0131f3f0"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
                 "illuminate/support": "^10.0|^11.0",
                 "illuminate/view": "^10.0|^11.0",
                 "laravel/prompts": "^0.1.24|^0.2|^0.3",
-                "livewire/flux": "1.0.29",
+                "livewire/flux": "1.1.0",
                 "livewire/livewire": "^3.5.12",
                 "php": "^8.1",
                 "symfony/console": "^6.0|^7.0"
