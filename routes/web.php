@@ -1,6 +1,8 @@
 <?php
 
 use App\Components;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 /*
@@ -13,6 +15,19 @@ use Livewire\Volt\Volt;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('nativemodal', function() {
+    return Blade::compileString(<<<'HTML'
+        <div>
+            <dialog id="thedialog" oncancel="console.log('cancel'); event.preventDefault()">
+            <button autofocus>Close</button>
+            <p>This modal dialog has a groovy backdrop!</p>
+            </dialog>
+
+            <button onclick="document.getElementById('thedialog').showModal()">Show the dialog</button>
+        </div>
+    HTML);
+});
 
 foreach (Components::get() as $component) {
     Volt::route('/'.$component, $component);
