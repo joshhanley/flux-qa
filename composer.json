@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "calebporzio/sushi": "^2.5",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/flux": "^1.0|dev-main as 1.0.17",
@@ -68,6 +69,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
+        "livewire/livewire": {
+            "type": "path",
+            "url": "/Users/josh/Development/packages/livewire"
+        },
         "livewire/flux": {
             "type": "path",
             "url": "/Users/josh/Development/packages/flux"

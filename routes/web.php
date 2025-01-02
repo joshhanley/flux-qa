@@ -36,3 +36,7 @@ foreach (Components::get() as $component) {
 Volt::route('/', 'index')->name('home');
 Volt::route('/test', 'index')->name('test');
 Volt::route('/other', 'index')->name('other');
+
+Route::get('errors', function() {
+    return view('view-error');
+});
