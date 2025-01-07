@@ -166,7 +166,7 @@ new class extends Component {
     - If I wanted to trigger a new modal, from a command item, how would I do that? Like for say "Create new project"?
     - Once that second modal is finished, how do I close it from Livewire?
  --}}
-    <button type="button" wire:click="$refresh">Refresh</button>
+    {{-- <button type="button" wire:click="$refresh">Refresh</button>
 
     <flux:modal.trigger modal="search" shortcut="cmd.k">
         <flux:input as="button" icon="magnifying-glass" placeholder="Search..." kbd="⌘K" class="min-w-56" />
@@ -218,5 +218,5 @@ new class extends Component {
             <flux:spacer />
             <flux:button type="submit">Save changes</flux:button>
         </flux:modal.footer>
-    </flux:modal>
+    </flux:modal> --}}
 </div>

@@ -18,7 +18,7 @@ new class extends Component {
 ?>
 
 <div class="space-y-4">
-    <flux:card>
+    {{-- <flux:card>
         <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
         <flux:card.body class="divide-y">
             <div>
@@ -51,5 +51,5 @@ new class extends Component {
                 @endforeach
             </flux:options>
         </flux:select>
-    </div>
+    </div> --}}
 </div>
