@@ -1881,11 +1881,11 @@
         },
         {
             "name": "livewire/flux",
-            "version": "1.1.0",
+            "version": "1.1.2",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux",
-                "reference": "f330fb6dcb4aa798667279e90393d567f6090cd9"
+                "reference": "d6b3db107835b42690f163e34863024393ec642e"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
@@ -1935,18 +1935,18 @@
         },
         {
             "name": "livewire/flux-pro",
-            "version": "1.1.0",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "9250a36cffbfe21c93fc6ee46855288e62c31eaa"
+                "reference": "b91883bff52d812bf1e1175224d65abaf21885ce"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
                 "illuminate/support": "^10.0|^11.0",
                 "illuminate/view": "^10.0|^11.0",
                 "laravel/prompts": "^0.1.24|^0.2|^0.3",
-                "livewire/flux": "1.1.0",
+                "livewire/flux": "1.1.2",
                 "livewire/livewire": "^3.5.12",
                 "php": "^8.1",
                 "symfony/console": "^6.0|^7.0"
@@ -1997,7 +1997,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/livewire",
-                "reference": "8027aaab3ad1e7d97d3889f7073b2c3de6a56207"
+                "reference": "54791b87e856cf5da56a612c73ee512121a13d85"
             },
             "require": {
                 "illuminate/database": "^10.0|^11.0",
@@ -8939,7 +8939,14 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "livewire/flux-pro",
+            "version": "dev-main",
+            "alias": "1.0.17",
+            "alias_normalized": "1.0.17.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "livewire/flux": 20,

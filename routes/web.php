@@ -16,7 +16,7 @@ use Livewire\Volt\Volt;
 |
 */
 
-Route::get('nativemodal', function() {
+Route::get('nativemodal', function () {
     return Blade::compileString(<<<'HTML'
         <div>
             <dialog id="thedialog" oncancel="console.log('cancel'); event.preventDefault()">
@@ -36,7 +36,10 @@ foreach (Components::get() as $component) {
 Volt::route('/', 'index')->name('home');
 Volt::route('/test', 'index')->name('test');
 Volt::route('/other', 'index')->name('other');
+Volt::route('/playground/{id?}', 'playground')->name('playground');
 
-Route::get('errors', function() {
+Route::view('/outside', 'outside')->name('outside');
+
+Route::get('errors', function () {
     return view('view-error');
 });
