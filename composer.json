@@ -9,8 +9,8 @@
         "calebporzio/sushi": "^2.5",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "livewire/flux": "^1.0|dev-main as 1.0.17",
-        "livewire/flux-pro": "^1.0|dev-main as 1.0.17",
+        "livewire/flux": "^1.1",
+        "livewire/flux-pro": "^1.1",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6",
         "spatie/laravel-ray": "^1.37"
@@ -69,17 +69,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
-        "livewire/livewire": {
-            "type": "path",
-            "url": "/Users/josh/Development/packages/livewire"
-        },
-        "livewire/flux": {
-            "type": "path",
-            "url": "/Users/josh/Development/packages/flux"
-        },
-        "livewire/flux-pro": {
-            "type": "path",
-            "url": "/Users/josh/Development/packages/flux-pro"
+        "flux-pro": {
+            "type": "composer",
+            "url": "https://composer.fluxui.dev"
         }
     }
 }

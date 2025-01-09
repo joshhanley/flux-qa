@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2b67ba99560e051d1c751c642d2122b",
+    "content-hash": "e9263b5462304bb74b7a9e65360aeff2",
     "packages": [
         {
             "name": "brick/math",
@@ -1881,11 +1881,17 @@
         },
         {
             "name": "livewire/flux",
-            "version": "1.1.2",
-            "dist": {
-                "type": "path",
-                "url": "/Users/josh/Development/packages/flux",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/flux.git",
                 "reference": "d6b3db107835b42690f163e34863024393ec642e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/flux/zipball/d6b3db107835b42690f163e34863024393ec642e",
+                "reference": "d6b3db107835b42690f163e34863024393ec642e",
+                "shasum": ""
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
@@ -1899,12 +1905,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Flux\\FluxServiceProvider"
-                    ],
                     "aliases": {
                         "Flux": "Flux\\Flux"
-                    }
+                    },
+                    "providers": [
+                        "Flux\\FluxServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -1912,6 +1918,7 @@
                     "Flux\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -1929,17 +1936,20 @@
                 "livewire",
                 "ui"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/livewire/flux/issues",
+                "source": "https://github.com/livewire/flux/tree/v1.1.2"
+            },
+            "time": "2024-12-23T15:36:06+00:00"
         },
         {
             "name": "livewire/flux-pro",
-            "version": "dev-main",
+            "version": "1.1.2",
             "dist": {
-                "type": "path",
-                "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "b91883bff52d812bf1e1175224d65abaf21885ce"
+                "type": "zip",
+                "url": "https://composer.fluxui.dev/download/9dcb62e3-7e0c-4033-8420-84fd666c66e4/flux-pro-1.1.2.zip",
+                "reference": "b91883bff52d812bf1e1175224d65abaf21885ce",
+                "shasum": "731c5a9daac3139d6991b0be49ec58866adf90be"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
@@ -1954,21 +1964,21 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "FluxPro\\FluxProServiceProvider"
-                    ],
                     "aliases": {
                         "Flux": "FluxPro\\FluxPro"
-                    }
+                    },
+                    "providers": [
+                        "FluxPro\\FluxProServiceProvider"
+                    ]
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "FluxPro\\": "src/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "FluxPro\\": "src/"
+                }
             },
             "license": [
                 "proprietary"
@@ -1987,17 +1997,21 @@
                 "livewire",
                 "ui"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "time": "2024-12-23T15:43:51+00:00"
         },
         {
             "name": "livewire/livewire",
-            "version": "3.5.17",
+            "version": "v3.5.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "62f0fa6b340a467c25baa590a567d9a134b357da"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/josh/Development/packages/livewire",
-                "reference": "54791b87e856cf5da56a612c73ee512121a13d85"
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/62f0fa6b340a467c25baa590a567d9a134b357da",
+                "reference": "62f0fa6b340a467c25baa590a567d9a134b357da",
+                "shasum": ""
             },
             "require": {
                 "illuminate/database": "^10.0|^11.0",
@@ -2022,12 +2036,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Livewire\\LivewireServiceProvider"
-                    ],
                     "aliases": {
                         "Livewire": "Livewire\\Livewire"
-                    }
+                    },
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -2038,13 +2052,7 @@
                     "Livewire\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "App\\": "vendor/orchestra/testbench-core/laravel/app",
-                    "Tests\\": "tests/",
-                    "LegacyTests\\": "legacy_tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2055,9 +2063,17 @@
                 }
             ],
             "description": "A front-end framework for Laravel.",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v3.5.18"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/livewire",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-12-23T15:05:02+00:00"
         },
         {
             "name": "livewire/volt",
@@ -8939,19 +8955,9 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "livewire/flux-pro",
-            "version": "dev-main",
-            "alias": "1.0.17",
-            "alias_normalized": "1.0.17.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "livewire/flux": 20,
-        "livewire/flux-pro": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
