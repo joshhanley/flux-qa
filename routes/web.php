@@ -1,6 +1,7 @@
 <?php
 
 use App\Components;
+use App\Http\Controllers\FluxInputsController;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -37,6 +38,9 @@ Volt::route('/', 'index')->name('home');
 Volt::route('/test', 'index')->name('test');
 Volt::route('/other', 'index')->name('other');
 Volt::route('/playground/{id?}', 'playground')->name('playground');
+
+Route::post('/inputs', FluxInputsController::class)->name('inputs');
+Route::get('/inputs', FluxInputsController::class)->name('inputs');
 
 Route::view('/outside', 'outside')->name('outside');
 

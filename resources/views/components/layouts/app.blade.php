@@ -23,7 +23,7 @@
     @fluxStyles()
 </head>
 {{-- @php($theme = 'system') --}}
-<body class="min-h-screen bg-white dark:bg-zinc-800">
+<body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
     {{-- <div x-init="$flux.appearance = '{{ $theme ?? 'light' }}'"></div> --}}
     {{ $slot }}
 

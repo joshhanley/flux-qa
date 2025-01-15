@@ -3,19 +3,13 @@
 use Livewire\Volt\Component;
 
 new class extends Component {
-    //
+    public $state;
 };
 
 ?>
 
 <div>
-    <flux:select variant="listbox" placeholder="Choose industry...">
-        <flux:option>Photography</flux:option>
-        <flux:option>Design services</flux:option>
-        <flux:option>Web development</flux:option>
-        <flux:option>Accounting</flux:option>
-        <flux:option>Legal services</flux:option>
-        <flux:option>Consulting</flux:option>
-        <flux:option>Other</flux:option>
-    </flux:select>
+    {{ var_export($state) }}
+    <flux:checkbox wire:model="state" label="My Checkbox" :checked="old('mycheckbox', request()->input('mycheckbox'))"></flux:checkbox>
+        <button type="button" wire:click="$refresh">Refresh</button>
 </div>
