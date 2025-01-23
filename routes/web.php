@@ -39,7 +39,7 @@ Volt::route('/test', 'index')->name('test');
 Volt::route('/other', 'index')->name('other');
 Volt::route('/playground/{id?}', 'playground')->name('playground');
 
-Route::post('/inputs', FluxInputsController::class)->name('inputs');
+Route::post('/inputs', FluxInputsController::class)->name('inputs.post');
 Route::get('/inputs', FluxInputsController::class)->name('inputs');
 
 Route::view('/outside', 'outside')->name('outside');
