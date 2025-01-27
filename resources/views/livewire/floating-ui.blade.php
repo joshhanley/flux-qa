@@ -11,7 +11,7 @@ new class extends Component {
     <style>
         #tooltip {
             overflow-y: auto;
-            // display: none;
+            display: none;
             width: max-content;
             position: absolute;
             top: 0;
@@ -24,8 +24,6 @@ new class extends Component {
             font-size: 90%;
         }
     </style>
-    <div class="h-[1500px]"></div>
-    <input type="date" />
     <div class="h-[1500px]"></div>
     {{-- <flux:dropdown>
         <flux:button icon-trailing="chevron-down">Options</flux:button>

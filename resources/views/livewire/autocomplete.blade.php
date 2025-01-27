@@ -30,9 +30,9 @@ new class extends Component {
 ?>
 
 <div class="space-y-4">
-    {{-- <flux:card>
-        <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
-        <flux:card.body class="divide-y">
+    <flux:card>
+        <div class="border-b bg-gray-50">Use this page to test the following issues</div>
+        <div class="divide-y">
             <div>
                 <flux:heading size="lg">Clicking in input doesn't show results</flux:heading>
 
@@ -69,7 +69,7 @@ new class extends Component {
                     5. Up arrow to highlight the second last time to see where the highlight is and it scrolls into view then.
                 </flux:text>
             </div>
-        </flux:card.body>
+        </div>
     </flux:card>
 
     <flux:text>User ID: {{ $userId }}</flux:text>
@@ -91,5 +91,5 @@ new class extends Component {
                 <flux:autocomplete.item value="{{ $post->id }}">{{ $post->title }}</flux:autocomplete.item>
             @endforeach
         </flux:autocomplete.items>
-    </flux:autocomplete> --}}
+    </flux:autocomplete>
 </div>
