@@ -11,9 +11,9 @@ new class extends Component {
 
 <div wire1:poll.5s>
     <div class="h-[1500px]"></div>
-    <div>{{ now() }}</div>
-    <button type="button" wire:click="$refresh">Refresh</button>
-    <flux:tooltip position="bottom" toggleable>
+    {{-- <div>{{ now() }}</div>
+    <button type="button" wire:click="$refresh">Refresh</button> --}}
+    {{-- <flux:tooltip position="bottom" toggleable>
         <flux:button icon="cog-6-tooth" icon-variant="outline" />
         <flux:tooltip.content>
             Some content<br/>
@@ -81,8 +81,8 @@ new class extends Component {
 
             <flux:menu.item variant="danger" icon="trash">Delete</flux:menu.item>
         </flux:menu>
-    </flux:context>
-    <flux:select variant="listbox" placeholder="Choose industry...">
+    </flux:context> --}}
+    {{-- <flux:select variant="listbox" placeholder="Choose industry...">
         <flux:option>Photography</flux:option>
         <flux:option>Design services</flux:option>
         <flux:option>Web development</flux:option>
@@ -90,7 +90,7 @@ new class extends Component {
         <flux:option>Legal services</flux:option>
         <flux:option>Consulting</flux:option>
         <flux:option>Other</flux:option>
-    </flux:select>
+    </flux:select> --}}
 
     <flux:dropdown wire:model="open">
         <flux:button icon-trailing="chevron-down">Options</flux:button>
@@ -106,6 +106,7 @@ new class extends Component {
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
+            {{-- <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
@@ -129,8 +130,7 @@ new class extends Component {
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
-            <flux:menu.item icon="plus">New post</flux:menu.item>
-            <flux:menu.item icon="plus">New post</flux:menu.item>
+            <flux:menu.item icon="plus">New post</flux:menu.item> --}}
         </flux:menu>
     </flux:dropdown>
 
