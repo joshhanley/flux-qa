@@ -106,6 +106,13 @@ new class extends Component {
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
+
+
+            <flux:menu.submenu heading="Filter">
+                <flux:menu.checkbox checked>Draft</flux:menu.checkbox>
+                <flux:menu.checkbox checked>Published</flux:menu.checkbox>
+                <flux:menu.checkbox>Archived</flux:menu.checkbox>
+            </flux:menu.submenu>
             {{-- <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
             <flux:menu.item icon="plus">New post</flux:menu.item>
