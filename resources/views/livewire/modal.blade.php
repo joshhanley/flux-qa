@@ -30,7 +30,7 @@ new class extends Component {
 
     <flux:modal name="edit-profile" class="md:w-96 space-y-6">
         <x-slot:close>
-            <flux:button wire:click="close" variant="ghost" icon="x-mark" size="sm" alt="Close modal" class="!text-zinc-400 hover:!text-zinc-800 dark:!text-zinc-500 dark:hover:!text-white">
+            <flux:button wire:click="close" variant="ghost" icon="x-mark" size="sm" alt="Close modal" class="text-zinc-400! hover:text-zinc-800! dark:text-zinc-500! dark:hover:text-white!">
             </flux:button>
         </x-slot:close>
         <div>

@@ -81,7 +81,7 @@ new class extends Component {
         <flux:column>Column</flux:column>
     </flux:columns>
 
-    <flux:rows class="!border-t-3">
+    <flux:rows class="border-t-3!">
         @php
             $items = [];
             // $items = [1];
