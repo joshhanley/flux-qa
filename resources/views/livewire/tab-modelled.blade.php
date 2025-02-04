@@ -18,8 +18,8 @@ new class extends Component {
             <flux:tab name="billing">Billing</flux:tab>
         </flux:tabs>
 
-        <flux:tab.panel name="profile" class="!py-0"></flux:tab.panel>
-        <flux:tab.panel name="account" class="!py-0"></flux:tab.panel>
-        <flux:tab.panel name="billing" class="!py-0"></flux:tab.panel>
+        <flux:tab.panel name="profile" class="py-0!"></flux:tab.panel>
+        <flux:tab.panel name="account" class="py-0!"></flux:tab.panel>
+        <flux:tab.panel name="billing" class="py-0!"></flux:tab.panel>
     </flux:tab.group>
 </flux:main>

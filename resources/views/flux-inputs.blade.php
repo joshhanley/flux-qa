@@ -176,7 +176,7 @@
         <flux:textarea name="textarea" label="Textarea" placeholder="Textarea">{{ old('textarea', request()->input('textarea')) }}</flux:textarea> --}}
 
         <div class="mt-8">
-            <flux:button class="!fixed !bottom-0 !right-0" type="submit">Submit</flux:button>
+            <flux:button class="fixed! bottom-0! right-0!" type="submit">Submit</flux:button>
         </div>
     </form>
 
