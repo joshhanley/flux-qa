@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import flux from './flux.plugin';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
@@ -10,6 +11,7 @@ export default defineConfig({
                 'vendor/livewire/livewire/dist/**',
             ],
         }),
+        tailwindcss(),
         flux(),
     ],
 });
