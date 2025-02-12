@@ -1,5 +1,5 @@
 // import '../../vendor/livewire/flux/dist/flux.min.js';
-import '../../vendor/livewire/flux-pro/dist/flux.js';
+// import '../../vendor/livewire/flux-pro/dist/flux.js';
 
 // import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
 

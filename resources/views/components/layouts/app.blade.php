@@ -19,16 +19,19 @@
           box-shadow: 0 0 1px rgba(255, 255, 255, .5);
         }
     </style>
-    {{-- @fluxStyles() --}}
+    <script>
+        window.fluxInitialAppearance = '{{ $theme ?? 'light' }}';
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @fluxDark()
+    @fluxStyles()
+    {{-- @fluxDark() --}}
 </head>
 {{-- @php($theme = 'system') --}}
 <body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
     {{-- <div x-init="$flux.appearance = '{{ $theme ?? 'light' }}'"></div> --}}
     {{ $slot }}
 
-    {{-- @fluxScripts() --}}
+    @fluxScripts()
     <flux:toast />
 </body>
 
