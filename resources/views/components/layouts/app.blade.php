@@ -19,12 +19,8 @@
           box-shadow: 0 0 1px rgba(255, 255, 255, .5);
         }
     </style>
-    <script>
-        window.fluxInitialAppearance = '{{ $theme ?? 'light' }}';
-    </script>
-    @fluxStyles()
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- @fluxDark() --}}
+    @fluxDark()
 </head>
 {{-- @php($theme = 'system') --}}
 <body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
