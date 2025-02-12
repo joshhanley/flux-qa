@@ -41,13 +41,18 @@ new class extends Component {
     {{-- <flux:checkbox wire:model.live="terms" label="I agree to the terms and conditions" /> --}}
     <button type="button" wire:click="$refresh">Refresh</button>
     {{-- <flux:text>Date: {{ var_export($date, true) }}</flux:text> --}}
-    <flux:text>Date: {{ $date }}</flux:text>
+    {{-- <flux:text>Date: {{ $date }}</flux:text> --}}
 
     {{-- <flux:date-picker wire:model.live="date" clearable /> --}}
-    {{-- <flux:date-picker wire:model="date" start-day="1" clearable /> --}}
-    <flux:calendar />
-    {{-- <flux:calendar wire:model="date" start-day="1" week-numbers /> --}}
-    {{-- <flux:calendar wire:model="date" selectable-header /> --}}
+    {{-- <flux:date-picker wire:model.live="date">
+        <x-slot name="trigger">
+            <flux:date-picker.input />
+        </x-slot>
+    </flux:date-picker>
+    <flux:date-picker wire:model.live="date" start-day="1" clearable /> --}}
+    {{-- <flux:calendar /> --}}
+    {{-- <flux:calendar wire:model.live="date" start-day="1" week-numbers />
+    <flux:calendar wire:model="date" selectable-header /> --}}
     {{-- <div class="flex">
         <flux:calendar wire:model.live="date" months="1" week-numbers />
         <flux:calendar wire:model.live="date" months="1" week-numbers fixed-weeks />
@@ -92,8 +97,8 @@ new class extends Component {
         <flux:calendar wire:model.live="date" start-day="6" week-numbers />
     </div> --}}
 
-    {{-- <flux:text>Range: {{ var_export($range, true) }}</flux:text> --}}
-    {{-- <flux:text>Range: {{ $range }}</flux:text> --}}
+    <flux:text>Range: {{ var_export($range, true) }}</flux:text>
+    <flux:text>Range: {{ $range }}</flux:text>
 
     {{-- <div class="flex">
         <flux:calendar mode="range" wire:model="range" months="1" week-numbers />
@@ -165,7 +170,50 @@ new class extends Component {
         </x-slot>
     </flux:date-picker> --}}
 
-    {{-- <flux:date-picker mode="range" wire:model.live="range" with-presets /> --}}
+    {{-- <flux:date-picker mode="range" wire:model.live="range" with-presets with-confirmation /> --}}
+    <p>{{ DateRangePreset::Today->dates()[0]->toDateString() }} - {{ DateRangePreset::Today->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::Yesterday->dates()[0]->toDateString() }} - {{ DateRangePreset::Yesterday->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::ThisWeek->dates()[0]->toDateString() }} - {{ DateRangePreset::ThisWeek->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::LastWeek->dates()[0]->toDateString() }} - {{ DateRangePreset::LastWeek->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::Last7Days->dates()[0]->toDateString() }} - {{ DateRangePreset::Last7Days->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::ThisMonth->dates()[0]->toDateString() }} - {{ DateRangePreset::ThisMonth->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::LastMonth->dates()[0]->toDateString() }} - {{ DateRangePreset::LastMonth->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::ThisQuarter->dates()[0]->toDateString() }} - {{ DateRangePreset::ThisQuarter->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::LastQuarter->dates()[0]->toDateString() }} - {{ DateRangePreset::LastQuarter->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::ThisYear->dates()[0]->toDateString() }} - {{ DateRangePreset::ThisYear->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::LastYear->dates()[0]->toDateString() }} - {{ DateRangePreset::LastYear->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::Last14Days->dates()[0]->toDateString() }} - {{ DateRangePreset::Last14Days->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::Last30Days->dates()[0]->toDateString() }} - {{ DateRangePreset::Last30Days->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::Last3Months->dates()[0]->toDateString() }} - {{ DateRangePreset::Last3Months->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::Last6Months->dates()[0]->toDateString() }} - {{ DateRangePreset::Last6Months->dates()[1]->toDateString() }}</p>
+    <p>{{ DateRangePreset::YearToDate->dates()[0]->toDateString() }} - {{ DateRangePreset::YearToDate->dates()[1]->toDateString() }}</p>
+    {{-- <p>{{ DateRangePreset::AllTime->dates()[0]->toDateString() }} - {{ DateRangePreset::AllTime->dates()[1]->toDateString() }}</p> --}}
+    <flux:date-picker start-day="1" mode="range" />
+    <flux:date-picker start-day="1" mode="range" value="today" />
+    <flux:date-picker start-day="1" mode="range" value="yesterday" />
+    ThisWeek
+    <flux:date-picker start-day="0" mode="range" value="thisWeek" />
+    <flux:date-picker start-day="1" mode="range" value="thisWeek" />
+    <flux:date-picker start-day="2" mode="range" value="thisWeek" />
+    <flux:date-picker start-day="3" mode="range" value="thisWeek" />
+    <flux:date-picker start-day="4" mode="range" value="thisWeek" />
+    <flux:date-picker start-day="5" mode="range" value="thisWeek" />
+    <flux:date-picker start-day="6" mode="range" value="thisWeek" />
+    LastWeek
+    <flux:date-picker start-day="1" mode="range" value="lastWeek" />
+    <flux:date-picker start-day="1" mode="range" value="last7Days" />
+    <flux:date-picker start-day="1" mode="range" value="thisMonth" />
+    <flux:date-picker start-day="1" mode="range" value="lastMonth" />
+    <flux:date-picker start-day="1" mode="range" value="thisQuarter" />
+    <flux:date-picker start-day="1" mode="range" value="lastQuarter" />
+    <flux:date-picker start-day="1" mode="range" value="thisYear" />
+    <flux:date-picker start-day="1" mode="range" value="lastYear" />
+    <flux:date-picker start-day="1" mode="range" value="last14Days" />
+    <flux:date-picker start-day="1" mode="range" value="last30Days" />
+    <flux:date-picker start-day="1" mode="range" value="last3Months" />
+    <flux:date-picker start-day="1" mode="range" value="last6Months" />
+    <flux:date-picker start-day="1" mode="range" value="yearToDate" />
+    <flux:date-picker start-day="1" mode="range" value="allTime" min="2024-01-01" />
     {{-- <flux:date-picker mode="range" with-presets /> --}}
     {{-- <flux:date-picker
         wire:model.live="range"
