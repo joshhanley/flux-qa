@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2b67ba99560e051d1c751c642d2122b",
+    "content-hash": "9646cb35ef12170a8fef8cb8b703b822",
     "packages": [
         {
             "name": "brick/math",
@@ -1881,18 +1881,18 @@
         },
         {
             "name": "livewire/flux",
-            "version": "1.1.2",
+            "version": "2.0.0",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux",
-                "reference": "d6b3db107835b42690f163e34863024393ec642e"
+                "reference": "b0fbe230d536c3c8763b1199620ab0b33eca841c"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
                 "illuminate/support": "^10.0|^11.0",
                 "illuminate/view": "^10.0|^11.0",
                 "laravel/prompts": "^0.1|^0.2|^0.3",
-                "livewire/livewire": "^3.5.12",
+                "livewire/livewire": "^3.5.19",
                 "php": "^8.1",
                 "symfony/console": "^6.0|^7.0"
             },
@@ -1935,19 +1935,19 @@
         },
         {
             "name": "livewire/flux-pro",
-            "version": "dev-main",
+            "version": "2.0.0",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "b91883bff52d812bf1e1175224d65abaf21885ce"
+                "reference": "0faaf74a992bcc2bd4b108d6dbc19b5a6ce6c479"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
                 "illuminate/support": "^10.0|^11.0",
                 "illuminate/view": "^10.0|^11.0",
                 "laravel/prompts": "^0.1.24|^0.2|^0.3",
-                "livewire/flux": "1.1.2",
-                "livewire/livewire": "^3.5.12",
+                "livewire/flux": "2.0.0",
+                "livewire/livewire": "^3.5.19",
                 "php": "^8.1",
                 "symfony/console": "^6.0|^7.0"
             },
@@ -1993,11 +1993,11 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "3.5.17",
+            "version": "3.5.19",
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/livewire",
-                "reference": "54791b87e856cf5da56a612c73ee512121a13d85"
+                "reference": "348d810fb3625f5ecac47f5abd762ee7f68f343b"
             },
             "require": {
                 "illuminate/database": "^10.0|^11.0",
@@ -8939,24 +8939,14 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "livewire/flux-pro",
-            "version": "dev-main",
-            "alias": "1.0.17",
-            "alias_normalized": "1.0.17.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "livewire/flux": 20,
-        "livewire/flux-pro": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
