@@ -22,8 +22,8 @@
     <script>
         window.fluxInitialAppearance = '{{ $theme ?? 'light' }}';
     </script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @fluxStyles()
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- @fluxDark() --}}
 </head>
 {{-- @php($theme = 'system') --}}

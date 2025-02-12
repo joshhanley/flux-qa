@@ -9,17 +9,3 @@
 @theme {
     --font-sans: Inter, sans-serif;
 }
-
-@theme {
-    --color-accent: var(--color-zinc-800);
-    --color-accent-content: var(--color-zinc-800);
-    --color-accent-foreground: var(--color-white);
-}
-
-@layer base {
-    .dark {
-        --color-accent: var(--color-white);
-        --color-accent-content: var(--color-white);
-        --color-accent-foreground: var(--color-zinc-800);
-    }
-}
