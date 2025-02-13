@@ -20,11 +20,9 @@
         }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @fluxDark()
+    @fluxAppearance()
 </head>
-{{-- @php($theme = 'system') --}}
 <body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
-    {{-- <div x-init="$flux.appearance = '{{ $theme ?? 'light' }}'"></div> --}}
     {{ $slot }}
 
     @fluxScripts()
