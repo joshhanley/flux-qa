@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import '../../vendor/livewire/flux-pro/dist/flux.css';
+@import '../../vendor/livewire/flux/dist/flux.css';
 @source "../views";
 
 /* Enable Tailwind's dark mode class selector */
@@ -7,4 +7,18 @@
 
 @theme {
     --font-sans: Inter, sans-serif;
+}
+
+@theme {
+    --color-accent: var(--color-purple-500);
+    --color-accent-content: var(--color-purple-600);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer base {
+    .dark {
+        --color-accent: var(--color-green-500);
+        --color-accent-content: var(--color-green-300);
+        --color-accent-foreground: var(--color-white);
+    }
 }
