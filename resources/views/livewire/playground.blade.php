@@ -11,7 +11,7 @@ new class extends Component {
     <flux:button variant="primary">Test</flux:button>
     <flux:badge color="lime">New</flux:badge>
 
-    {{-- <div class="size-4 bg-accent"></div> --}}
+    <div class="size-4 bg-accent"></div>
 
     <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
         <flux:radio value="light" icon="sun">Light</flux:radio>
