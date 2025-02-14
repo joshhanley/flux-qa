@@ -16,7 +16,7 @@
     --color-accent-foreground: var(--color-white);
 }
 
-@layer base {
+@layer theme {
     .dark {
         --color-accent: var(--color-green-500);
         --color-accent-content: var(--color-green-300);
