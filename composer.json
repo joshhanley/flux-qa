@@ -73,6 +73,10 @@
             "type": "path",
             "url": "/Users/josh/Development/packages/livewire"
         },
+        "livewire/volt": {
+            "type": "path",
+            "url": "/Users/josh/Development/packages/volt"
+        },
         "livewire/flux": {
             "type": "path",
             "url": "/Users/josh/Development/packages/flux"

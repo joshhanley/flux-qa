@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9646cb35ef12170a8fef8cb8b703b822",
+    "content-hash": "0b8a6851af7d398f73d616c1285fc6be",
     "packages": [
         {
             "name": "brick/math",
@@ -1885,7 +1885,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux",
-                "reference": "b0fbe230d536c3c8763b1199620ab0b33eca841c"
+                "reference": "a2918a939b5adafee1c5f141752555f5c0b79bb2"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
@@ -1939,7 +1939,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "0faaf74a992bcc2bd4b108d6dbc19b5a6ce6c479"
+                "reference": "8f4a775d948da0c234caeb8d81a9443404c91506"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0",
@@ -2061,17 +2061,11 @@
         },
         {
             "name": "livewire/volt",
-            "version": "v1.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/livewire/volt.git",
-                "reference": "d09fdb4cb52c6ce821d255683195bb6d446fe141"
-            },
+            "version": "1.6.6",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/livewire/volt/zipball/d09fdb4cb52c6ce821d255683195bb6d446fe141",
-                "reference": "d09fdb4cb52c6ce821d255683195bb6d446fe141",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/josh/Development/packages/volt",
+                "reference": "39e225e8720979114e6b66096108441c81d90b55"
             },
             "require": {
                 "laravel/framework": "^10.38.2|^11.0",
@@ -2097,14 +2091,37 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "functions.php"
-                ],
                 "psr-4": {
                     "Livewire\\Volt\\": "src/"
+                },
+                "files": [
+                    "functions.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/",
+                    "Workbench\\Database\\": "workbench/database/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "post-autoload-dump": [
+                    "@composer run prepare"
+                ],
+                "prepare": [
+                    "@php vendor/bin/testbench package:discover --ansi"
+                ],
+                "build": [
+                    "@composer run prepare",
+                    "@php vendor/bin/testbench workbench:create-sqlite-db",
+                    "@php vendor/bin/testbench migrate:refresh"
+                ],
+                "start": [
+                    "@composer run build",
+                    "@php vendor/bin/testbench serve"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2129,7 +2146,9 @@
                 "issues": "https://github.com/livewire/volt/issues",
                 "source": "https://github.com/livewire/volt"
             },
-            "time": "2024-05-31T19:07:20+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "monolog/monolog",
