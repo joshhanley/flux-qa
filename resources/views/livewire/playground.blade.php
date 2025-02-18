@@ -47,8 +47,8 @@ new class extends Component {
             ],
             [
                 'date' => now()->subYears(300)->format('Y-m-d'),
-                'visitors' => 200,
-                'pageViews' => 15222,
+                'visitors' => -200,
+                'pageViews' => -15222,
             ],
         ];
     }
@@ -80,34 +80,53 @@ new class extends Component {
 <div>
     {{-- <flux:button variant="primary" wire:click="$refresh">Refresh</flux:button> --}}
     {{-- <flux:chart :value="$data" class="aspect-3/1"> --}}
-    <flux:chart wire:model="data" class="aspect-3/1">
-        <flux:chart.svg class="border">
-            <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
-            <flux:chart.point field="visitors" class="text-pink-500 dark:text-pink-400" />
-            <flux:chart.line field="pageViews" class="text-blue-500 dark:text-blue-400" />
-            <flux:chart.point field="pageViews" class="text-blue-500 dark:text-blue-400" />
+    
+    <flux:chart wire:model="data">
+        <flux:chart.viewport class="aspect-3/1">
+            <flux:chart.svg class="border">
+                {{-- <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
+                <flux:chart.point field="visitors" class="text-pink-500 dark:text-pink-400" /> --}}
+                <flux:chart.line field="pageViews" class="text-blue-500 dark:text-blue-400" />
+                <flux:chart.point field="pageViews" class="text-blue-500 dark:text-blue-400" />
 
-            <flux:chart.axis axis="x" field="date">
-                <flux:chart.axis.line />
-                <flux:chart.axis.grid />
-                <flux:chart.axis.tick />
-            </flux:chart.axis>
+                <flux:chart.axis axis="x" field="date">
+                    <flux:chart.axis.line />
+                    <flux:chart.axis.grid />
+                    <flux:chart.axis.tick />
+                </flux:chart.axis>
 
-            <flux:chart.axis axis="y" tick-values="[5000, 15000, 25000]" tick-suffix="&nbsp;MB">
-                <flux:chart.axis.line />
-                <flux:chart.axis.grid />
-                <flux:chart.axis.tick text-anchor="middle" dx="-2.5rem" />
-            </flux:chart.axis>
-                {{-- <flux:chart.zero-line stroke-width="4" /> --}}
+                <flux:chart.axis axis="y" >
+                    <flux:chart.axis.line />
+                    <flux:chart.axis.grid />
+                    <flux:chart.axis.tick text-anchor="middle" dx="-2.5rem" />
+                </flux:chart.axis>
+                
+                <flux:chart.zero-line />
 
-            <flux:chart.cursor />
-        </flux:chart.svg>
+                <flux:chart.cursor />
+            </flux:chart.svg>
 
-        <flux:chart.tooltip>
-            <flux:chart.tooltip.heading field="date" :format="['year' => 'numeric', 'month' => 'long', 'day' => 'numeric']" />
-            <flux:chart.tooltip.value field="visitors" label="Visitors" />
-            <flux:chart.tooltip.value field="pageViews" label="Page Views" />
-        </flux:chart.tooltip>
+            <flux:chart.tooltip>
+                <flux:chart.tooltip.heading field="date" :format="['year' => 'numeric', 'month' => 'long', 'day' => 'numeric']" class="text-blue-500 font-bold" />
+                <flux:chart.tooltip.value field="visitors" label="Visitors">
+                </flux:chart.tooltip.value>
+                <flux:chart.tooltip.value field="pageViews" label="Page Views" />
+            </flux:chart.tooltip>
+        </flux:chart.viewport>
+
+        <div class="flex justify-center gap-4 pt-4">
+            <flux:chart.legend label="Visitors" class="border">
+                <flux:chart.legend.indicator class="bg-blue-400" />
+            </flux:chart.legend>
+
+            <flux:chart.legend label="Views">
+                <flux:chart.legend.indicator class="bg-red-400" />
+
+                <x-slot:label>
+                    <flux:label>asdasdsad</flux:label>
+                </x-slot:label>
+            </flux:chart.legend>
+        </div>
     </flux:chart>
 
     {{-- <flux:chart wire:model="categorical" class="aspect-3/1">
