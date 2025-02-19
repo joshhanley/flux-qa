@@ -20,6 +20,9 @@
         }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script>
+        window.localStorage.setItem('flux.appearance', '{{ auth()->user()->color_scheme ?? 'system' }}')
+    </script>
     @fluxAppearance()
 </head>
 <body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
