@@ -184,7 +184,7 @@ new class extends Component {
     </flux:chart> --}}
 
     <flux:chart wire:model="categorical" class="aspect-3/1">
-        <flux:chart.svg viewBoxPadding="0 0 30 0">
+        <flux:chart.svg>
             <flux:chart.line field="date" class="text-pink-500 dark:text-pink-400" />
 
             <flux:chart.axis axis="x" field="site">
