@@ -13,9 +13,9 @@ new class extends Component {
     {
         //$this->randomData();
 
-        //$this->fixedData();
+        $this->fixedData();
 
-        $this->categoricalData();
+        //$this->categoricalData();
     }
 
     public function changeData()
@@ -108,6 +108,20 @@ new class extends Component {
 <div>
     <flux:button variant="primary" wire:click="changeData">Change Data</flux:button>
 
+
+    <flux:chart wire:model="data">
+        <flux:chart.svg class="border aspect-3/1">
+            <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
+
+            <flux:chart.axis axis="x" field="date">
+                <flux:chart.axis.line />
+            </flux:chart.axis>
+
+            <flux:chart.axis axis="y">
+                <flux:chart.axis.line />
+            </flux:chart.axis>
+        </flux:chart.svg>
+    </flux:chart>
     {{-- <flux:chart :value="$this->data"> --}}
     {{-- <flux:chart wire:model="data">
         <flux:chart.viewport class="aspect-3/1">
@@ -183,7 +197,7 @@ new class extends Component {
         </div>
     </flux:chart> --}}
 
-    <flux:chart wire:model="categorical" class="aspect-3/1">
+    {{-- <flux:chart wire:model="categorical" class="aspect-3/1">
         <flux:chart.svg>
             <flux:chart.line field="date" class="text-pink-500 dark:text-pink-400" />
 
@@ -201,5 +215,5 @@ new class extends Component {
 
             <flux:chart.cursor />
         </flux:chart.svg>
-    </flux:chart>
+    </flux:chart> --}}
 </div>
