@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import '../../vendor/livewire/flux/dist/flux.css';
 
+@plugin "@tailwindcss/forms";
+
 @source "../views";
 
 /* Enable Tailwind's dark mode class selector */

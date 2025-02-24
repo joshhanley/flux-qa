@@ -39,7 +39,19 @@ new class extends Component {
                 <flux:table.column>
                     <flux:checkbox.all />
                 </flux:table.column>
-                <flux:table.column sortable :sorted="$sortBy === 'name'" :direction="$sortDirection" wire:click="sort('name')">Name</flux:table.column>
+                @php
+                    $column = [
+                        'sortable' => false,
+                        'value' => 'name',
+                    ];
+                @endphp
+                <flux:table.column
+                    :sortable="isset($column['sortable']) && $column['sortable']"
+                    :sorted="$sortBy === $column['value']"
+                    wire:click="sort('{{ $column['value'] }}')">
+                    Name
+                </flux:table.column>
+                {{-- <flux:table.column sortable :sorted="$sortBy === 'name'" :direction="$sortDirection" wire:click="sort('name')">Name</flux:table.column> --}}
                 <flux:table.column sortable :sorted="$sortBy === 'email'" :direction="$sortDirection" wire:click="sort('email')">Email</flux:table.column>
                 <flux:table.column>Random</flux:table.column>
                 <flux:table.column sortable :sorted="$sortBy === 'created_at'" :direction="$sortDirection" wire:click="sort('created_at')">Signed up</flux:table.column>

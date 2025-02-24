@@ -17,6 +17,10 @@ use Livewire\Volt\Volt;
 |
 */
 
+Route::get('randomasdasd', function () {
+    return '<input /><button>Click me</button>';
+});
+
 Route::get('nativemodal', function () {
     return Blade::compileString(<<<'HTML'
         <div>
