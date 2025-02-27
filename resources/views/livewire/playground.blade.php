@@ -1,12 +1,18 @@
 <?php
 
 use Livewire\Volt\Component;
-use Flux\DateRange;
 
 new class extends Component {
     //
 }; ?>
 
-<div class="flex">
-    <flux:date-picker selectable-header with-presets />
+<div>
+    <flux:date-picker>
+        <x-slot name="trigger">
+            <flux:date-picker.input clearable />
+        </x-slot>
+    </flux:date-picker>
+    <flux:select variant="listbox" clearable>
+        <flux:select.option>Test</flux:select.option>
+    </flux:select>
 </div>

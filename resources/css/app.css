@@ -12,7 +12,7 @@
     --font-sans: Inter, sans-serif;
 }
 
-@theme {
+/* @theme {
     --color-accent: var(--color-purple-500);
     --color-accent-content: var(--color-purple-600);
     --color-accent-foreground: var(--color-white);
@@ -24,4 +24,4 @@
         --color-accent-content: var(--color-green-300);
         --color-accent-foreground: var(--color-white);
     }
-}
+} */

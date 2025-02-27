@@ -109,15 +109,17 @@ new class extends Component {
     <flux:button variant="primary" wire:click="changeData">Change Data</flux:button>
 
 
-    <flux:chart wire:model="data">
-        <flux:chart.svg class="border aspect-3/1">
+    <flux:chart wire:model="data" class="aspect-3/1">
+        <flux:chart.svg class="border">
             <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
 
-            <flux:chart.axis axis="x" field="date">
+            <flux:chart.axis axis="x" field="date" tick-count="2">
+                <flux:chart.axis.tick />
                 <flux:chart.axis.line />
             </flux:chart.axis>
 
             <flux:chart.axis axis="y">
+                <flux:chart.axis.tick />
                 <flux:chart.axis.line />
             </flux:chart.axis>
         </flux:chart.svg>
