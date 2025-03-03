@@ -1,46 +1,26 @@
 <?php
 
+use App\Models\User;
+use Flux\Flux;
+use Livewire\Attributes\Computed;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public $items = [
-        'a' => 'a',
-        'b' => 'b',
-    ];
-
-    public function prependItem()
-    {
-        $this->items = ['z' => 'z'] + $this->items;
-    }
-
-    public function appendItem()
-    {
-        $this->items['c'] = 'c';
-    }
-
-    public function removeFirstItem()
-    {
-        unset($this->items[array_key_first($this->items)]);
-    }
+    //
 };
 ?>
 
-<div>
-    <button wire:click="prependItem">Prepend Item</button>
-    <button wire:click="appendItem">Append Item</button>
+<div class="flex">
+    <flux:card class="overflow-hidden min-w-[12rem]">
+        <flux:subheading>Revenue</flux:subheading>
 
-    <div>
-        @foreach ($items as $key => $value)
-            <div wire:key="{{ $key }}">
-                <flux:editor />
-                <flux:select variant="listbox" placeholder="Choose industry...">
-                    <flux:select.option :value="$value . '-1'">Photography</flux:select.option>
-                    <flux:select.option :value="$value . '-2'">Other</flux:select.option>
-                </flux:select>
-                <p>Value: {{ $value }}</p>
-            </div>
-        @endforeach
-    </div>
+        <flux:heading size="xl">$12,345</flux:heading>
 
-    <flux:button wire:click="removeFirstItem">Remove First Item</flux:button>
+        <flux:chart :value="[0, 0, 0, 10, 12, 11, 13, 15, 14, 16, 18, 17, 19, 21, 20]" class="-mx-8 -mb-8 h-[3rem]">
+            <flux:chart.svg gutter="0">
+                <flux:chart.line class="text-sky-200 dark:text-sky-400" />
+                <flux:chart.area class="text-sky-100 dark:text-sky-400/30" />
+            </flux:chart.svg>
+        </flux:chart>
+    </flux:card>
 </div>

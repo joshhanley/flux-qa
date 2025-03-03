@@ -60,21 +60,27 @@ new class extends Component {
     {
         $this->data = [
             [
-                'date' => now()->subMinutes(1)->roundMinute()->toIsoString(),
+                'date' => now()->subYears(1)->toIsoString(),
                 'visitors' => 300,
                 'pageViews' => 10000,
             ],
             [
-                'date' => now()->subMinutes(5)->roundMinute()->toIsoString(),
+                'date' => now()->subYears(5)->toIsoString(),
                 'visitors' => 550,
                 'pageViews' => 23456,
             ],
             [
-                'date' => now()->subMinutes(9)->roundMinute()->toIsoString(),
+                'date' => now()->subYears(9)->toIsoString(),
                 'visitors' => 200,
                 'pageViews' => 15222,
             ],
         ];
+    }
+
+    #[Computed]
+    public function theData()
+    {
+        return $this->data;
     }
 
     protected function categoricalData()
@@ -109,11 +115,12 @@ new class extends Component {
     <flux:button variant="primary" wire:click="changeData">Change Data</flux:button>
 
 
-    <flux:chart wire:model="data" class="aspect-3/1">
+    {{-- <flux:chart wire:model="data" class="aspect-3/1"> --}}
+    <flux:chart :value="$this->theData" class="aspect-3/1">
         <flux:chart.svg class="border">
             <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
 
-            <flux:chart.axis axis="x" field="date" tick-count="2">
+            <flux:chart.axis axis="x" field="date" position="top" tick-count="2">
                 <flux:chart.axis.tick />
                 <flux:chart.axis.line />
             </flux:chart.axis>
