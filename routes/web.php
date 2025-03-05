@@ -2,6 +2,7 @@
 
 use App\Components;
 use App\Http\Controllers\FluxInputsController;
+use App\Livewire\Exploit;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -16,6 +17,8 @@ use Livewire\Volt\Volt;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('exploit', Exploit::class);
 
 Route::get('randomasdasd', function () {
     return '<input /><button>Click me</button>';
