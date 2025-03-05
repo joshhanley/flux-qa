@@ -1,26 +1,57 @@
 <?php
 
-use App\Models\User;
-use Flux\Flux;
-use Livewire\Attributes\Computed;
+use Carbon\Carbon;
+use Flux\DateRange;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    //
-};
-?>
+    public DateRange $range;
+    public array $data = [];
 
-<div class="flex">
-    <flux:card class="overflow-hidden min-w-[12rem]">
-        <flux:subheading>Revenue</flux:subheading>
+    public function mount(): void
+    {
+        $this->loadData();
+    }
 
-        <flux:heading size="xl">$12,345</flux:heading>
+    public function loadData(): void
+    {
+        $this->range = new DateRange(
+            Carbon::now()->subDays(rand(1, 100)),
+            Carbon::now()
+        );
+        $dates = [];
+        for ($date = $this->range->start->copy(); $date->lte($this->range->end); $date->addDay()) {
+            $formatted = $date->format('Y-m-d');
+            $dates[$formatted] = [
+                'date' => $formatted,
+                'created_tasks' => rand(0, rand(10, 100)), // rand(rand(0, 10), rand(-10,0)),
+            ];
+        }
 
-        <flux:chart :value="[0, 0, 0, 10, 12, 11, 13, 15, 14, 16, 18, 17, 19, 21, 20]" class="-mx-8 -mb-8 h-[3rem]">
-            <flux:chart.svg gutter="0">
-                <flux:chart.line class="text-sky-200 dark:text-sky-400" />
-                <flux:chart.area class="text-sky-100 dark:text-sky-400/30" />
-            </flux:chart.svg>
-        </flux:chart>
-    </flux:card>
+        $this->data = array_values($dates);
+    }
+
+}; ?>
+
+<div>
+    <flux:button wire:click="loadData">Load Data</flux:button>
+
+    <flux:chart wire:model="data" class="aspect-3/1">
+        <flux:chart.svg>
+            <flux:chart.line field="created_tasks" class="text-blue-500 dark:text-blue-400" />
+
+            <flux:chart.axis axis="x" field="date">
+                <flux:chart.axis.tick />
+            </flux:chart.axis>
+
+            <flux:chart.axis axis="y">
+                <flux:chart.axis.grid />
+                <flux:chart.axis.tick />
+            </flux:chart.axis>
+
+            <flux:chart.zero-line />
+
+            <flux:chart.cursor />
+        </flux:chart.svg>
+    </flux:chart>
 </div>
