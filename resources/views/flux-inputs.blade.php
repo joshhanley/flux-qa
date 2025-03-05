@@ -16,6 +16,13 @@
             <!-- ... -->
         </flux:autocomplete> --}}
 
+        <flux:subheading size="lg">Calendar</flux:subheading>
+
+        <flux:calendar name="calendar" label="Calendar" :value="old('calendar', request()->input('calendar'))" />
+        <flux:calendar name="calendarrange" mode="range" label="Calendar Range" :value="old('calendarrange', request()->input('calendarrange'))" />
+        <flux:calendar name="calendarmultiple" multiple label="Calendar Multiple" :value="old('calendarmultiple', request()->input('calendarmultiple'))" />
+        <flux:date-picker name="datepickerpreset" mode="range" label="Date Picker Preset" :value="old('datepickerpreset', request()->input('datepickerpreset'))" with-presets />
+
         {{-- <flux:subheading size="lg">Checkbox</flux:subheading>
 
         <flux:checkbox name="defaultcheckbox" label="Default Checkbox" :checked="old('defaultcheckbox', request()->input('defaultcheckbox'))" />
@@ -61,15 +68,15 @@
             variant="cards"
         /> --}}
 
-        <flux:subheading size="lg">Editor</flux:subheading>
+        {{-- <flux:subheading size="lg">Editor</flux:subheading> --}}
 
         {{-- <flux:editor name="content" label="Content" description="Some content" /> --}}
 
-        <flux:editor name="long-content">
+        {{-- <flux:editor name="long-content">
             <flux:editor.toolbar />
 
             <flux:editor.content>{!! request()->input('long-content') !!}</flux:editor.content>
-        </flux:editor>
+        </flux:editor> --}}
 
         {{-- <flux:subheading size="lg">Input</flux:subheading>
 
@@ -81,9 +88,9 @@
             <flux:radio value="cc" label="Credit Card" :checked="request()->input('payment') ==='cc'" />
             <flux:radio value="paypal" label="Paypal" :checked="request()->input('payment') ==='paypal'" />
             <flux:radio value="ach" label="Bank transfer" :checked="request()->input('payment') ==='ach'" />
-        </flux:radio.group>
+        </flux:radio.group> --}}
 
-        <flux:radio.group name="role" label="Role" variant="segmented">
+        {{-- <flux:radio.group name="role" label="Role" variant="segmented">
             <flux:radio value="admin" label="Admin" :checked="request()->input('role') === 'admin'" />
             <flux:radio value="editor" label="Editor" :checked="request()->input('role') === 'editor'" />
             <flux:radio value="viewer" label="Viewer" :checked="request()->input('role') === 'viewer'" />
@@ -98,73 +105,73 @@
         {{-- <flux:subheading size="lg">Select</flux:subheading>
 
         <flux:select name="industry-default" placeholder="Choose industry...">
-            <flux:option :selected="request()->input('industry-default') === 'Photography'">Photography</flux:option>
-            <flux:option :selected="request()->input('industry-default') === 'Design services'">Design services</flux:option>
-            <flux:option :selected="request()->input('industry-default') === 'Web development'">Web development</flux:option>
-            <flux:option :selected="request()->input('industry-default') === 'Accounting'">Accounting</flux:option>
-            <flux:option :selected="request()->input('industry-default') === 'Legal services'">Legal services</flux:option>
-            <flux:option :selected="request()->input('industry-default') === 'Consulting'">Consulting</flux:option>
-            <flux:option :selected="request()->input('industry-default') === 'Other'">Other</flux:option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Photography'">Photography</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Design services'">Design services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Web development'">Web development</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Accounting'">Accounting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Legal services'">Legal services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Consulting'">Consulting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-default') === 'Other'">Other</flux:select.option>
         </flux:select>
 
         <flux:select name="industry-values" placeholder="Choose industry values...">
-            <flux:option value="photography" :selected="request()->input('industry-values') === 'photography'">Photography</flux:option>
-            <flux:option value="design-services" :selected="request()->input('industry-values') === 'design-services'">Design services</flux:option>
-            <flux:option value="web-development" :selected="request()->input('industry-values') === 'web-development'">Web development</flux:option>
-            <flux:option value="accounting" :selected="request()->input('industry-values') === 'accounting'">Accounting</flux:option>
-            <flux:option value="legal-services" :selected="request()->input('industry-values') === 'legal-services'">Legal services</flux:option>
-            <flux:option value="consulting" :selected="request()->input('industry-values') === 'consulting'">Consulting</flux:option>
-            <flux:option value="other" :selected="request()->input('industry-values') === 'other'">Other</flux:option>
+            <flux:select.option value="photography" :selected="request()->input('industry-values') === 'photography'">Photography</flux:select.option>
+            <flux:select.option value="design-services" :selected="request()->input('industry-values') === 'design-services'">Design services</flux:select.option>
+            <flux:select.option value="web-development" :selected="request()->input('industry-values') === 'web-development'">Web development</flux:select.option>
+            <flux:select.option value="accounting" :selected="request()->input('industry-values') === 'accounting'">Accounting</flux:select.option>
+            <flux:select.option value="legal-services" :selected="request()->input('industry-values') === 'legal-services'">Legal services</flux:select.option>
+            <flux:select.option value="consulting" :selected="request()->input('industry-values') === 'consulting'">Consulting</flux:select.option>
+            <flux:select.option value="other" :selected="request()->input('industry-values') === 'other'">Other</flux:select.option>
         </flux:select>
 
         <flux:select name="industry-listbox" variant="listbox" placeholder="Choose industry..." clearable>
-            <flux:option :selected="request()->input('industry-listbox') === 'Photography'">Photography</flux:option>
-            <flux:option :selected="request()->input('industry-listbox') === 'Design services'">Design services</flux:option>
-            <flux:option :selected="request()->input('industry-listbox') === 'Web development'">Web development</flux:option>
-            <flux:option :selected="request()->input('industry-listbox') === 'Accounting'">Accounting</flux:option>
-            <flux:option :selected="request()->input('industry-listbox') === 'Legal services'">Legal services</flux:option>
-            <flux:option :selected="request()->input('industry-listbox') === 'Consulting'">Consulting</flux:option>
-            <flux:option :selected="request()->input('industry-listbox') === 'Other'">Other</flux:option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Photography'">Photography</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Design services'">Design services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Web development'">Web development</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Accounting'">Accounting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Legal services'">Legal services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Consulting'">Consulting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-listbox') === 'Other'">Other</flux:select.option>
         </flux:select>
 
         <flux:select name="industry-listbox-values" variant="listbox" placeholder="Choose industry listbox values...">
-            <flux:option value="photography" :selected="request()->input('industry-listbox-values') === 'photography'">Photography</flux:option>
-            <flux:option value="design-services" :selected="request()->input('industry-listbox-values') === 'design-services'">Design services</flux:option>
-            <flux:option value="web-development" :selected="request()->input('industry-listbox-values') === 'web-development'">Web development</flux:option>
-            <flux:option value="accounting" :selected="request()->input('industry-listbox-values') === 'accounting'">Accounting</flux:option>
-            <flux:option value="legal-services" :selected="request()->input('industry-listbox-values') === 'legal-services'">Legal services</flux:option>
-            <flux:option value="consulting" :selected="request()->input('industry-listbox-values') === 'consulting'">Consulting</flux:option>
-            <flux:option value="other" :selected="request()->input('industry-listbox-values') === 'other'">Other</flux:option>
+            <flux:select.option value="photography" :selected="request()->input('industry-listbox-values') === 'photography'">Photography</flux:select.option>
+            <flux:select.option value="design-services" :selected="request()->input('industry-listbox-values') === 'design-services'">Design services</flux:select.option>
+            <flux:select.option value="web-development" :selected="request()->input('industry-listbox-values') === 'web-development'">Web development</flux:select.option>
+            <flux:select.option value="accounting" :selected="request()->input('industry-listbox-values') === 'accounting'">Accounting</flux:select.option>
+            <flux:select.option value="legal-services" :selected="request()->input('industry-listbox-values') === 'legal-services'">Legal services</flux:select.option>
+            <flux:select.option value="consulting" :selected="request()->input('industry-listbox-values') === 'consulting'">Consulting</flux:select.option>
+            <flux:select.option value="other" :selected="request()->input('industry-listbox-values') === 'other'">Other</flux:select.option>
         </flux:select>
 
         <flux:select name="industry-searchable" variant="listbox" placeholder="Choose industry..." searchable>
-            <flux:option :selected="request()->input('industry-searchable') === 'Photography'">Photography</flux:option>
-            <flux:option :selected="request()->input('industry-searchable') === 'Design services'">Design services</flux:option>
-            <flux:option :selected="request()->input('industry-searchable') === 'Web development'">Web development</flux:option>
-            <flux:option :selected="request()->input('industry-searchable') === 'Accounting'">Accounting</flux:option>
-            <flux:option :selected="request()->input('industry-searchable') === 'Legal services'">Legal services</flux:option>
-            <flux:option :selected="request()->input('industry-searchable') === 'Consulting'">Consulting</flux:option>
-            <flux:option :selected="request()->input('industry-searchable') === 'Other'">Other</flux:option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Photography'">Photography</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Design services'">Design services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Web development'">Web development</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Accounting'">Accounting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Legal services'">Legal services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Consulting'">Consulting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-searchable') === 'Other'">Other</flux:select.option>
         </flux:select>
 
         <flux:select name="industry-multiple" variant="listbox" multiple placeholder="Choose industries...">
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Photography', request()->input('industry-multiple'))">Photography</flux:option>
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Design services', request()->input('industry-multiple'))">Design services</flux:option>
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Web development', request()->input('industry-multiple'))">Web development</flux:option>
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Accounting', request()->input('industry-multiple'))">Accounting</flux:option>
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Legal services', request()->input('industry-multiple'))">Legal services</flux:option>
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Consulting', request()->input('industry-multiple'))">Consulting</flux:option>
-            <flux:option :selected="is_array(request()->input('industry-multiple')) && in_array('Other', request()->input('industry-multiple'))">Other</flux:option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Photography', request()->input('industry-multiple'))">Photography</flux:select.option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Design services', request()->input('industry-multiple'))">Design services</flux:select.option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Web development', request()->input('industry-multiple'))">Web development</flux:select.option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Accounting', request()->input('industry-multiple'))">Accounting</flux:select.option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Legal services', request()->input('industry-multiple'))">Legal services</flux:select.option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Consulting', request()->input('industry-multiple'))">Consulting</flux:select.option>
+            <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Other', request()->input('industry-multiple'))">Other</flux:select.option>
         </flux:select>
 
         <flux:select name="industry-combobox" variant="combobox" placeholder="Choose industry...">
-            <flux:option :selected="request()->input('industry-combobox') === 'Photography'">Photography</flux:option>
-            <flux:option :selected="request()->input('industry-combobox') === 'Design services'">Design services</flux:option>
-            <flux:option :selected="request()->input('industry-combobox') === 'Web development'">Web development</flux:option>
-            <flux:option :selected="request()->input('industry-combobox') === 'Accounting'">Accounting</flux:option>
-            <flux:option :selected="request()->input('industry-combobox') === 'Legal services'">Legal services</flux:option>
-            <flux:option :selected="request()->input('industry-combobox') === 'Consulting'">Consulting</flux:option>
-            <flux:option :selected="request()->input('industry-combobox') === 'Other'">Other</flux:option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Photography'">Photography</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Design services'">Design services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Web development'">Web development</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Accounting'">Accounting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Legal services'">Legal services</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Consulting'">Consulting</flux:select.option>
+            <flux:select.option :selected="request()->input('industry-combobox') === 'Other'">Other</flux:select.option>
         </flux:select> --}}
 
         {{-- <flux:subheading size="lg">Switch</flux:subheading>
