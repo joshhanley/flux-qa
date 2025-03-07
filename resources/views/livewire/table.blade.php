@@ -17,13 +17,9 @@ new class extends Component {
     {
         return User::query()
             ->when($this->sortBy, fn($query) => $query->orderBy($this->sortBy, $this->sortDirection))
-            ->paginate();
-    }
-
-    #[Computed]
-    public function posts()
-    {
-        return Post::with(['user'])->simplePaginate(pageName: 'posts');
+            //->where('name', 'Jewel Satterfield')
+            ->simplePaginate();
+            //->paginate();
     }
 
     public function edit(User $user)
@@ -49,103 +45,53 @@ new class extends Component {
 
 ?>
 
-<div class="space-y-4">
-    {{-- <flux:card>
-        <flux:card.header class="border-b bg-gray-50">Use this page to test the following issues</flux:card.header>
-        <flux:card.body class="divide-y">
-            <div>
-                <flux:heading size="lg">Separator with word margin wonky</flux:heading>
+<div class="space-y-4 p-4">
+    <flux:card>
+        <flux:heading size="lg">Users</flux:heading>
 
-                <flux:subheading size="lg" class="font-medium">Issue</flux:subheading>
+        <flux:table>
+            <flux:table.columns>
+                <flux:table.column wire:click="sort('name')" sortable :sorted="$this->sortBy === 'name'" :direction="$this->sortDirection">Name</flux:table.column>
+                <flux:table.column wire:click="sort('email')" sortable :sorted="$this->sortBy === 'email'" :direction="$this->sortDirection" class="*:justify-center">Email</flux:table.column>
+                <flux:table.column class="*:justify-center">Is verified?</flux:table.column>
+                <flux:table.column>Created At</flux:table.column>
+                <flux:table.column>Updated At</flux:table.column>
+                <flux:table.column>Actions</flux:table.column>
+            </flux:table.columns>
 
-                <flux:text>
-                    If you add a margin to the separator with words it doesn't look right. The separator lines are pushed down but not the text, instead of the whole lot pushed down.
-                </flux:text>
+            <flux:table.rows>
+                @foreach ($this->users as $user)
+                    <flux:table.row wire:key="$user->id">
+                        <flux:table.cell>{{ $user->name }}</flux:table.cell>
+                        <flux:table.cell>{{ $user->email }}</flux:table.cell>
+                        <flux:table.cell>
+                            @if ($user->email_verified_at)
+                                <flux:badge color="green">Yes</flux:badge>
+                            @else
+                                <flux:badge color="red">No</flux:badge>
+                            @endif
+                        </flux:table.cell>
+                        <flux:table.cell>{{ $user->created_at->diffForHumans() }}</flux:table.cell>
+                        <flux:table.cell>{{ $user->updated_at->diffForHumans() }}</flux:table.cell>
+                        <flux:table.cell>
+                            <flux:dropdown position="bottom end">
+                                <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom"></flux:button>
 
-                <flux:subheading size="lg" class="font-medium">Instructions</flux:subheading>
+                                <flux:menu>
+                                    <flux:menu.item wire:click="edit({{ $user->id }})">Edit</flux:menu.item>
+                                    <flux:menu.item wire:click="delete({{ $user->id }})">Delete</flux:menu.item>
+                                </flux:menu>
+                            </flux:dropdown>
+                        </flux:table.cell>
+                    </flux:table.row>
+                @endforeach
+            </flux:table.rows>
 
-                <flux:text>
-                    1. Have a look at the "OR" separator between the tables, it has mt-4 applied. <br />
-                </flux:text>
-            </div>
-        </flux:card.body>
+        </flux:table>
+        <div class="mt-4 space-y-4">
+            <flux:pagination :paginator="$this->users" />
+            <div>{{ $this->users->links() }}</div>
+            {{-- <div>{{ $this->users->links('vendor.pagination.tailwind') }}</div> --}}
+        </div>
     </flux:card>
-
-    <flux:heading size="lg">Users</flux:heading>
-
-    <flux:table :paginate="$this - > users">
-        <flux:pagination :paginator="$this - > users" />
-        <flux:columns>
-            <flux:column wire:click="sort('name')" sortable :sorted="$this - > sortBy === 'name'" :direction="$this - > sortDirection">Name</flux:column>
-            <flux:column wire:click="sort('email')" sortable :sorted="$this - > sortBy === 'email'" :direction="$this - > sortDirection">Email</flux:column>
-            <flux:column>Is verified?</flux:column>
-            <flux:column>Created At</flux:column>
-            <flux:column>Updated At</flux:column>
-            <flux:column>Actions</flux:column>
-        </flux:columns>
-
-        <flux:rows>
-            @foreach ($this->users as $user)
-                <flux:row wire:key="$user->id">
-                    <flux:cell>{{ $user->name }}</flux:cell>
-                    <flux:cell>{{ $user->email }}</flux:cell>
-                    <flux:cell>
-                        @if ($user->email_verified_at)
-                            <flux:badge color="green">Yes</flux:badge>
-                        @else
-                            <flux:badge color="red">No</flux:badge>
-                        @endif
-                    </flux:cell>
-                    <flux:cell>{{ $user->created_at->diffForHumans() }}</flux:cell>
-                    <flux:cell>{{ $user->updated_at->diffForHumans() }}</flux:cell>
-                    <flux:cell>
-                        <flux:dropdown position="bottom end">
-                            <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom"></flux:button>
-
-                            <flux:menu>
-                                <flux:menu.item wire:click="edit({{ $user->id }})">Edit</flux:menu.item>
-                                <flux:menu.item wire:click="delete({{ $user->id }})">Delete</flux:menu.item>
-                            </flux:menu>
-                        </flux:dropdown>
-                    </flux:cell>
-                </flux:row>
-            @endforeach
-        </flux:rows>
-    </flux:table>
-
-    <flux:separator text="OR" class="mt-4" />
-
-    <flux:heading class="mt-12" size="lg">Posts</flux:heading>
-
-    <flux:table :paginate="$this - > posts">
-        <flux:pagination :paginator="$this - > posts" />
-        <flux:columns>
-            <flux:column>ID</flux:column>
-            <flux:column>Title</flux:column>
-            <flux:column>Author</flux:column>
-            <flux:column>Created At</flux:column>
-            <flux:column>Updated At</flux:column>
-            <flux:column>Actions</flux:column>
-        </flux:columns>
-
-        <flux:rows>
-            @foreach ($this->posts as $post)
-                <flux:row :key="$post - > id">
-                    <flux:cell>{{ $post->id }}</flux:cell>
-                    <flux:cell>{{ $post->title }}</flux:cell>
-                    <flux:cell>{{ $post->user->name }}</flux:cell>
-                    <flux:cell>
-                        <flux:dropdown position="bottom end">
-                            <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom"></flux:button>
-
-                            <flux:menu>
-                                <flux:menu.item wire:click="edit({{ $post->id }})">Edit</flux:menu.item>
-                                <flux:menu.item wire:click="delete({{ $post->id }})">Delete</flux:menu.item>
-                            </flux:menu>
-                        </flux:dropdown>
-                    </flux:cell>
-                </flux:row>
-            @endforeach
-        </flux:rows>
-    </flux:table> --}}
 </div>
