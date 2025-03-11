@@ -1,29 +1,41 @@
 <?php
 
+use App\Rules\DateRangeRule;
+use Flux\DateRange;
+use Flux\DateRangePreset;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public $data = [42, 57, 46, 98, 24, 78, 35, 75];
+    public ?DateRange $range = null;
 
-    public function changeData()
+public function rules()
+{
+    return [
+        'range' => ['required', new DateRangeRule],
+        //'range.start' => ['required', 'date'],
+        //'range.end' => ['required', 'date', 'after:range.start'],
+        //'range.preset' => ['nullable', 'in:' . collect(DateRangePreset::cases())->pluck('value')->implode(',')],
+    ];
+}
+
+    public function submit()
     {
-        $this->data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        ray($this->range);
+        $this->validate();
+
+        Flux::toast('Date range is valid!', variant: 'success');
     }
 };
 ?>
 
 <div>
-    <flux:button wire:click="changeData">Change Data</flux:button>
-    <flux:card class="w-full overflow-hidden">
-        <flux:subheading>Text</flux:subheading>
-        <flux:heading size="xl">
-            {{ array_sum($data ?? []) }}
-        </flux:heading>
-        <flux:chart :value="$data" class="-mx-8 -mb-8 h-[3rem]">
-            <flux:chart.svg gutter="0">
-                <flux:chart.line class="text-sky-200 dark:text-sky-400" />
-                <flux:chart.area class="text-sky-100 dark:text-sky-400/30" />
-            </flux:chart.svg>
-        </flux:chart>
-    </flux:card>
+    <form wire:submit="submit">
+        <flux:date-picker mode="range" label="Range" wire:model.live="range" with-presets />
+        <flux:error name="range.start" />
+        <flux:error name="range.end" />
+        <flux:error name="range.preset" />
+        <flux:button variant="primary" type="submit">Submit</flux:button>
+    </form>
 </div>
