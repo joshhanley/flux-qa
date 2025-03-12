@@ -3,6 +3,7 @@
 namespace App\Rules;
 
 use Closure;
+use Flux\DateRangePreset;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Validator;
 
@@ -23,6 +24,7 @@ class DateRangeRule implements ValidationRule
         $validator = Validator::make($value, [
             'start' => ['required', 'date', 'before:end'],
             'end' => ['required', 'date', 'after:start'],
+            'preset' => ['nullable', 'in:' . collect(DateRangePreset::cases())->pluck('value')->implode(',')],
         ]);
 
         if ($validator->fails()) {
