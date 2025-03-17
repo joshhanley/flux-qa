@@ -2,9 +2,12 @@
 
 use App\Models\User;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new class extends Component {
+new
+#[Layout('components.layouts.rtl')]
+class extends Component {
     //
 };
 ?>
@@ -760,7 +763,7 @@ new class extends Component {
         <flux:input placeholder="$99.99" />
     </flux:input.group>
 
-    <flux:input.group>
+    <flux:input.group dir="ltr">
         <flux:input.group.prefix>https://</flux:input.group.prefix>
 
         <flux:input placeholder="example.com" />
@@ -772,7 +775,7 @@ new class extends Component {
         <flux:input.group.suffix>.brand.com</flux:input.group.suffix>
     </flux:input.group>
 
-    <flux:field>
+    <flux:field dir="ltr">
         <flux:label>Website</flux:label>
 
         <flux:input.group>
