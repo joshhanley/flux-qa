@@ -1355,5 +1355,97 @@ class extends Component {
     <flux:calendar week-numbers selectable-header />
     <flux:date-picker />
     <flux:date-picker mode="range" with-presets />
-    <flux:date-picker week-numbers selectable-header />
+    <flux:date-picker week-numbers selectable-header /><flux:date-picker mode="range" value="2025-03-29/2025-04-08" with-presets with-confirmation week-numbers>
+        <x-slot name="trigger">
+            <flux:date-picker.input />
+        </x-slot>
+    </flux:date-picker>
+
+    <flux:callout icon="clock">
+        <flux:callout.heading>Upcoming maintenance</flux:callout.heading>
+
+        <flux:callout.text>
+            Our servers will be undergoing scheduled maintenance this Sunday from 2 AM - 5 AM UTC. Some services may be temporarily unavailable.
+            <flux:callout.link href="#">Learn more</flux:callout.link>
+        </flux:callout.text>
+    </flux:callout>
+
+    <flux:callout>
+        <flux:callout.heading icon="newspaper">Policy update</flux:callout.heading>
+
+        <flux:callout.text>We've updated our Terms of Service and Privacy Policy. Please review them to stay informed.</flux:callout.text>
+    </flux:callout>
+
+    <flux:callout icon="clock">
+        <flux:callout.heading>Subscription expiring soon</flux:callout.heading>
+        <flux:callout.text>Your current plan will expire in 3 days. Renew now to avoid service interruption and continue accessing premium features.</flux:callout.text>
+
+        <x-slot name="actions">
+            <flux:button>Renew now</flux:button>
+            <flux:button variant="ghost" href="/pricing">View plans</flux:button>
+        </x-slot>
+    </flux:callout>
+
+    <flux:callout icon="cube" variant="secondary" inline>
+        <flux:callout.heading>Your package is delayed</flux:callout.heading>
+
+        <x-slot name="actions">
+            <flux:button>Track order -></flux:button>
+            <flux:button variant="ghost">Reschedule</flux:button>
+        </x-slot>
+    </flux:callout>
+
+    <flux:callout icon="exclamation-triangle" variant="secondary" inline>
+        <flux:callout.heading>Payment issue detected</flux:callout.heading>
+        <flux:callout.text>Your last payment attempt failed. Update your billing details to prevent service interruption.</flux:callout.text>
+
+        <x-slot name="actions">
+            <flux:button>Update billing</flux:button>
+        </x-slot>
+    </flux:callout>
+
+    <flux:callout icon="bell" variant="secondary" inline x-data="{ visible: true }" x-show="visible">
+        <flux:callout.heading class="flex gap-2 @max-md:flex-col items-start">Upcoming meeting <flux:text>10:00 AM</flux:text></flux:callout.heading>
+
+        <x-slot name="controls">
+            <flux:button icon="x-mark" variant="ghost" x-on:click="visible = false" />
+        </x-slot>
+    </flux:callout>
+
+    <!-- Wrapping divs to add smooth exist transition... -->
+    <div x-data="{ visible: true }" x-show="visible" x-collapse>
+        <div x-show="visible" x-transition>
+            <flux:callout icon="finger-print" variant="secondary">
+                <flux:callout.heading>Unusual login attempt</flux:callout.heading>
+                <flux:callout.text>We detected a login from a new device in <span class="font-medium text-zinc-800 dark:text-white">New York, USA</span>. If this was you, no action is needed. If not, secure your account immediately.</flux:callout.text>
+
+                <x-slot name="actions">
+                    <flux:button>Change password</flux:button>
+                    <flux:button variant="ghost">Review activity</flux:button>
+                </x-slot>
+
+                <x-slot name="controls">
+                    <flux:button icon="x-mark" variant="ghost" x-on:click="visible = false" />
+                </x-slot>
+            </flux:callout>
+        </div>
+    </div>
+
+    <flux:callout variant="secondary" icon="information-circle" heading="Your account has been successfully created." />
+    <flux:callout variant="success" icon="check-circle" heading="Your account is verified and ready to use." />
+    <flux:callout variant="warning" icon="exclamation-circle" heading="Please verify your account to unlock all features." />
+    <flux:callout variant="danger" icon="x-circle" heading="Something went wrong. Try again or contact support." />
+
+    <flux:callout>
+        <x-slot name="icon">
+            <!-- Custom icon: https://lucide.dev/icons/alarm-clock -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alarm-clock"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg>
+        </x-slot>
+
+        <flux:callout.heading>Notification system updated</flux:callout.heading>
+
+        <flux:callout.text>
+            <p>We've improved our notification system to deliver alerts faster and more reliably.</p>
+        </flux:callout.text>
+    </flux:callout>
 </div>
