@@ -1355,4 +1355,5 @@ class extends Component {
     <flux:calendar week-numbers selectable-header />
     <flux:date-picker />
     <flux:date-picker mode="range" with-presets />
+    <flux:date-picker week-numbers selectable-header />
 </div>
