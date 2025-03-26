@@ -5,7 +5,23 @@
             <div>{{ $input }}: {{ var_export($value, true) }}</div>
         @endforeach
     </flux:card>
+
+    <div id="hiddens"></div>
+
     <form action="/inputs" method="POST">
+        <input name="input" />
+        <select name="select">
+            <option value="1" disabled selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <select name="multiple" multiple>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <textarea name="textarea"></textarea>
+        <input type="date" name="date" />
         @csrf
         {{-- <flux:subheading size="lg">Autocomplete</flux:subheading>
 
@@ -16,12 +32,12 @@
             <!-- ... -->
         </flux:autocomplete> --}}
 
-        <flux:subheading size="lg">Calendar</flux:subheading>
+        {{-- <flux:subheading size="lg">Calendar</flux:subheading>
 
         <flux:calendar name="calendar" label="Calendar" :value="old('calendar', request()->input('calendar'))" />
         <flux:calendar name="calendarrange" mode="range" label="Calendar Range" :value="old('calendarrange', request()->input('calendarrange'))" />
         <flux:calendar name="calendarmultiple" multiple label="Calendar Multiple" :value="old('calendarmultiple', request()->input('calendarmultiple'))" />
-        <flux:date-picker name="datepickerpreset" mode="range" label="Date Picker Preset" :value="old('datepickerpreset', request()->input('datepickerpreset'))" with-presets />
+        <flux:date-picker name="datepickerpreset" mode="range" label="Date Picker Preset" :value="old('datepickerpreset', request()->input('datepickerpreset'))" with-presets /> --}}
 
         {{-- <flux:subheading size="lg">Checkbox</flux:subheading>
 
@@ -43,21 +59,30 @@
             <flux:checkbox label="SMS" value="sms" :checked="is_array(request()->input('notifications2')) && in_array('sms', request()->input('notifications2'))" />
         </flux:checkbox.group>
 
+        Grouped checkboxes without a group component
+        <flux:checkbox name="notifications3[]" label="Push notifications" value="push" :checked="is_array(request()->input('notifications3')) && in_array('push', request()->input('notifications3'))" />
+        <flux:checkbox name="notifications3[]" label="Email" value="email" :checked="is_array(request()->input('notifications3')) && in_array('email', request()->input('notifications3'))" />
+        <flux:checkbox name="notifications3[]" label="In-app alerts" value="app" :checked="is_array(request()->input('notifications3')) && in_array('app', request()->input('notifications3'))" />
+        <flux:checkbox name="notifications3[]" label="SMS" value="sms" :checked="is_array(request()->input('notifications3')) && in_array('sms', request()->input('notifications3'))" />
+
         <flux:checkbox.group name="subscription" label="Subscription preferences" variant="cards" class="max-sm:flex-col">
-            <flux:checkbox checked
+            <flux:checkbox
                 value="newsletter"
                 label="Newsletter"
                 description="Get the latest updates and offers."
+                :checked="is_array(request()->input('subscription')) && in_array('newsletter', request()->input('subscription'))"
             />
             <flux:checkbox
                 value="updates"
                 label="Product updates"
                 description="Learn about new features and products."
+                :checked="is_array(request()->input('subscription')) && in_array('updates', request()->input('subscription'))"
             />
             <flux:checkbox
                 value="invitations"
                 label="Event invitations"
-                description="Invitatations to exclusive events."
+                description="Invitations to exclusive events."
+                :checked="is_array(request()->input('subscription')) && in_array('invitations', request()->input('subscription'))"
             />
         </flux:checkbox.group>
 
@@ -66,13 +91,14 @@
             label="Single Card"
             description="Single card."
             variant="cards"
+            :checked="old('singlecard', request()->input('singlecard'))"
         /> --}}
 
-        {{-- <flux:subheading size="lg">Editor</flux:subheading> --}}
+        {{-- <flux:subheading size="lg">Editor</flux:subheading>
 
-        {{-- <flux:editor name="content" label="Content" description="Some content" /> --}}
+        <flux:editor name="content" label="Content" description="Some content" :value="old('content', request()->input('content'))" />
 
-        {{-- <flux:editor name="long-content">
+        <flux:editor name="long-content">
             <flux:editor.toolbar />
 
             <flux:editor.content>{!! request()->input('long-content') !!}</flux:editor.content>
@@ -88,9 +114,9 @@
             <flux:radio value="cc" label="Credit Card" :checked="request()->input('payment') ==='cc'" />
             <flux:radio value="paypal" label="Paypal" :checked="request()->input('payment') ==='paypal'" />
             <flux:radio value="ach" label="Bank transfer" :checked="request()->input('payment') ==='ach'" />
-        </flux:radio.group> --}}
+        </flux:radio.group>
 
-        {{-- <flux:radio.group name="role" label="Role" variant="segmented">
+        <flux:radio.group name="role" label="Role" variant="segmented">
             <flux:radio value="admin" label="Admin" :checked="request()->input('role') === 'admin'" />
             <flux:radio value="editor" label="Editor" :checked="request()->input('role') === 'editor'" />
             <flux:radio value="viewer" label="Viewer" :checked="request()->input('role') === 'viewer'" />
@@ -172,6 +198,16 @@
             <flux:select.option :selected="request()->input('industry-combobox') === 'Legal services'">Legal services</flux:select.option>
             <flux:select.option :selected="request()->input('industry-combobox') === 'Consulting'">Consulting</flux:select.option>
             <flux:select.option :selected="request()->input('industry-combobox') === 'Other'">Other</flux:select.option>
+        </flux:select>
+
+        <flux:select name="industry-combobox-values" variant="combobox" placeholder="Choose industry...">
+            <flux:select.option value="photography" :selected="request()->input('industry-combobox-values') === 'photography'">Photography</flux:select.option>
+            <flux:select.option value="design-services" :selected="request()->input('industry-combobox-values') === 'design-services'">Design services</flux:select.option>
+            <flux:select.option value="web-development" :selected="request()->input('industry-combobox-values') === 'web-development'">Web development</flux:select.option>
+            <flux:select.option value="accounting" :selected="request()->input('industry-combobox-values') === 'accounting'">Accounting</flux:select.option>
+            <flux:select.option value="legal-services" :selected="request()->input('industry-combobox-values') === 'legal-services'">Legal services</flux:select.option>
+            <flux:select.option value="consulting" :selected="request()->input('industry-combobox-values') === 'consulting'">Consulting</flux:select.option>
+            <flux:select.option value="other" :selected="request()->input('industry-combobox-values') === 'other'">Other</flux:select.option>
         </flux:select> --}}
 
         {{-- <flux:subheading size="lg">Switch</flux:subheading>
