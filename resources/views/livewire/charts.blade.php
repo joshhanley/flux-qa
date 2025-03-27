@@ -116,7 +116,7 @@ new class extends Component {
 
 
     {{-- <flux:chart wire:model="data" class="aspect-3/1"> --}}
-    <flux:chart :value="$this->theData" class="aspect-3/1">
+    {{-- <flux:chart :value="$this->theData" class="aspect-3/1">
         <flux:chart.svg class="border">
             <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
 
@@ -130,14 +130,14 @@ new class extends Component {
                 <flux:chart.axis.line />
             </flux:chart.axis>
         </flux:chart.svg>
-    </flux:chart>
+    </flux:chart> --}}
     {{-- <flux:chart :value="$this->data"> --}}
-    {{-- <flux:chart wire:model="data">
+    <flux:chart wire:model="data" curve="none">
         <flux:chart.viewport class="aspect-3/1">
             <flux:chart.svg class="border">
-                <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" />
+                <flux:chart.line field="visitors" class="text-pink-500 dark:text-pink-400" curve="none" />
                 <flux:chart.point field="visitors" class="text-pink-500 dark:text-pink-400" />
-                <flux:chart.line field="pageViews" class="text-blue-500 dark:text-blue-400" />
+                <flux:chart.line field="pageViews" class="text-blue-500 dark:text-blue-400" curve="none" />
                 <flux:chart.point field="pageViews" class="text-blue-500 dark:text-blue-400" />
 
                 <flux:chart.axis axis="x" field="date" tick-count="">
@@ -174,7 +174,7 @@ new class extends Component {
                 <flux:chart.legend.indicator class="bg-red-400" />
             </flux:chart.legend>
         </div>
-    </flux:chart> --}}
+    </flux:chart>
 
     {{-- <flux:chart :value="[1,4,7,9]">
         <flux:chart.viewport class="aspect-3/1">
