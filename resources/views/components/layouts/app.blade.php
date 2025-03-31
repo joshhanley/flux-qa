@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? str(request()->path())->headline() }}</title>
-
+{{-- 
     <style>
         ::-webkit-scrollbar {
           -webkit-appearance: none;
@@ -18,7 +18,7 @@
           background-color: rgba(0, 0, 0, .5);
           box-shadow: 0 0 1px rgba(255, 255, 255, .5);
         }
-    </style>
+    </style> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script>
         window.localStorage.setItem('flux.appearance', '{{ auth()->user()->color_scheme ?? 'system' }}')
