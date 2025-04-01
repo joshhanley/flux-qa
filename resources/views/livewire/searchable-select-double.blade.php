@@ -7,9 +7,15 @@ new class extends Component {
 }; ?>
 
 <div>
-    <button class="ml-4" onclick="document.getElementById('16').scrollIntoView({ block: 'nearest' })">Scroll to 16</button>
+    <flux:select variant="listbox" searchable>
+      @foreach (range(0, 20) as $value)
+        <flux:select.option :$value>{{ $value }}</flux:select.option>
+      @endforeach
+    </flux:select>
 
-    <div class="w-56 h-56 flex flex-col overflow-y-hidden" id="container">
+    {{-- <button class="ml-4" onclick="document.getElementById('16').scrollIntoView({ block: 'nearest' })">Scroll to 16</button>
+
+    <div class="w-56 max-h-56 flex flex-col overflow-y-hidden" id="container">
         <input class="border mx-2" />
 
         <div class="overflow-y-auto border" id="options">
@@ -60,11 +66,5 @@ new class extends Component {
             console.log('fullyVisible', option.getBoundingClientRect().top - options.getBoundingClientRect().top >= 0 && options.getBoundingClientRect().bottom - option.getBoundingClientRect().bottom >= 0)
         }
         console.log('fullyVisible', option.getBoundingClientRect().top - options.getBoundingClientRect().top >= 0 && options.getBoundingClientRect().bottom - option.getBoundingClientRect().bottom >= 0)
-    </script>
-
-    <flux:select variant="listbox" searchable>
-      @foreach (range(0, 20) as $value)
-        <flux:select.option :$value>{{ $value }}</flux:select.option>
-      @endforeach
-    </flux:select>
+    </script> --}}
 </div>
