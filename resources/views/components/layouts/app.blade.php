@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? str(request()->path())->headline() }}</title>
-{{-- 
+{{--
     <style>
         ::-webkit-scrollbar {
           -webkit-appearance: none;
@@ -24,11 +24,32 @@
         window.localStorage.setItem('flux.appearance', '{{ auth()->user()->color_scheme ?? 'system' }}')
     </script>
     @fluxAppearance()
+
+    {{-- <script type="module">
+        import Link from 'https://cdn.jsdelivr.net/npm/@tiptap/extension-link@2.11.7/+esm'
+        import Youtube from 'https://cdn.jsdelivr.net/npm/@tiptap/extension-youtube@2.11.7/+esm'
+
+        document.addEventListener('flux:editor', (e) => {
+            e.detail.addExtension(
+                Youtube.configure({
+                    controls: false,
+                    nocookie: true,
+                }),
+            )
+
+            e.detail.replaceExtension(Link.configure({
+                HTMLAttributes: {
+                  class: 'my-custom-class',
+                },
+            }))
+        })
+    </script> --}}
 </head>
 <body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
     {{ $slot }}
 
     @fluxScripts()
+
     <flux:toast />
 </body>
 

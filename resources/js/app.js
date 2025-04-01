@@ -14,3 +14,24 @@
 //     console.log('DOMContentLoaded-app.js')
 //     Livewire.start()
 // })
+
+// import Link from 'https://esm.sh/@tiptap/extension-link@2.11.7'
+// import Youtube from 'https://esm.sh/@tiptap/extension-youtube@2.11.7'
+
+import Link from '@tiptap/extension-link'
+import Youtube from '@tiptap/extension-youtube'
+
+document.addEventListener('flux:editor', (e) => {
+    e.detail.addExtension(
+        Youtube.configure({
+            controls: false,
+            nocookie: true,
+        }),
+    )
+
+    e.detail.replaceExtension(Link.configure({
+        HTMLAttributes: {
+          class: 'my-custom-class',
+        },
+    }))
+})
