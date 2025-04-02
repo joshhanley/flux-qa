@@ -22,14 +22,14 @@ import Link from '@tiptap/extension-link'
 import Youtube from '@tiptap/extension-youtube'
 
 document.addEventListener('flux:editor', (e) => {
-    e.detail.addExtension(
+    e.detail.registerExtension(
         Youtube.configure({
             controls: false,
             nocookie: true,
         }),
     )
 
-    e.detail.replaceExtension(Link.configure({
+    e.detail.registerExtension(Link.configure({
         HTMLAttributes: {
           class: 'my-custom-class',
         },

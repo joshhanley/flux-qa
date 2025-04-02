@@ -30,14 +30,14 @@
         import Youtube from 'https://cdn.jsdelivr.net/npm/@tiptap/extension-youtube@2.11.7/+esm'
 
         document.addEventListener('flux:editor', (e) => {
-            e.detail.addExtension(
+            e.detail.registerExtension(
                 Youtube.configure({
                     controls: false,
                     nocookie: true,
                 }),
             )
 
-            e.detail.replaceExtension(Link.configure({
+            e.detail.registerExtension(Link.configure({
                 HTMLAttributes: {
                   class: 'my-custom-class',
                 },
