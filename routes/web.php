@@ -5,6 +5,7 @@ use App\Http\Controllers\FluxInputsController;
 use App\Livewire\Exploit;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 use Livewire\Volt\Volt;
 
 /*
@@ -17,6 +18,14 @@ use Livewire\Volt\Volt;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Livewire::setUpdateRoute(function ($handle) {
+    return Route::post('/fluxqa.test/livewire/update', $handle);
+});
+
+Livewire::setScriptRoute(function ($handle) {
+    return Route::get('/fluxqa.test/livewire/livewire.js', $handle);
+});
 
 Route::get('exploit', Exploit::class);
 
