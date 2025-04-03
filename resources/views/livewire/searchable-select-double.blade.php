@@ -6,7 +6,7 @@ new class extends Component {
     //
 }; ?>
 
-<div>
+<div class="max-w-96">
     <flux:select variant="listbox" searchable>
       @foreach (range(0, 20) as $value)
         <flux:select.option :$value>{{ $value }}</flux:select.option>
