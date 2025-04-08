@@ -9,7 +9,27 @@
     <div id="hiddens"></div>
 
     <form action="/inputs" method="POST">
-        <input name="input" />
+        {{-- <input type="checkbox" name="checkbox" value="foo" />
+
+        <input type="radio" name="radio" value="foo" />
+
+        <input type="radio" name="radio" value="bar" />
+
+        <input type="radio" name="radio" value="baz" />
+
+        <select name="select">
+            <option value="">Placeholder</option>
+            <option value="1a">1</option>
+            <option>2</option>
+            <option value="3a">3</option>
+        </select>
+
+        <input type="date" name="date" />
+
+        <textarea name="textarea"></textarea> --}}
+
+
+        {{-- <input name="input" />
         <select name="select">
             <option value="1" disabled selected>1</option>
             <option value="2">2</option>
@@ -21,7 +41,7 @@
             <option value="3">3</option>
         </select>
         <textarea name="textarea"></textarea>
-        <input type="date" name="date" />
+        <input type="date" name="date" /> --}}
         @csrf
         {{-- <flux:subheading size="lg">Autocomplete</flux:subheading>
 
@@ -32,12 +52,12 @@
             <!-- ... -->
         </flux:autocomplete> --}}
 
-        {{-- <flux:subheading size="lg">Calendar</flux:subheading>
+        <flux:subheading size="lg">Calendar</flux:subheading>
 
-        <flux:calendar name="calendar" label="Calendar" :value="old('calendar', request()->input('calendar'))" />
+        {{-- <flux:calendar name="calendar" label="Calendar" :value="old('calendar', request()->input('calendar'))" /> --}}
         <flux:calendar name="calendarrange" mode="range" label="Calendar Range" :value="old('calendarrange', request()->input('calendarrange'))" />
-        <flux:calendar name="calendarmultiple" multiple label="Calendar Multiple" :value="old('calendarmultiple', request()->input('calendarmultiple'))" />
-        <flux:date-picker name="datepickerpreset" mode="range" label="Date Picker Preset" :value="old('datepickerpreset', request()->input('datepickerpreset'))" with-presets /> --}}
+        {{-- <flux:calendar name="calendarmultiple" multiple label="Calendar Multiple" :value="old('calendarmultiple', request()->input('calendarmultiple'))" /> --}}
+        {{-- <flux:date-picker name="datepickerpreset" mode="range" label="Date Picker Preset" :value="old('datepickerpreset', request()->input('datepickerpreset'))" with-presets /> --}}
 
         {{-- <flux:subheading size="lg">Checkbox</flux:subheading>
 
@@ -110,6 +130,12 @@
 
         {{-- <flux:subheading size="lg">Radio</flux:subheading>
 
+        <flux:radio.group name="paymentChecked" label="Select your payment method">
+            <flux:radio value="cc" label="Credit Card" />
+            <flux:radio value="paypal" label="Paypal" checked />
+            <flux:radio value="ach" label="Bank transfer" />
+        </flux:radio.group>
+
         <flux:radio.group name="payment" label="Select your payment method">
             <flux:radio value="cc" label="Credit Card" :checked="request()->input('payment') ==='cc'" />
             <flux:radio value="paypal" label="Paypal" :checked="request()->input('payment') ==='paypal'" />
@@ -128,9 +154,19 @@
             <flux:radio value="next-day" label="Next day" description="1 business day" :checked="request()->input('shipping') === 'next-day'" />
         </flux:radio.group> --}}
 
-        {{-- <flux:subheading size="lg">Select</flux:subheading>
+        {{-- <flux:subheading size="lg">Select</flux:subheading> --}}
 
-        <flux:select name="industry-default" placeholder="Choose industry...">
+        {{-- <select name="industry-default1" placeholder="Choose industry...">
+            <option value="" disabled selected>Choose industry...</option>
+            <option :selected="request()->input('industry-default') === 'Photography'">Photography</option>
+            <option :selected="request()->input('industry-default') === 'Design services'">Design services</option>
+            <option :selected="request()->input('industry-default') === 'Web development'">Web development</option>
+            <option :selected="request()->input('industry-default') === 'Accounting'">Accounting</option>
+            <option :selected="request()->input('industry-default') === 'Legal services'">Legal services</option>
+            <option :selected="request()->input('industry-default') === 'Consulting'">Consulting</option>
+            <option :selected="request()->input('industry-default') === 'Other'">Other</option>
+        </select> --}}
+        {{-- <flux:select name="industry-default" placeholder="Choose industry...">
             <flux:select.option :selected="request()->input('industry-default') === 'Photography'">Photography</flux:select.option>
             <flux:select.option :selected="request()->input('industry-default') === 'Design services'">Design services</flux:select.option>
             <flux:select.option :selected="request()->input('industry-default') === 'Web development'">Web development</flux:select.option>
@@ -180,6 +216,16 @@
             <flux:select.option :selected="request()->input('industry-searchable') === 'Other'">Other</flux:select.option>
         </flux:select>
 
+        <select name="industry-multiple2" variant="listbox" multiple placeholder="Choose industries...">
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Photography', request()->input('industry-multiple2'))">Photography</option>
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Design services', request()->input('industry-multiple2'))">Design services</option>
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Web development', request()->input('industry-multiple2'))">Web development</option>
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Accounting', request()->input('industry-multiple2'))">Accounting</option>
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Legal services', request()->input('industry-multiple2'))">Legal services</option>
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Consulting', request()->input('industry-multiple2'))">Consulting</option>
+            <option :selected="is_array(request()->input('industry-multiple2')) && in_array('Other', request()->input('industry-multiple2'))">Other</option>
+        </select>
+
         <flux:select name="industry-multiple" variant="listbox" multiple placeholder="Choose industries...">
             <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Photography', request()->input('industry-multiple'))">Photography</flux:select.option>
             <flux:select.option :selected="is_array(request()->input('industry-multiple')) && in_array('Design services', request()->input('industry-multiple'))">Design services</flux:select.option>
@@ -212,7 +258,8 @@
 
         {{-- <flux:subheading size="lg">Switch</flux:subheading>
 
-        <flux:switch name="enable-notifications" label="Enable notifications" :checked="request()->input('enable-notifications')" /> --}}
+        <flux:switch name="enable-notifications" label="Enable notifications" :checked="request()->input('enable-notifications') === 'on'" />
+        <flux:switch name="enable-notifications2" label="Enable notifications" value="testing" :checked="request()->input('enable-notifications2') === 'testing'" /> --}}
 
         {{-- <flux:subheading size="lg">Textarea</flux:subheading>
 
