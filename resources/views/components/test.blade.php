@@ -4,6 +4,8 @@
     'parameter' => '',
 ])
 
+@ray($parameter)
+
 <div class="flex gap-2">
     <div class="flex-auto">
         <flux:button
