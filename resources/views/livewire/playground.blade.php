@@ -1,22 +1,18 @@
 <?php
 
-use Livewire\Attributes\Url;
+use App\Models\User;
+use Flux\Flux;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Volt\Component;
 
-new class extends Component {
-    #[Validate('required')]
-    public $test = '';
-
-    public function save()
-    {
-        $this->validate();
-    }
-}; ?>
+new class extends Component
+{
+    
+};
+?>
 
 <div>
-    Parent: {{ $test }}
-    <flux:input label="Test" wire:model.live="test" />
-    <livewire:modelable wire:model="test" />
-    <flux:button wire:click="save">Save</flux:button>
+    
 </div>
