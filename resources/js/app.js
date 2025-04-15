@@ -122,7 +122,7 @@ document.addEventListener('flux:editor', (e) => {
             if (!component) return;
 
             let placeholderSrc = 'https://placehold.co/50x50'
-            let id = 'tiptap-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+            let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 
             editor
                 .chain()
@@ -138,84 +138,44 @@ document.addEventListener('flux:editor', (e) => {
             $wire.uploadMultiple(
                 'images',
                 files,
-                async filenames => {
-                    console.log('filenames', filenames)
-
+                async () => {
+                    // Once the upload is finished, we need to save the images to a publically accessible location...
                     let response = await $wire.saveImages()
+                    let foundNode = null
+                    let pos = null
 
-                    console.log('response', response)
+                    editor.state.doc.descendants((node, posHere) => {
+                        if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
+                            foundNode = node
+                            pos = posHere
+                            return false
+                        }
+                        return true
+                    })
 
-                    let pos = findPlaceholderImagePos(editor, id)
+                    if (!foundNode || !pos) return
 
-                    console.log('pos', pos)
+                    // If there are no images, just delete the placeholder image...
+                    if (!response || response.length === 0) {
+                        editor.chain().focus().deleteRange({ from: pos, to: pos + foundNode.nodeSize }).run()
 
-                    if (pos) {
-                        replaceImagesAtPos(editor, pos, response)
+                        return
                     }
+
+                    let images = response.map(src => ({
+                        type: 'image',
+                        attrs: { src }
+                    }))
+
+                    editor.chain().focus().insertContentAt({ from: pos, to: pos + foundNode.nodeSize }, images).run()
                 },
-                () =>  {
-                    console.log('error')
-                },
-                event => {
-                    console.log('progress', event)
-                },
-                () => {
-                    console.log('cancelled')
-                }
+                () => console.log('error'),
+                event => console.log('progress', event),
+                () => console.log('cancelled')
             )
         },
         onDrop: (editor, files, pos) => {
             console.log('onDrop', files, pos)
         },
     }))
-
-    // e.detail.initializeToolbarButton((editor, toolbar, setActiveState) => {
-    //     console.log('FileHandler toolbar button')
-
-    //     setActiveState(() => {
-    //         console.log('FileHandler active state')
-    //     })
-    // })
 })
-
-function findPlaceholderImagePos(editor, id) {
-    let pos = null
-
-    editor.state.doc.descendants((node, posHere) => {
-        console.log('node', node)
-      if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
-        pos = posHere
-        return false
-      }
-      return true
-    })
-
-    return pos
-}
-
-  function replaceImagesAtPos(editor, pos, srcs) {
-
-    let node = editor.state.doc.nodeAt(pos)
-    if (!node || node.type.name !== 'image') return
-
-    let nodeSize = node.nodeSize
-
-    console.log('nodeSize', nodeSize)
-
-    let images = []
-
-    for (let src of srcs) {
-        images.push({
-            type: 'image',
-            attrs: { src: src },
-        })
-    }
-
-    editor
-      .chain()
-      .focus()
-    //   .deleteRange({ from: pos, to: pos + nodeSize })
-    //   .insertContentAt(pos, images)
-      .insertContentAt({ from: pos, to: pos + node.nodeSize }, images)
-      .run()
-  }
