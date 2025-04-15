@@ -142,22 +142,22 @@ document.addEventListener('flux:editor', (e) => {
                     // Once the upload is finished, we need to save the images to a publically accessible location...
                     let response = await $wire.saveImages()
                     let foundNode = null
-                    let pos = null
+                    let nodePos = null
 
                     editor.state.doc.descendants((node, posHere) => {
                         if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
                             foundNode = node
-                            pos = posHere
+                            nodePos = posHere
                             return false
                         }
                         return true
                     })
 
-                    if (!foundNode || !pos) return
+                    if (foundNode === null || nodePos === null) return
 
                     // If there are no images, just delete the placeholder image...
                     if (!response || response.length === 0) {
-                        editor.chain().focus().deleteRange({ from: pos, to: pos + foundNode.nodeSize }).run()
+                        editor.chain().focus().deleteRange({ from: nodePos, to: nodePos + foundNode.nodeSize }).run()
 
                         return
                     }
@@ -167,7 +167,7 @@ document.addEventListener('flux:editor', (e) => {
                         attrs: { src }
                     }))
 
-                    editor.chain().focus().insertContentAt({ from: pos, to: pos + foundNode.nodeSize }, images).run()
+                    editor.chain().focus().insertContentAt({ from: nodePos, to: nodePos + foundNode.nodeSize }, images).run()
                 },
                 () => console.log('error'),
                 event => console.log('progress', event),
@@ -175,7 +175,63 @@ document.addEventListener('flux:editor', (e) => {
             )
         },
         onDrop: (editor, files, pos) => {
-            console.log('onDrop', files, pos)
+            let editorEl = editor.options.element
+
+            if (!editorEl) return
+
+            let component = editorEl.closest('[wire\\:id]')?.__livewire
+
+            if (!component) return
+
+            let placeholderSrc = 'https://placehold.co/50x50'
+            let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+
+            editor
+                .chain()
+                .focus()
+                .insertContentAt(pos, {
+                    type: 'image',
+                    attrs: { src: placeholderSrc, 'data-upload-id': id },
+                })
+                .run()
+
+            let $wire = component.$wire
+
+            $wire.uploadMultiple(
+                'images',
+                files,
+                async () => {
+                    let response = await $wire.saveImages()
+                    let foundNode = null
+                    let nodePos = null
+
+                    editor.state.doc.descendants((node, posHere) => {
+                        if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
+                            foundNode = node
+                            nodePos = posHere
+                            return false
+                        }
+                        return true
+                    })
+
+                    if (foundNode === null || nodePos === null) return
+
+                    if (!response || response.length === 0) {
+                        editor.chain().focus().deleteRange({ from: nodePos, to: nodePos + foundNode.nodeSize }).run()
+                        return
+                    }
+
+                    let images = response.map(src => ({
+                        type: 'image',
+                        attrs: { src }
+                    }))
+
+                    editor.chain().focus().insertContentAt({ from: nodePos, to: nodePos + foundNode.nodeSize }, images).run()
+                },
+                () => console.log('error'),
+                event => console.log('progress', event),
+                () => console.log('cancelled')
+            )
         },
     }))
 })

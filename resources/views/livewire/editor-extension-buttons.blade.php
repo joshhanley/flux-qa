@@ -32,9 +32,9 @@ new class extends Component {
     <p>https://placehold.co/800x400</p>
     <p>https://placehold.co/800x400/6A00F5/white</p>
 
-    <div>
+    {{-- <div>
         @foreach ($images as $image)
             <img src="{{ $image->temporaryUrl() }}" />{{ $image->temporaryUrl() }}
         @endforeach
-    </div>
+    </div> --}}
 </div>
