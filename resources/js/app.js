@@ -107,8 +107,6 @@ document.addEventListener('flux:editor', (e) => {
     e.detail.registerExtension(FileHandler.configure({
         // allowedMimeTypes: [],
         onPaste: (editor, files, htmlContent) => {
-            console.log('onPaste', editor.options.element, files, htmlContent)
-
             let editorEl = editor.options.element
 
             if (!editorEl) return;
