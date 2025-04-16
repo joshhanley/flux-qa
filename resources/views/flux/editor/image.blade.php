@@ -1,5 +1,8 @@
-
-<flux:dropdown position="bottom center" data-editor="image" class="contents">
+<flux:dropdown
+    position="bottom center"
+    data-editor="image"
+    class="contents"
+>
     <flux:tooltip content="{{ __('Insert image') }}" kbd="⌘K" class="contents">
         <flux:editor.button data-match-target>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -14,15 +17,39 @@
 
             <div class="flex gap-2 items-center">
                 <flux:tooltip content="{{ __('Insert image') }}" class="contents">
-                    <button 
-                    {{-- x-on:click="
-                        let editor = $el.closest('ui-editor')?.editor;
-                        let input = $el.closest('[data-flux-editor-image]')?.querySelector('input');
-                        if (!editor || !input) return;
-                        let url = input.value;
-                        editor.chain().focus().setImage({ src: url }).run();
-                        input.value = '';
-                    " --}}
+                    <button
+                        x-init="
+                            let editor = $el.closest('ui-editor')?.editor;
+                            let input = $el.closest(`[data-editor='image']`)?.querySelector(`[data-editor='image:url']`)
+                            let toolbarButton = $el.closest(`[data-editor='image']`)?.querySelector(`button[data-match-target]`);
+
+                            let setActiveState = () => {
+                                if (input && toolbarButton) {
+                                    if (editor.isActive('image')) {
+                                        toolbarButton && toolbarButton.setAttribute('data-match', '')
+
+                                        let attrs = editor.getAttributes('image')
+                                        input.value = attrs.src || ''
+                                    } else {
+                                        toolbarButton && toolbarButton.removeAttribute('data-match')
+                                        input.value = ''
+                                    }
+                                }
+                            }
+
+                            editor?.on('transaction', setActiveState)
+                            editor?.on('selectionUpdate', setActiveState)
+                        "
+                        x-on:click="
+                            let editor = $el.closest('ui-editor')?.editor;
+                            let input = $el.closest('[data-flux-editor-image]')?.querySelector(`[data-editor='image:url']`);
+
+                            if (!editor || !input || input.value === '') return;
+
+                            let url = input.value;
+                            editor.chain().focus().setImage({ src: url }).run();
+                            input.value = '';
+                        "
                     type="button" data-editor="image:insert" class="p-0.5 text-sm font-medium text-zinc-400 rounded-sm [[data-flux-editor-image]:not(:has(input:placeholder-shown))_&:hover]:bg-zinc-200 dark:[[data-flux-editor-image]:not(:has(input:placeholder-shown))_&:hover]:bg-white/10 [[data-flux-editor-image]:not(:has(input:placeholder-shown))_&]:text-zinc-800 dark:[[data-flux-editor-image]:not(:has(input:placeholder-shown))_&]:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0" aria-hidden="true"> <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" /> </svg> <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /> </svg>
                     </button>
