@@ -178,7 +178,7 @@
 //         },
 //     }))
 
-//     e.detail.initializeToolbarButton((editor, toolbar, setActiveState) => {
+//     e.detail.initializeToolbarButton(({editor, toolbar, setActiveState}) => {
 //         if (toolbar.querySelector('[data-editor="image"]')) {
 //             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => {
 //                 if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
@@ -242,7 +242,7 @@
 
 //             if (!component) return;
 
-//             let placeholderSrc = 'https://placehold.co/50x50'
+//             let placeholderSrc = 'https://placehold.co/100x50?text=Uploading...'
 //             let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 
 //             editor
@@ -304,7 +304,7 @@
 
 //             if (!component) return
 
-//             let placeholderSrc = 'https://placehold.co/50x50'
+//             let placeholderSrc = 'https://placehold.co/100x50?text=Uploading...'
 //             let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 
 //             editor
