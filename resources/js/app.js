@@ -163,196 +163,196 @@
 
 
 // --- WORKING IMPLEMENTATION OF IMAGES WITH EDITOR EXTENSION -- //
-// import Image from '@tiptap/extension-image'
-// import FileHandler from '@tiptap-pro/extension-file-handler'
+import Image from '@tiptap/extension-image'
+import FileHandler from '@tiptap-pro/extension-file-handler'
 
-// document.addEventListener('flux:editor', (e) => {
-//     e.detail.registerExtension(Image.extend({
-//         addAttributes() {
-//             return {
-//                 ...this.parent?.(),
-//                 'data-upload-id': {
-//                     default: undefined,
-//                 },
-//             }
-//         },
-//     }))
+document.addEventListener('flux:editor', (e) => {
+    e.detail.registerExtension(Image.extend({
+        addAttributes() {
+            return {
+                ...this.parent?.(),
+                'data-upload-id': {
+                    default: undefined,
+                },
+            }
+        },
+    }))
 
-//     e.detail.initializeToolbarButton(({editor, toolbar, setActiveState}) => {
-//         if (toolbar.querySelector('[data-editor="image"]')) {
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => {
-//                 if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
-//                     e.stopPropagation();
-//                 }
-//             })
+    e.detail.initializeToolbarButton(({editor, toolbar, setActiveState}) => {
+        if (toolbar.querySelector('[data-editor="image"]')) {
+            toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => {
+                if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
+                    e.stopPropagation();
+                }
+            })
 
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('input', e => e.stopPropagation())
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('change', e => e.stopPropagation())
+            toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('input', e => e.stopPropagation())
+            toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('change', e => e.stopPropagation())
 
-//             let insertImage = () => {
-//                 let url = toolbar.querySelector('[data-editor="image:url"]')?.value?.trim();
+            let insertImage = () => {
+                let url = toolbar.querySelector('[data-editor="image:url"]')?.value?.trim();
 
-//                 if (!url) return;
+                if (!url) return;
 
-//                 editor.chain().focus().setImage({ src: url }).run();
+                editor.chain().focus().setImage({ src: url }).run();
 
-//                 if (toolbar.querySelector('[data-editor="image:url"]')) {
-//                     toolbar.querySelector('[data-editor="image:url"]').value = '';
-//                 }
-//             }
+                if (toolbar.querySelector('[data-editor="image:url"]')) {
+                    toolbar.querySelector('[data-editor="image:url"]').value = '';
+                }
+            }
 
-//             toolbar.querySelector('[data-editor="image:insert"]')?.addEventListener('click', insertImage)
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
+            toolbar.querySelector('[data-editor="image:insert"]')?.addEventListener('click', insertImage)
+            toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
 
-//         }
+        }
 
-//         setActiveState(() => {
-//             let imageInput = toolbar.querySelector('[data-editor="image:url"]')
+        setActiveState(() => {
+            let imageInput = toolbar.querySelector('[data-editor="image:url"]')
 
-//             if (imageInput) {
-//                 let imageButton = toolbar.querySelector('[data-editor="image"] [data-match-target]')
+            if (imageInput) {
+                let imageButton = toolbar.querySelector('[data-editor="image"] [data-match-target]')
 
-//                 if (editor.isActive('image')) {
-//                     imageButton && imageButton.setAttribute('data-match', '')
+                if (editor.isActive('image')) {
+                    imageButton && imageButton.setAttribute('data-match', '')
 
-//                     let attrs = editor.getAttributes('image')
-//                     imageInput.value = attrs.src || ''
-//                 } else {
-//                     imageButton && imageButton.removeAttribute('data-match')
-//                     imageInput.value = ''
-//                 }
-//             }
-//         })
-//     })
-// })
+                    let attrs = editor.getAttributes('image')
+                    imageInput.value = attrs.src || ''
+                } else {
+                    imageButton && imageButton.removeAttribute('data-match')
+                    imageInput.value = ''
+                }
+            }
+        })
+    })
+})
 
-// document.addEventListener('flux:editor', (e) => {
-//     e.detail.registerExtension(FileHandler.configure({
-//         // allowedMimeTypes: [],
-//         onPaste: (editor, files, htmlContent) => {
-//             let editorEl = editor.options.element
+document.addEventListener('flux:editor', (e) => {
+    e.detail.registerExtension(FileHandler.configure({
+        // allowedMimeTypes: [],
+        onPaste: (editor, files, htmlContent) => {
+            let editorEl = editor.options.element
 
-//             if (!editorEl) return;
+            if (!editorEl) return;
 
-//             // If there is htmlContent, stop manual insertion & let other extensions handle insertion via inputRule
-//             // you could extract the pasted file from this url string and upload it to a server for example...
-//             if (htmlContent) return
+            // If there is htmlContent, stop manual insertion & let other extensions handle insertion via inputRule
+            // you could extract the pasted file from this url string and upload it to a server for example...
+            if (htmlContent) return
 
-//             let component = editorEl.closest('[wire\\:id]')?.__livewire
+            let component = editorEl.closest('[wire\\:id]')?.__livewire
 
-//             if (!component) return;
+            if (!component) return;
 
-//             let placeholderSrc = 'https://placehold.co/100x50?text=Uploading...'
-//             let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+            let placeholderSrc = 'https://placehold.co/100x50?text=Uploading...'
+            let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 
-//             editor
-//                 .chain()
-//                 .focus()
-//                 .insertContent({
-//                 type: 'image',
-//                 attrs: { src: placeholderSrc, 'data-upload-id': id },
-//                 })
-//                 .run()
+            editor
+                .chain()
+                .focus()
+                .insertContent({
+                type: 'image',
+                attrs: { src: placeholderSrc, 'data-upload-id': id },
+                })
+                .run()
 
-//             let $wire = component.$wire
+            let $wire = component.$wire
 
-//             $wire.uploadMultiple(
-//                 'images',
-//                 files,
-//                 async () => {
-//                     // Once the upload is finished, we need to save the images to a publically accessible location...
-//                     let response = await $wire.saveImages()
-//                     let foundNode = null
-//                     let nodePos = null
+            $wire.uploadMultiple(
+                'images',
+                files,
+                async () => {
+                    // Once the upload is finished, we need to save the images to a publically accessible location...
+                    let response = await $wire.saveImages()
+                    let foundNode = null
+                    let nodePos = null
 
-//                     editor.state.doc.descendants((node, posHere) => {
-//                         if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
-//                             foundNode = node
-//                             nodePos = posHere
-//                             return false
-//                         }
-//                         return true
-//                     })
+                    editor.state.doc.descendants((node, posHere) => {
+                        if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
+                            foundNode = node
+                            nodePos = posHere
+                            return false
+                        }
+                        return true
+                    })
 
-//                     if (foundNode === null || nodePos === null) return
+                    if (foundNode === null || nodePos === null) return
 
-//                     // If there are no images, just delete the placeholder image...
-//                     if (!response || response.length === 0) {
-//                         editor.chain().focus().deleteRange({ from: nodePos, to: nodePos + foundNode.nodeSize }).run()
+                    // If there are no images, just delete the placeholder image...
+                    if (!response || response.length === 0) {
+                        editor.chain().focus().deleteRange({ from: nodePos, to: nodePos + foundNode.nodeSize }).run()
 
-//                         return
-//                     }
+                        return
+                    }
 
-//                     let images = response.map(src => ({
-//                         type: 'image',
-//                         attrs: { src }
-//                     }))
+                    let images = response.map(src => ({
+                        type: 'image',
+                        attrs: { src }
+                    }))
 
-//                     editor.chain().focus().insertContentAt({ from: nodePos, to: nodePos + foundNode.nodeSize }, images).run()
-//                 },
-//                 () => console.log('error'),
-//                 event => console.log('progress', event),
-//                 () => console.log('cancelled')
-//             )
-//         },
-//         onDrop: (editor, files, pos) => {
-//             let editorEl = editor.options.element
+                    editor.chain().focus().insertContentAt({ from: nodePos, to: nodePos + foundNode.nodeSize }, images).run()
+                },
+                () => console.log('error'),
+                event => console.log('progress', event),
+                () => console.log('cancelled')
+            )
+        },
+        onDrop: (editor, files, pos) => {
+            let editorEl = editor.options.element
 
-//             if (!editorEl) return
+            if (!editorEl) return
 
-//             let component = editorEl.closest('[wire\\:id]')?.__livewire
+            let component = editorEl.closest('[wire\\:id]')?.__livewire
 
-//             if (!component) return
+            if (!component) return
 
-//             let placeholderSrc = 'https://placehold.co/100x50?text=Uploading...'
-//             let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+            let placeholderSrc = 'https://placehold.co/100x50?text=Uploading...'
+            let id = 'editor-image-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 
-//             editor
-//                 .chain()
-//                 .focus()
-//                 .insertContentAt(pos, {
-//                     type: 'image',
-//                     attrs: { src: placeholderSrc, 'data-upload-id': id },
-//                 })
-//                 .run()
+            editor
+                .chain()
+                .focus()
+                .insertContentAt(pos, {
+                    type: 'image',
+                    attrs: { src: placeholderSrc, 'data-upload-id': id },
+                })
+                .run()
 
-//             let $wire = component.$wire
+            let $wire = component.$wire
 
-//             $wire.uploadMultiple(
-//                 'images',
-//                 files,
-//                 async () => {
-//                     let response = await $wire.saveImages()
-//                     let foundNode = null
-//                     let nodePos = null
+            $wire.uploadMultiple(
+                'images',
+                files,
+                async () => {
+                    let response = await $wire.saveImages()
+                    let foundNode = null
+                    let nodePos = null
 
-//                     editor.state.doc.descendants((node, posHere) => {
-//                         if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
-//                             foundNode = node
-//                             nodePos = posHere
-//                             return false
-//                         }
-//                         return true
-//                     })
+                    editor.state.doc.descendants((node, posHere) => {
+                        if (node.type.name === 'image' && node.attrs['data-upload-id'] === id) {
+                            foundNode = node
+                            nodePos = posHere
+                            return false
+                        }
+                        return true
+                    })
 
-//                     if (foundNode === null || nodePos === null) return
+                    if (foundNode === null || nodePos === null) return
 
-//                     if (!response || response.length === 0) {
-//                         editor.chain().focus().deleteRange({ from: nodePos, to: nodePos + foundNode.nodeSize }).run()
-//                         return
-//                     }
+                    if (!response || response.length === 0) {
+                        editor.chain().focus().deleteRange({ from: nodePos, to: nodePos + foundNode.nodeSize }).run()
+                        return
+                    }
 
-//                     let images = response.map(src => ({
-//                         type: 'image',
-//                         attrs: { src }
-//                     }))
+                    let images = response.map(src => ({
+                        type: 'image',
+                        attrs: { src }
+                    }))
 
-//                     editor.chain().focus().insertContentAt({ from: nodePos, to: nodePos + foundNode.nodeSize }, images).run()
-//                 },
-//                 () => console.log('error'),
-//                 event => console.log('progress', event),
-//                 () => console.log('cancelled')
-//             )
-//         },
-//     }))
-// })
+                    editor.chain().focus().insertContentAt({ from: nodePos, to: nodePos + foundNode.nodeSize }, images).run()
+                },
+                () => console.log('error'),
+                event => console.log('progress', event),
+                () => console.log('cancelled')
+            )
+        },
+    }))
+})
