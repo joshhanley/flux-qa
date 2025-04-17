@@ -1,4 +1,3 @@
-<ui-image-button>
 <flux:dropdown
     position="bottom center"
     data-editor="image"
@@ -26,4 +25,3 @@
         </div>
     </div>
 </flux:dropdown>
-</ui-image-button>
