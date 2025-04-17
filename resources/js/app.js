@@ -109,7 +109,6 @@ import Image from '@tiptap/extension-image'
 document.addEventListener('flux:editor', (e) => {
     e.detail.registerExtension(Image)
 
-    let UIEditorButton = e.detail.UIEditorButton
     class UIImageButton extends UIEditorButton {
         initialize() {
             this.input = this.querySelector('input[data-editor="image:url"]')
