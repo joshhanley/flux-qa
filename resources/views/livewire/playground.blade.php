@@ -2,6 +2,7 @@
 
 use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\SupportFileUploads;
 
 new class extends Component
 {
@@ -9,6 +10,19 @@ new class extends Component
 
     public $content = '';
     public $images = [];
+
+    public static function saveEditorImages(
+        #[SupportFileUploads] $images
+    )
+    {
+        $imageUrls = [];
+
+        foreach ($images as $image) {
+            $imageUrls[] = $image->store('images', 'public');
+        }
+
+        return $imageUrls;
+    }
 
     public function saveImages()
     {
