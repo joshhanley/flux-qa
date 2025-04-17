@@ -104,60 +104,60 @@
 // --- END OF BASIC IMAGE IMPLEMENTATION WITH TOOLBAR BUTTON -- //
 
 // -- BASIC IMAGE IMPLEMENTATION WITH TOOLBAR BUTTON ELEMENT -- //
-import Image from '@tiptap/extension-image'
+// import Image from '@tiptap/extension-image'
 
-document.addEventListener('flux:editor', (e) => {
-    e.detail.registerExtension(Image)
+// document.addEventListener('flux:editor', (e) => {
+//     e.detail.registerExtension(Image)
 
-    class UIImageButton extends UIEditorButton {
-        initialize() {
-            this.input = this.querySelector('input[data-editor="image:url"]')
-            this.button = this.querySelector('button[data-match-target]')
-            this.insertButton = this.querySelector('button[data-editor="image:insert"]')
+//     class UIImageButton extends UIEditorButton {
+//         initialize() {
+//             this.input = this.querySelector('input[data-editor="image:url"]')
+//             this.button = this.querySelector('button[data-match-target]')
+//             this.insertButton = this.querySelector('button[data-editor="image:insert"]')
 
-            if (! this.button || ! this.input) return
+//             if (! this.button || ! this.input) return
 
-            this.input.addEventListener('keydown', e => {
-                if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
-                    e.stopPropagation();
-                }
-            })
-            this.input.addEventListener('input', e => e.stopPropagation())
-            this.input.addEventListener('change', e => e.stopPropagation())
-            this.input.addEventListener('keydown', e => ['Enter'].includes(e.key) && this.insertImage())
+//             this.input.addEventListener('keydown', e => {
+//                 if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
+//                     e.stopPropagation();
+//                 }
+//             })
+//             this.input.addEventListener('input', e => e.stopPropagation())
+//             this.input.addEventListener('change', e => e.stopPropagation())
+//             this.input.addEventListener('keydown', e => ['Enter'].includes(e.key) && this.insertImage())
 
-            this.insertButton.addEventListener('click', () => this.insertImage())
-        }
+//             this.insertButton.addEventListener('click', () => this.insertImage())
+//         }
 
-        insertImage() {
-            let url = this.input.value?.trim();
+//         insertImage() {
+//             let url = this.input.value?.trim();
 
-            if (url === '') return;
+//             if (url === '') return;
 
-            this.editor.chain().focus().setImage({ src: url }).run();
+//             this.editor.chain().focus().setImage({ src: url }).run();
 
-            this.input.value = '';
-        }
+//             this.input.value = '';
+//         }
 
-        isActive() {
-            return this.editor.isActive('image')
-        }
+//         isActive() {
+//             return this.editor.isActive('image')
+//         }
 
-        activate() {
-            this.button.setAttribute('data-match', '')
+//         activate() {
+//             this.button.setAttribute('data-match', '')
 
-            let attrs = this.editor.getAttributes('image')
-            this.input.value = attrs.src || ''
-        }
+//             let attrs = this.editor.getAttributes('image')
+//             this.input.value = attrs.src || ''
+//         }
 
-        deactivate() {
-            this.button.removeAttribute('data-match')
-            this.input.value = ''
-        }
-    }
+//         deactivate() {
+//             this.button.removeAttribute('data-match')
+//             this.input.value = ''
+//         }
+//     }
 
-    customElements.define(`ui-image-button`, UIImageButton)
-})
+//     customElements.define(`ui-image-button`, UIImageButton)
+// })
 // --- END OF BASIC IMAGE IMPLEMENTATION WITH TOOLBAR BUTTON ELEMENT -- //
 
 
