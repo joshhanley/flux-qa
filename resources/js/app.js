@@ -264,7 +264,14 @@ let uploadImages = (editor, files, pos) => {
         files,
         async () => {
             // Once the upload is finished, we need to save the images to a publically accessible location...
-            let imageUrls = await $wire.saveImages()
+            console.log(files)
+
+            let formData = new FormData()
+            files.forEach(file => {
+                formData.append('images[]', file)
+            })
+
+            let imageUrls = await $wire.uploadIt({files: formData})
 
             replacePlaceholder(editor, id, imageUrls)
         },

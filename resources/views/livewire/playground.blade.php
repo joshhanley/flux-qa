@@ -11,6 +11,15 @@ new class extends Component
     public $content = '';
     public $images = [];
 
+    public function uploadIt(
+        $files
+    )
+    {
+        ray($files);
+
+        return 'bob';
+    }
+
     public static function saveEditorImages(
         #[SupportFileUploads] $images
     )
@@ -40,5 +49,5 @@ new class extends Component
 ?>
 
 <div>
-    <flux:editor wire:model.live="content" toolbar="heading | bold italic strike | bullet ordered blockquote | link | align | image" />
+    <flux:editor wire:model.live="content" toolbar="heading | bold italic strike | bullet ordered blockquote | link | align | image" class="[&_[data-slot=content]]:min-h-[100px]" />
 </div>
