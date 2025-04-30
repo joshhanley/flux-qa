@@ -7,7 +7,10 @@
 @source "../views";
 
 /* Enable Tailwind's dark mode class selector */
-@custom-variant dark (&:where(.dark, .dark *));
+/* This is just all dark mode */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+/* This allows a section to be light while the rest of the page is dark */
+@custom-variant dark (&:where(.dark, .dark *):not(.light *));
 
 @theme {
     --font-sans: Inter, sans-serif;

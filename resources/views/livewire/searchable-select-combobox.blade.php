@@ -21,13 +21,16 @@ new class extends Component {
 <div>
     <flux:select wire:model="userId" variant="combobox" :filter="false">
         <x-slot name="input">
-            <flux:select.input wire:model.live="search" />
+            <flux:select.input wire:model.live="search" clearable />
         </x-slot>
 
         @foreach ($this->users as $user)
-            <flux:select.option value="{{ $user->id }}">
-                {{ $user->name }}
-            </flux:select.option>
+            <flux:select.option.variants.custom value="{{ $user->id }}" label="{{ $user->name }}">
+                <div>
+                    <p>{{ $user->name }}</p>
+                    <p class="text-sm text-gray-500">{{ $user->email }}</p>
+                </div>
+            </flux:select.option.variants.custom>
         @endforeach
     </flux:select>
 </div>
