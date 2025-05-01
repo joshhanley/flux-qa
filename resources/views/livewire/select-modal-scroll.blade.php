@@ -53,11 +53,11 @@ new class extends Component {
 
     <flux:modal name="edit-profile" variant="flyout">
         <flux:select variant="listbox" searchable class="mt-6">
-            <flux:option value="all">All Changes</flux:option>
-            <flux:option value="active">Active Items</flux:option>
-            <flux:option value="created">Added Items</flux:option>
-            <flux:option value="deleted1">Deleted Items</flux:option>
-            <flux:option value="deleted2">Deleted Items</flux:option>
+            <flux:select.option value="all">All Changes</flux:select.option>
+            <flux:select.option value="active">Active Items</flux:select.option>
+            <flux:select.option value="created">Added Items</flux:select.option>
+            <flux:select.option value="deleted1">Deleted Items</flux:select.option>
+            <flux:select.option value="deleted2">Deleted Items</flux:select.option>
         </flux:select>
     </flux:modal>
 </div>

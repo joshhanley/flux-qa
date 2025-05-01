@@ -64,31 +64,31 @@ new class extends Component {
         <flux:select wire:model.live="userId" label="User" custom disabled>
             <flux:select.trigger placeholder="Choose user..." />
 
-            <flux:options>
+            <flux:select.options>
                 @foreach ($this->users as $user)
-                    <flux:option value="{{ $user->id }}">{{ $user->name }}</flux:option>
+                    <flux:select.option value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
                 @endforeach
-            </flux:options>
+            </flux:select.options>
         </flux:select>
 
         <flux:select wire:model.live="userId" label="User2" custom>
             <flux:select.trigger placeholder="Choose user..." disabled />
 
-            <flux:options>
+            <flux:select.options>
                 @foreach ($this->users as $user)
-                    <flux:option value="{{ $user->id }}">{{ $user->name }}</flux:option>
+                    <flux:select.option value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
                 @endforeach
-            </flux:options>
+            </flux:select.options>
         </flux:select>
 
         <flux:select wire:model.live="userId" label="User3" custom disabled>
             <flux:select.trigger placeholder="Choose user..." disabled />
 
-            <flux:options>
+            <flux:select.options>
                 @foreach ($this->users as $user)
-                    <flux:option value="{{ $user->id }}">{{ $user->name }}</flux:option>
+                    <flux:select.option value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
                 @endforeach
-            </flux:options>
+            </flux:select.options>
         </flux:select>
     </div> --}}
 </div>

@@ -83,13 +83,13 @@ new class extends Component {
         </flux:menu>
     </flux:context> --}}
     {{-- <flux:select variant="listbox" placeholder="Choose industry...">
-        <flux:option>Photography</flux:option>
-        <flux:option>Design services</flux:option>
-        <flux:option>Web development</flux:option>
-        <flux:option>Accounting</flux:option>
-        <flux:option>Legal services</flux:option>
-        <flux:option>Consulting</flux:option>
-        <flux:option>Other</flux:option>
+        <flux:select.option>Photography</flux:select.option>
+        <flux:select.option>Design services</flux:select.option>
+        <flux:select.option>Web development</flux:select.option>
+        <flux:select.option>Accounting</flux:select.option>
+        <flux:select.option>Legal services</flux:select.option>
+        <flux:select.option>Consulting</flux:select.option>
+        <flux:select.option>Other</flux:select.option>
     </flux:select> --}}
 
     <flux:dropdown wire:model="open">

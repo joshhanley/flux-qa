@@ -27,7 +27,7 @@ new class extends Component {
                 <flux:subheading size="lg" class="font-medium">Issue</flux:subheading>
 
                 <flux:text>
-                    If you add `custom` to the default select but don't add a `flux:select.trigger` or `flux:options` components, the select breaks. It would be nice if we didn't have to add them.
+                    If you add `custom` to the default select but don't add a `flux:select.trigger` or `flux:select.options` components, the select breaks. It would be nice if we didn't have to add them.
                 </flux:text>
 
                 <flux:subheading size="lg" class="font-medium">Instructions</flux:subheading>
@@ -42,7 +42,7 @@ new class extends Component {
     <div>
         <flux:select wire:model.live="userId" label="User" custom>
             @foreach ($this->users as $user)
-                <flux:option value="{{ $user->id }}">{{ $user->name }}</flux:option>
+                <flux:select.option value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
             @endforeach
         </flux:select>
     </div> --}}

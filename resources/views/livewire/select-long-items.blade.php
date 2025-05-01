@@ -21,12 +21,12 @@ new class extends Component {
             <flux:select.search placeholder="Search..." />
         </x-slot>
 
-        <flux:option>Photography asdad awdawdawdhjawd awdaw dilwadjawldhaw dwad h</flux:option>
-        <flux:option>Design services awda wdlaiwdjh srfksjhfakejdha wdakwjdhjaekjdh </flux:option>
-        <flux:option>Web development</flux:option>
-        <flux:option>Accounting</flux:option>
-        <flux:option>Legal services</flux:option>
-        <flux:option>Consulting</flux:option>
-        <flux:option>Other</flux:option>
+        <flux:select.option>Photography asdad awdawdawdhjawd awdaw dilwadjawldhaw dwad h</flux:select.option>
+        <flux:select.option>Design services awda wdlaiwdjh srfksjhfakejdha wdakwjdhjaekjdh </flux:select.option>
+        <flux:select.option>Web development</flux:select.option>
+        <flux:select.option>Accounting</flux:select.option>
+        <flux:select.option>Legal services</flux:select.option>
+        <flux:select.option>Consulting</flux:select.option>
+        <flux:select.option>Other</flux:select.option>
     </flux:select>
 </flux:main>

@@ -35,7 +35,7 @@ new class extends Component {
             <flux:select.search placeholder="Search" wire:model.live="user_name" wire:keyup="search" />
         </x-slot>
         @foreach ($this->users as $user)
-            <flux:option value="{{ $user->id }}">{{ $user->name }}</flux:option>
+            <flux:select.option value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
         @endforeach
     </flux:select>
 </flux:main>

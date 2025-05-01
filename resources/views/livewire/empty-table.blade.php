@@ -51,48 +51,48 @@ new class extends Component {
 
 <flux:main class="w-96 space-y-4 ">
 <flux:table class="w-92 border">
-    <flux:columns>
-        <flux:column>Column</flux:column>
-    </flux:columns>
+    <flux:table.columns>
+        <flux:table.column>Column</flux:table.column>
+    </flux:table.columns>
 
-    <flux:rows>
+    <flux:table.rows>
         @php
             $items = [];
             $items = [1];
         @endphp
         @foreach ($items as $item)
-            <flux:row>
-                <flux:cell>
+            <flux:table.row>
+                <flux:table.cell>
                 {{ $item }}
-                </flux:cell>
-            </flux:row>
+                </flux:table.cell>
+            </flux:table.row>
         @endforeach
-    </flux:rows>
+    </flux:table.rows>
 </flux:table>
 <flux:table class="w-92 border">
-    <flux:columns>
-        <flux:column>Column</flux:column>
-    </flux:columns>
+    <flux:table.columns>
+        <flux:table.column>Column</flux:table.column>
+    </flux:table.columns>
 
-    <flux:rows></flux:rows>
+    <flux:table.rows></flux:table.rows>
 </flux:table>
 <flux:table class="w-92 border">
-    <flux:columns>
-        <flux:column>Column</flux:column>
-    </flux:columns>
+    <flux:table.columns>
+        <flux:table.column>Column</flux:table.column>
+    </flux:table.columns>
 
-    <flux:rows class="border-t-3!">
+    <flux:table.rows class="border-t-3!">
         @php
             $items = [];
             // $items = [1];
         @endphp
         @foreach ($items as $item)
-            <flux:row>
-                <flux:cell>
+            <flux:table.row>
+                <flux:table.cell>
                 {{ $item }}
-                </flux:cell>
-            </flux:row>
+                </flux:table.cell>
+            </flux:table.row>
         @endforeach
-    </flux:rows>
+    </flux:table.rows>
 </flux:table>
 </flux:main>

@@ -14,22 +14,22 @@ new class extends Component {
 
 <flux:main class="space-y-4 w-96">
     <flux:table>
-        <flux:columns>
-            <flux:column>Customer</flux:column>
-            <flux:column>Date</flux:column>
-            <flux:column>Status</flux:column>
-            <flux:column>Amount</flux:column>
-        </flux:columns>
+        <flux:table.columns>
+            <flux:table.column>Customer</flux:table.column>
+            <flux:table.column>Date</flux:table.column>
+            <flux:table.column>Status</flux:table.column>
+            <flux:table.column>Amount</flux:table.column>
+        </flux:table.columns>
 
-        <flux:rows>
-            <flux:row>
-                <flux:cell>Lindsey Aminoff</flux:cell>
-                <flux:cell>Jul 29, 10:45 AM</flux:cell>
-                <flux:cell>
+        <flux:table.rows>
+            <flux:table.row>
+                <flux:table.cell>Lindsey Aminoff</flux:table.cell>
+                <flux:table.cell>Jul 29, 10:45 AM</flux:table.cell>
+                <flux:table.cell>
                     <flux:badge color="green" size="sm" inset="top bottom">Paid</flux:badge>
-                </flux:cell>
-                <flux:cell variant="strong">$49.00</flux:cell>
-            </flux:row>
-        </flux:rows>
+                </flux:table.cell>
+                <flux:table.cell variant="strong">$49.00</flux:table.cell>
+            </flux:table.row>
+        </flux:table.rows>
     </flux:table>
 </flux:main>

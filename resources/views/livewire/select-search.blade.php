@@ -38,11 +38,11 @@ new class extends Component {
         </x-slot>
 
         @forelse ($this->users as $user)
-            <flux:option wire:key="team-{{ $user->id }}" value="{{ $user->id }}">{{ $user->name }}</flux:option>
+            <flux:select.option wire:key="team-{{ $user->id }}" value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
         @empty
-            <flux:option wire:key="team-empty" value="">
+            <flux:select.option wire:key="team-empty" value="">
                 Enter a name to search
-            </flux:option>
+            </flux:select.option>
         @endforelse
     </flux:select>
 </flux:main>

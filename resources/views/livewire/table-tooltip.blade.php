@@ -12,17 +12,17 @@ new class extends Component {
 
 <flux:main>
     <flux:table>
-        <flux:columns>
-            <flux:column>Data</flux:column>
-        </flux:columns>
-        <flux:rows>
-            <flux:row>
-                <flux:cell>
+        <flux:table.columns>
+            <flux:table.column>Data</flux:table.column>
+        </flux:table.columns>
+        <flux:table.rows>
+            <flux:table.row>
+                <flux:table.cell>
                     <flux:tooltip content="Tooltip Content">
                         <p>Data</p>
                     </flux:tooltip>
-                </flux:cell>
-            </flux:row>
-        </flux:rows>
+                </flux:table.cell>
+            </flux:table.row>
+        </flux:table.rows>
     </flux:table>
 </flux:main>

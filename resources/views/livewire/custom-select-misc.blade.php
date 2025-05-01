@@ -155,21 +155,21 @@ new class extends Component {
         <flux:select wire:model.live="userId" label="User" custom>
             <flux:select.trigger placeholder="Choose user..." />
 
-            <flux:options class="max-h-56 mx-2">
+            <flux:select.options class="max-h-56 mx-2">
                 @foreach ($this->users as $user)
-                    <flux:option value="{{ $user->id }}">{{ $user->name }}</flux:option>
+                    <flux:select.option value="{{ $user->id }}">{{ $user->name }}</flux:select.option>
                 @endforeach
-            </flux:options>
+            </flux:select.options>
         </flux:select>
 
         <flux:select wire:model.live="postId" label="Post" custom>
             <flux:select.trigger :placeholder="$userId ? 'Choose post...' : 'Please select a user first'" :disabled="!$userId" />
 
-            <flux:options class="max-h-56 mx-2">
+            <flux:select.options class="max-h-56 mx-2">
                 @foreach ($this->posts as $post)
-                    <flux:option value="{{ $post->id }}">{{ $post->title }}</flux:option>
+                    <flux:select.option value="{{ $post->id }}">{{ $post->title }}</flux:select.option>
                 @endforeach
-            </flux:options>
+            </flux:select.options>
         </flux:select>
     </div>
 

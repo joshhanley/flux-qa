@@ -21,14 +21,14 @@ new class extends Component {
         </x-slot>
 
         @if ($search !== '')
-            <flux:option value="empty">Add new: '{{ $search }}'</flux:option>
+            <flux:select.option value="empty">Add new: '{{ $search }}'</flux:select.option>
         @endif --}}
-        <flux:option value="photography">Photography</flux:option>
-        <flux:option value="design-services">Design services</flux:option>
-        <flux:option value="web-development">Web development</flux:option>
-        <flux:option value="accounting">Accounting</flux:option>
-        <flux:option value="legal-services">Legal services</flux:option>
-        <flux:option value="consulting">Consulting</flux:option>
-        <flux:option value="other">Other</flux:option>
+        <flux:select.option value="photography">Photography</flux:select.option>
+        <flux:select.option value="design-services">Design services</flux:select.option>
+        <flux:select.option value="web-development">Web development</flux:select.option>
+        <flux:select.option value="accounting">Accounting</flux:select.option>
+        <flux:select.option value="legal-services">Legal services</flux:select.option>
+        <flux:select.option value="consulting">Consulting</flux:select.option>
+        <flux:select.option value="other">Other</flux:select.option>
     </flux:select>
 </flux:main>

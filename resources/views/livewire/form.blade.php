@@ -82,10 +82,10 @@ new class extends Component {
         <flux:select wire:model="location" label="Location" custom>
             <flux:select.trigger placeholder="Choose location" />
 
-            <flux:options>
-                <flux:option value="AU">Australia</flux:option>
-                <flux:option value="US">United States</flux:option>
-            </flux:options>
+            <flux:select.options>
+                <flux:select.option value="AU">Australia</flux:select.option>
+                <flux:select.option value="US">United States</flux:select.option>
+            </flux:select.options>
         </flux:select>
 
         <flux:textarea rows="auto" wire:model="bio" label="Bio" />
