@@ -9,4 +9,8 @@
             label="some text"
         />
     </div>
+
+    @if (true)
+        <button>Click me</button>
+    @endif
 </x-layouts.app>
