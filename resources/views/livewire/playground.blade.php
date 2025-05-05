@@ -1,14 +1,11 @@
 <?php
 
-use App\Models\User;
-use Flux\Flux;
-use Livewire\Attributes\Computed;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    //
+    public $industry = 'Consulting';
 }; ?>
 
 <div>
-    
+    <flux:calendar />
 </div>
