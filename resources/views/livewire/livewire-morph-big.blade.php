@@ -12,7 +12,7 @@ new class extends Component {
     {
         return User::with(['posts' => function($query) {
             $query->limit(5);
-        }])->limit(100)->get();
+        }])->limit(4000)->get();
     }
 
     public function dehydrate()

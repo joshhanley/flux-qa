@@ -20,7 +20,7 @@
         }
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @fluxStyles
+    @fluxAppearance
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">
@@ -71,7 +71,7 @@
     </flux:sidebar>
     <flux:header class=" bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
             <flux:navbar>
-                <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+                <flux:sidebar.toggle icon="bars-2" inset="left" />
                 <flux:brand>Logo</flux:brand>
                 <flux:navbar.item href="/">Home</flux:navbar.item>
                 <flux:dropdown>
@@ -87,6 +87,7 @@
             <flux:spacer />
 
             <flux:navbar>
+                <flux:sidebar.toggle icon="bars-2" inset="left" />
                 {{-- <livewire:command-palette /> --}}
             </flux:navbar>
     </flux:header>

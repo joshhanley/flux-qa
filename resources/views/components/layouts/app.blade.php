@@ -26,7 +26,7 @@
     </script>
     @fluxAppearance()
 </head>
-<body class="min-h-screen bg-white dark:bg-zinc-800 p-4">
+<body class="min-h-screen bg-white dark:bg-zinc-800">
     {{ $slot }}
 
     @fluxScripts()
