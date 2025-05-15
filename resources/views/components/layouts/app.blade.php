@@ -25,13 +25,17 @@
         window.localStorage.setItem('flux.appearance', '{{ auth()->user()->color_scheme ?? 'system' }}')
     </script>
     @fluxAppearance()
+    {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
+    {{-- <livewire:styles /> --}}
 </head>
-<body class="min-h-screen bg-white dark:bg-zinc-800">
+<body x-data class="min-h-screen bg-white dark:bg-zinc-800">
     {{ $slot }}
 
     @fluxScripts()
 
     <flux:toast />
+    {{-- <x-toast /> --}}
+    {{-- <livewire:scripts /> --}}
 </body>
 
 </html>
