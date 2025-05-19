@@ -10,13 +10,17 @@ new class extends Component {
     public function data()
     {
         if ($this->prepend) {
-            return ['A', 'B', 'C'];
+            return ['A' => 'a', 'B' => 'b', 'C' => 'c'];
+            //return range(1, 50);
+            // return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
         }
 
         //return [0, 1];
         //return [0, 2];
         //return [];
-        return ['A', 'C'];
+        return ['B' => 'b', 'C' => 'c'];
+        //return range(2, 50);
+        // return ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
     }
 
     public function dehydrate()
@@ -31,7 +35,7 @@ new class extends Component {
     <button wire:click="$refresh">Refresh</button>
     <div>
         {{-- <livewire:child item="None"/> --}}
-        @forelse ($this->data as $index => $item)
+        @forelse ($this->data as $indexa => $item)
             <div wire:key="{{ $item }}">
                 @foreach ($this->data as $index2 => $item2)
                     <div wire:key="{{ $item2 }}">

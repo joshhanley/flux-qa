@@ -2,15 +2,22 @@
 @import '../../vendor/livewire/flux/dist/flux.css';
 /* @import '../../vendor/livewire/flux-pro/dist/editor.css'; */
 
-/** daisyUI */
+/** daisyUI *
 @plugin "daisyui" {
     themes: light --default, dark --prefersdark;
 }
 
-/* maryUI */
-@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+/* maryUI *
+@source "../../vendor/robsontenorio/mary/src/View/Components/** /*.php";
+*/
 
 /* @plugin "@tailwindcss/forms"; */
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: light;
+  }
+}
 
 @source "../views";
 
