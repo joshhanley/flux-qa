@@ -1,3 +1,6 @@
+import sort from '@alpinejs/sort'
+
+Alpine.plugin(sort)
 // import '../../vendor/livewire/flux/dist/flux.min.js';
 // import '../../vendor/livewire/flux-pro/dist/flux.js';
 
@@ -330,80 +333,80 @@
 
 // --- START OF FINAL IMPLEMENTATION --- //
 
-import Image from '@tiptap/extension-image'
+// import Image from '@tiptap/extension-image'
 
-document.addEventListener('flux:editor', (e) => {
-    e.detail.disableExtension('underline')
-    e.detail.registerExtension(Image)
+// document.addEventListener('flux:editor', (e) => {
+//     e.detail.disableExtension('underline')
+//     e.detail.registerExtension(Image)
 
-    e.detail.init(({ editor }) => {
-        editor.on('contentError', ({ editor }) => {})
+//     e.detail.init(({ editor }) => {
+//         editor.on('contentError', ({ editor }) => {})
 
-        editor.on('create', ({ editor }) => {})
+//         editor.on('create', ({ editor }) => {})
 
-        editor.on('update', ({ editor }) => {})
+//         editor.on('update', ({ editor }) => {})
 
-        editor.on('selectionUpdate', ({ editor }) => {})
+//         editor.on('selectionUpdate', ({ editor }) => {})
 
-        editor.on('transaction', ({ editor }) => {})
+//         editor.on('transaction', ({ editor }) => {})
 
-        editor.on('focus', ({ editor }) => {})
+//         editor.on('focus', ({ editor }) => {})
 
-        editor.on('blur', ({ editor }) => {})
+//         editor.on('blur', ({ editor }) => {})
 
-        editor.on('destroy', ({ editor }) => {})
+//         editor.on('destroy', ({ editor }) => {})
 
-        editor.on('drop', ({ editor }) => {})
+//         editor.on('drop', ({ editor }) => {})
 
-        editor.on('paste', ({ editor }) => {})
-    })
+//         editor.on('paste', ({ editor }) => {})
+//     })
 
-    e.detail.init(({ editor }) => {
-        editor.on('create', ({ editor }) => {
-            let toolbar = editor.options.element.closest('ui-editor').querySelector('ui-toolbar')
+//     e.detail.init(({ editor }) => {
+//         editor.on('create', ({ editor }) => {
+//             let toolbar = editor.options.element.closest('ui-editor').querySelector('ui-toolbar')
 
-            let imageToolbarElement = toolbar.querySelector('[data-editor="image"]')
+//             let imageToolbarElement = toolbar.querySelector('[data-editor="image"]')
 
-            if (! imageToolbarElement) return
+//             if (! imageToolbarElement) return
 
-            let toolbarButton = imageToolbarElement.querySelector('[data-match-target]')
-            let input = imageToolbarElement.querySelector('[data-editor="image:url"]')
-            let insertButton = imageToolbarElement.querySelector('[data-editor="image:insert"]')
+//             let toolbarButton = imageToolbarElement.querySelector('[data-match-target]')
+//             let input = imageToolbarElement.querySelector('[data-editor="image:url"]')
+//             let insertButton = imageToolbarElement.querySelector('[data-editor="image:insert"]')
 
-            if (! toolbarButton || ! input) return
+//             if (! toolbarButton || ! input) return
 
-            let insertImage = () => {
-                let url = input.value?.trim();
+//             let insertImage = () => {
+//                 let url = input.value?.trim();
 
-                if (url === '') return;
+//                 if (url === '') return;
 
-                editor.chain().focus().setImage({ src: url }).run();
+//                 editor.chain().focus().setImage({ src: url }).run();
 
-                input.value = '';
-            }
+//                 input.value = '';
+//             }
 
-            input.addEventListener('keydown', e => {
-                if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
-                    e.stopPropagation();
-                }
-            })
-            input.addEventListener('input', e => e.stopPropagation())
-            input.addEventListener('change', e => e.stopPropagation())
-            input.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
+//             input.addEventListener('keydown', e => {
+//                 if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
+//                     e.stopPropagation();
+//                 }
+//             })
+//             input.addEventListener('input', e => e.stopPropagation())
+//             input.addEventListener('change', e => e.stopPropagation())
+//             input.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
 
-            insertButton.addEventListener('click', insertImage)
+//             insertButton.addEventListener('click', insertImage)
 
-            editor.on('transaction', ({ editor }) => {
-                if (editor.isActive('image')) {
-                    toolbarButton.setAttribute('data-match', '')
+//             editor.on('transaction', ({ editor }) => {
+//                 if (editor.isActive('image')) {
+//                     toolbarButton.setAttribute('data-match', '')
 
-                    let attrs = editor.getAttributes('image')
-                    input.value = attrs.src || ''
-                } else {
-                    toolbarButton.removeAttribute('data-match')
-                    input.value = ''
-                }
-            })
-        })
-    })
-})
+//                     let attrs = editor.getAttributes('image')
+//                     input.value = attrs.src || ''
+//                 } else {
+//                     toolbarButton.removeAttribute('data-match')
+//                     input.value = ''
+//                 }
+//             })
+//         })
+//     })
+// })

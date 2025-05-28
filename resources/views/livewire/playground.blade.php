@@ -1,18 +1,14 @@
 <?php
 
 use Flux\Flux;
+use Livewire\Attributes\Computed;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    //
+    public $name = 'test';
 }; ?>
 
-<div>
-    <flux:input label="test" value="test"  />
-    <flux:select label="test">
-       <flux:select.option >test</flux:select.option>
-    </flux:select>
-    <flux:select label="test" variant="listbox">
-        <flux:select.option selected>test</flux:select.option>
-    </flux:select>
+<div class="max-w-96">
+    <flux:text>Name: {{ $name }}</flux:text>
+    <flux:input wire:model.live="name" />
 </div>

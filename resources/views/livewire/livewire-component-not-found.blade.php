@@ -14,12 +14,11 @@ new class extends Component {
 }; ?>
 
 <div>
-    <button wire:click="select(1)" class="size-10">1</button>
-    <button wire:click="select(2)" class="size-10">2</button>
+    <button wire:click="select(1)" class="size-10 border rounded">1</button>
 
     <div>
         @if ($this->selectedId !== 0)
-            <livewire:child :key="$this->selectedId" :item="$this->selectedId" />
+            <livewire:child :key="'key'.$this->selectedId" :item="$this->selectedId" />
         @endif
     </div>
 
