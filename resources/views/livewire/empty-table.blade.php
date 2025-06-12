@@ -56,10 +56,6 @@ new class extends Component {
     </flux:table.columns>
 
     <flux:table.rows>
-        @php
-            $items = [];
-            $items = [1];
-        @endphp
         @foreach ($items as $item)
             <flux:table.row>
                 <flux:table.cell>
@@ -82,10 +78,6 @@ new class extends Component {
     </flux:table.columns>
 
     <flux:table.rows class="border-t-3!">
-        @php
-            $items = [];
-            // $items = [1];
-        @endphp
         @foreach ($items as $item)
             <flux:table.row>
                 <flux:table.cell>

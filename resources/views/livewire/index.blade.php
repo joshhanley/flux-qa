@@ -15,7 +15,7 @@ class extends Component {};
 
 <flux:main container>
     <ul class="list-disc space-y-1">
-        @foreach (Components::get() as $componentName)
+        @foreach (\App\Components::get() as $componentName)
             <li>
                 <flux:link wire:navigate href="{{ $componentName }}">{{ str($componentName)->headline() }}</flux:link>
             </li>
