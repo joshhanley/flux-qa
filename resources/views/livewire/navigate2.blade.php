@@ -7,7 +7,7 @@ new class extends Component {
         sleep(1);
 
         // $this->redirect('https://www.google.com');
-        $this->redirect('/playground3');
+        $this->redirect('/navigate3');
     }
 }; ?>
 
@@ -16,17 +16,17 @@ new class extends Component {
     <div x-data="{ show: false }">
         <button x-on:click="show = !show">Toggle</button>
         <div x-show="show">
-            <p><a href="/playground" wire:navigate class="underline" wire:current="font-bold">Playground</a></p>
-            <p><a href="/playground2" wire:navigate class="underline" wire:current="font-bold">Playground 2</a></p>
-            <p><a href="/playground3" wire:navigate class="underline" wire:current="font-bold">Playground 3</a></p>
+            <p><a href="/navigate" wire:navigate class="underline" wire:current="font-bold">Navigate</a></p>
+            <p><a href="/navigate2" wire:navigate class="underline" wire:current="font-bold">Navigate 2</a></p>
+            <p><a href="/navigate3" wire:navigate class="underline" wire:current="font-bold">Navigate 3</a></p>
         </div>
     </div>
     @endpersist
-    Playground 2
+    Navigate 2
 
     {{-- <div class="h-[1000px]"></div> --}}
 
-    <a href="/playground" wire:navigate class="underline">Playground</a>
+    <a href="/navigate" wire:navigate class="underline">Navigate</a>
 
     {{-- <input type="text" autofocus/> --}}
 
