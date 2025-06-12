@@ -1,6 +1,6 @@
-import sort from '@alpinejs/sort'
+// import sort from '@alpinejs/sort'
 
-Alpine.plugin(sort)
+// Alpine.plugin(sort)
 // import '../../vendor/livewire/flux/dist/flux.min.js';
 // import '../../vendor/livewire/flux-pro/dist/flux.js';
 
