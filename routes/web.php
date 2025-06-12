@@ -91,13 +91,13 @@ Route::get('nativemodal', function () {
 });
 
 foreach (Components::get() as $component) {
-    Volt::route('/'.$component, $component);
+    Livewire::route('/'.$component, $component);
 }
 
-Volt::route('/', 'index')->name('home');
-Volt::route('/test', 'index')->name('test');
-Volt::route('/other', 'index')->name('other');
-Volt::route('/playground/{id?}', 'playground')->name('playground');
+Livewire::route('/', 'index')->name('home');
+Livewire::route('/test', 'index')->name('test');
+Livewire::route('/other', 'index')->name('other');
+Livewire::route('/playground/{id?}', 'playground')->name('playground');
 
 Route::post('/inputs', FluxInputsController::class)->name('inputs.post');
 Route::get('/inputs', FluxInputsController::class)->name('inputs');

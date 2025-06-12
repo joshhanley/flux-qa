@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4aa223cb8864cdc9c86ccc3e44b919d",
+    "content-hash": "905c6ba5a8261a6ca672cf3cd1b759cd",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -784,6 +784,73 @@
                 }
             ],
             "time": "2023-10-12T05:21:21+00:00"
+        },
+        {
+            "name": "gehrisandro/tailwind-merge-php",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gehrisandro/tailwind-merge-php.git",
+                "reference": "dc11b9d4a625dd5be885900e5ef14c3efa260277"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gehrisandro/tailwind-merge-php/zipball/dc11b9d4a625dd5be885900e5ef14c3efa260277",
+                "reference": "dc11b9d4a625dd5be885900e5ef14c3efa260277",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1.0",
+                "psr/simple-cache": "^3.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13.8",
+                "nunomaduro/collision": "^7.10",
+                "pestphp/pest": "^v2.24.0",
+                "pestphp/pest-plugin-arch": "^2.6",
+                "pestphp/pest-plugin-mock": "^2.0.0",
+                "pestphp/pest-plugin-type-coverage": "^2.8",
+                "phpstan/phpstan": "^1.10.55",
+                "rector/rector": "^1.0.5",
+                "symfony/var-dumper": "^6.4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/TailwindMerge.php"
+                ],
+                "psr-4": {
+                    "TailwindMerge\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sandro Gehri",
+                    "email": "sandrogehri@gmail.com"
+                }
+            ],
+            "description": "TailwindMerge for PHP merges multiple Tailwind CSS classes by automatically resolving conflicts between them",
+            "keywords": [
+                "classes",
+                "merge",
+                "php",
+                "tailwindcss"
+            ],
+            "support": {
+                "issues": "https://github.com/gehrisandro/tailwind-merge-php/issues",
+                "source": "https://github.com/gehrisandro/tailwind-merge-php/tree/v1.1.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/gehrisandro",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-05-21T17:32:42+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2453,7 +2520,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux",
-                "reference": "f9353fef0c63462dd58a4136344874e7741ff8b5"
+                "reference": "a77f40f8544c22ccab18387f5dcbc2d2ee786910"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0|^12.0",
@@ -2507,7 +2574,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "03d69c8b1a6fb34fb7ef37e70c623e6cf8b59e81"
+                "reference": "c4fcb48468bcd1ff7eb72edb1cc84d38e0228e3d"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0|^12.0",
@@ -2565,9 +2632,10 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/livewire",
-                "reference": "7cff668e292b3b112e3d5aa390165dab5fe3344b"
+                "reference": "8135e6781f7b459bc295aec03527a2bfc2d87741"
             },
             "require": {
+                "gehrisandro/tailwind-merge-php": "^1.1",
                 "illuminate/database": "^10.0|^11.0|^12.0",
                 "illuminate/routing": "^10.0|^11.0|^12.0",
                 "illuminate/support": "^10.0|^11.0|^12.0",
@@ -2623,97 +2691,6 @@
                 }
             ],
             "description": "A front-end framework for Laravel.",
-            "transport-options": {
-                "relative": false
-            }
-        },
-        {
-            "name": "livewire/volt",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "/Users/josh/Development/packages/volt",
-                "reference": "d47f3efa94c50b2a33a06d59d9f4b3d0459292e6"
-            },
-            "require": {
-                "laravel/framework": "^10.38.2|^11.0|^12.0",
-                "livewire/livewire": "^3.6.1",
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "laravel/folio": "^1.1",
-                "mockery/mockery": "^1.6",
-                "orchestra/testbench": "^8.15.0|^9.0|^10.0",
-                "pestphp/pest": "^2.9.5|^3.0",
-                "phpstan/phpstan": "^1.10"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Livewire\\Volt\\VoltServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Livewire\\Volt\\": "src/"
-                },
-                "files": [
-                    "functions.php"
-                ]
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/",
-                    "Workbench\\App\\": "workbench/app/",
-                    "Workbench\\Database\\": "workbench/database/"
-                }
-            },
-            "scripts": {
-                "post-autoload-dump": [
-                    "@composer run prepare"
-                ],
-                "prepare": [
-                    "@php vendor/bin/testbench package:discover --ansi"
-                ],
-                "build": [
-                    "@composer run prepare",
-                    "@php vendor/bin/testbench workbench:create-sqlite-db",
-                    "@php vendor/bin/testbench migrate:refresh"
-                ],
-                "start": [
-                    "@composer run build",
-                    "@php vendor/bin/testbench serve"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                },
-                {
-                    "name": "Nuno Maduro",
-                    "email": "nuno@laravel.com"
-                }
-            ],
-            "description": "An elegantly crafted functional API for Laravel Livewire.",
-            "homepage": "https://github.com/livewire/volt",
-            "keywords": [
-                "laravel",
-                "livewire",
-                "volt"
-            ],
-            "support": {
-                "issues": "https://github.com/livewire/volt/issues",
-                "source": "https://github.com/livewire/volt"
-            },
             "transport-options": {
                 "relative": false
             }
@@ -9721,20 +9698,13 @@
             "version": "dev-main",
             "alias": "3.6.2",
             "alias_normalized": "3.6.2.0"
-        },
-        {
-            "package": "livewire/volt",
-            "version": "dev-main",
-            "alias": "1.7.0",
-            "alias_normalized": "1.7.0.0"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
         "livewire/flux": 20,
         "livewire/flux-pro": 20,
-        "livewire/livewire": 20,
-        "livewire/volt": 20
+        "livewire/livewire": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
