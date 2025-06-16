@@ -4,7 +4,7 @@ use Livewire\Volt\Component;
 
 new class extends Component {
     public function mount() {
-        sleep(1);
+        sleep(5);
 
         // $this->redirect('https://www.google.com');
         $this->redirect('/navigate3');

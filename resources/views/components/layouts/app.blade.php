@@ -38,6 +38,7 @@
     @fluxAppearance()
     {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
     {{-- <livewire:styles /> --}}
+    {{-- @livewireStyles() --}}
 </head>
 <body x-data class="min-h-screen bg-white dark:bg-zinc-900">
     {{ $slot }}
@@ -47,6 +48,8 @@
     <flux:toast />
     {{-- <x-toast /> --}}
     {{-- <livewire:scripts /> --}}
+
+    {{-- @livewireScriptConfig() --}}
 </body>
 
 </html>
