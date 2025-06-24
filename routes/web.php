@@ -2,6 +2,7 @@
 
 use App\Components;
 use App\Http\Controllers\FluxInputsController;
+use App\Livewire\ClassComponent;
 use App\Livewire\Exploit;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
@@ -20,11 +21,11 @@ use Livewire\Volt\Volt;
 */
 
 Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/fluxqa.test/livewire/update', $handle);
+    return Route::post('/fluxqa.test/livewire/update', $handle)->name('update-custom');
 });
 
 Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/fluxqa.test/livewire/livewire.js', $handle);
+    return Route::get('/fluxqa.test/livewire/livewire.js', $handle)->name('script-custom');
 });
 
 Route::get('exploit', Exploit::class);
@@ -90,14 +91,17 @@ Route::get('nativemodal', function () {
     HTML);
 });
 
-foreach (Components::get() as $component) {
-    Livewire::route('/'.$component, $component);
-}
+// foreach (Components::get() as $component) {
+//     Livewire::route('/'.$component, $component);
+// }
 
 Livewire::route('/', 'index')->name('home');
 Livewire::route('/test', 'index')->name('test');
 Livewire::route('/other', 'index')->name('other');
-Livewire::route('/playground/{id?}', 'playground')->name('playground');
+Route::livewire('/class-component', ClassComponent::class)->name('class-component');
+Route::livewire('/view-class-component','view-class-component')->name('view-class-component');
+Route::livewire('/playground/{id?}', 'playground')->name('playground');
+// Livewire::route('/playground/{id?}', 'playground')->name('playground');
 
 Route::post('/inputs', FluxInputsController::class)->name('inputs.post');
 Route::get('/inputs', FluxInputsController::class)->name('inputs');

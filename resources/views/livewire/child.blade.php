@@ -5,15 +5,13 @@ use Livewire\Attributes\Modelable;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public $test;
-    
-    public function mount()
-    {
-        sleep(10);
-        $this->test = '1';
+    public function doSomething() {
+        sleep(5);
     }
 }; ?>
 
-<div>
-    Child: {{ $test }}
+<div wire2:poll.5s>
+    <div wire:loading wire:target="$parent.test">Child is loading...</div>
+    Child
+    <flux:button wire:click="doSomething">Child Do Something</flux:button>
 </div>
