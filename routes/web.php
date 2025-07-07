@@ -91,9 +91,9 @@ Route::get('nativemodal', function () {
     HTML);
 });
 
-// foreach (Components::get() as $component) {
-//     Livewire::route('/'.$component, $component);
-// }
+foreach (Components::get() as $component) {
+    Livewire::route('/'.$component, $component);
+}
 
 Livewire::route('/', 'index')->name('home');
 Livewire::route('/test', 'index')->name('test');
@@ -101,6 +101,7 @@ Livewire::route('/other', 'index')->name('other');
 Route::livewire('/class-component', ClassComponent::class)->name('class-component');
 Route::livewire('/view-class-component','view-class-component')->name('view-class-component');
 Route::livewire('/playground/{id?}', 'playground')->name('playground');
+Route::livewire('/playground2/{id?}', 'playground2')->name('playground2');
 // Livewire::route('/playground/{id?}', 'playground')->name('playground');
 
 Route::post('/inputs', FluxInputsController::class)->name('inputs.post');

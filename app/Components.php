@@ -13,8 +13,8 @@ class Components
         $bladeFiles = [];
 
         foreach ($files as $file) {
-            if ($file->getExtension() === 'php' && str_ends_with($file->getFilename(), '.blade.php')) {
-                $componentName = str($file->getFilename())->replace('.blade.php', '')->__toString();
+            if ($file->getExtension() === 'php' && str_ends_with($file->getFilename(), '.livewire.php')) {
+                $componentName = str($file->getFilename())->replace('.livewire.php', '')->__toString();
 
                 if ($componentName === 'index') {
                     continue;
