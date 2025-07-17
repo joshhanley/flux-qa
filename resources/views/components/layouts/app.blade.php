@@ -50,6 +50,15 @@
     {{-- <livewire:scripts /> --}}
 
     {{-- @livewireScriptConfig() --}}
+    {{-- <script>
+        document.addEventListener('livewire:initialized', () => {
+            window.Flux.toast({
+                heading: 'Changes saved',
+                text: 'Your changes have been saved.',
+                variant: 'success',
+            })
+        })
+    </script> --}}
 </body>
 
 </html>

@@ -1,3 +1,45 @@
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
+import Youtube from '@tiptap/extension-youtube'
+
+document.addEventListener('flux:editor', (e) => {
+    // e.detail.registerExtension(Youtube)
+    e.detail.registerExtensions([
+        // Table.configure({ resizable: true }),
+        // TableCell,
+        // TableHeader,
+        // TableRow,
+    ])
+})
+
+// import Image from '@tiptap/extension-image'
+// import Youtube from '@tiptap/extension-youtube'
+
+// document.addEventListener('flux:editor', (e) => {
+//     e.detail.registerExtension(Image)
+
+//     e.detail.registerExtension(
+//         Youtube.configure({
+//             controls: false,
+//             nocookie: true,
+//         }),
+//     )
+
+//     // e.detail.enableExtension('table')
+//     // e.detail.enableExtension('tableCell')
+//     // e.detail.enableExtension('tableHeader')
+//     // e.detail.enableExtension('tableRow')
+// })
+
+
+
+
+
+
+
+
 // import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
  
 // Livewire.start()
