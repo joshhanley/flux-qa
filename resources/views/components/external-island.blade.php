@@ -1,0 +1,1 @@
+<div>External island view</div>

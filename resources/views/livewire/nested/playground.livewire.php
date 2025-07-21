@@ -6,5 +6,8 @@ new class extends Component {
     //
 } ?>
 <div>
-    <x-simple />
+    @ray($this->getName())
+    @island
+        <div>Nested playground island content</div>
+    @endisland
 </div>
