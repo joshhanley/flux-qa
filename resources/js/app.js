@@ -1,18 +1,22 @@
-import Table from '@tiptap/extension-table'
-import TableCell from '@tiptap/extension-table-cell'
-import TableHeader from '@tiptap/extension-table-header'
-import TableRow from '@tiptap/extension-table-row'
-import Youtube from '@tiptap/extension-youtube'
+// import './milkdown.js'
 
-document.addEventListener('flux:editor', (e) => {
-    // e.detail.registerExtension(Youtube)
-    e.detail.registerExtensions([
-        // Table.configure({ resizable: true }),
-        // TableCell,
-        // TableHeader,
-        // TableRow,
-    ])
-})
+import './markdown-editor.js'
+
+// import Table from '@tiptap/extension-table'
+// import TableCell from '@tiptap/extension-table-cell'
+// import TableHeader from '@tiptap/extension-table-header'
+// import TableRow from '@tiptap/extension-table-row'
+// import Youtube from '@tiptap/extension-youtube'
+
+// document.addEventListener('flux:editor', (e) => {
+//     // e.detail.registerExtension(Youtube)
+//     e.detail.registerExtensions([
+//         // Table.configure({ resizable: true }),
+//         // TableCell,
+//         // TableHeader,
+//         // TableRow,
+//     ])
+// })
 
 // import Image from '@tiptap/extension-image'
 // import Youtube from '@tiptap/extension-youtube'
@@ -230,55 +234,6 @@ document.addEventListener('flux:editor', (e) => {
 //         },
 //     }))
 
-//     e.detail.initializeToolbarButton(({editor, toolbar, setActiveState}) => {
-//         if (toolbar.querySelector('[data-editor="image"]')) {
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => {
-//                 if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
-//                     e.stopPropagation();
-//                 }
-//             })
-
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('input', e => e.stopPropagation())
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('change', e => e.stopPropagation())
-
-//             let insertImage = () => {
-//                 let url = toolbar.querySelector('[data-editor="image:url"]')?.value?.trim();
-
-//                 if (!url) return;
-
-//                 editor.chain().focus().setImage({ src: url }).run();
-
-//                 if (toolbar.querySelector('[data-editor="image:url"]')) {
-//                     toolbar.querySelector('[data-editor="image:url"]').value = '';
-//                 }
-//             }
-
-//             toolbar.querySelector('[data-editor="image:insert"]')?.addEventListener('click', insertImage)
-//             toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
-
-//         }
-
-//         setActiveState(() => {
-//             let imageInput = toolbar.querySelector('[data-editor="image:url"]')
-
-//             if (imageInput) {
-//                 let imageButton = toolbar.querySelector('[data-editor="image"] [data-match-target]')
-
-//                 if (editor.isActive('image')) {
-//                     imageButton && imageButton.setAttribute('data-match', '')
-
-//                     let attrs = editor.getAttributes('image')
-//                     imageInput.value = attrs.src || ''
-//                 } else {
-//                     imageButton && imageButton.removeAttribute('data-match')
-//                     imageInput.value = ''
-//                 }
-//             }
-//         })
-//     })
-// })
-
-// document.addEventListener('flux:editor', (e) => {
 //     e.detail.registerExtension(FileHandler.configure({
 //         // allowedMimeTypes: [],
 //         onPaste: (editor, files, htmlContent) => {
@@ -294,6 +249,60 @@ document.addEventListener('flux:editor', (e) => {
 //             uploadImages(editor, files, pos)
 //         },
 //     }))
+
+//     e.detail.init(({ editor }) => {
+//         editor.on('create', ({ editor }) => {
+//             let toolbar = editor.options.element.closest('ui-editor').querySelector('ui-toolbar')
+//             if (toolbar.querySelector('[data-editor="image"]')) {
+//                 toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => {
+//                     if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
+//                         e.stopPropagation();
+//                     }
+//                 })
+
+//                 toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('input', e => e.stopPropagation())
+//                 toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('change', e => e.stopPropagation())
+
+//                 let insertImage = () => {
+//                     let url = toolbar.querySelector('[data-editor="image:url"]')?.value?.trim();
+
+//                     if (!url) return;
+
+//                     editor.chain().focus().setImage({ src: url }).run();
+
+//                     if (toolbar.querySelector('[data-editor="image:url"]')) {
+//                         toolbar.querySelector('[data-editor="image:url"]').value = '';
+//                     }
+//                 }
+
+//                 toolbar.querySelector('[data-editor="image:insert"]')?.addEventListener('click', insertImage)
+//                 toolbar.querySelector('[data-editor="image:url"]')?.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
+
+//             }
+//         })
+
+//         let setActiveState = () => {
+//             let toolbar = editor.options.element.closest('ui-editor').querySelector('ui-toolbar')
+//             let imageInput = toolbar.querySelector('[data-editor="image:url"]')
+
+//             if (imageInput) {
+//                 let imageButton = toolbar.querySelector('[data-editor="image"] [data-match-target]')
+
+//                 if (editor.isActive('image')) {
+//                     imageButton && imageButton.setAttribute('data-match', '')
+
+//                     let attrs = editor.getAttributes('image')
+//                     imageInput.value = attrs.src || ''
+//                 } else {
+//                     imageButton && imageButton.removeAttribute('data-match')
+//                     imageInput.value = ''
+//                 }
+//             }
+//         }
+
+//         editor.on('transaction', setActiveState)
+//         editor.on('selectionUpdate', setActiveState)
+//     })
 // })
 
 // let uploadImages = (editor, files, pos) => {
@@ -314,14 +323,14 @@ document.addEventListener('flux:editor', (e) => {
 //         files,
 //         async () => {
 //             // Once the upload is finished, we need to save the images to a publically accessible location...
-//             console.log(files)
+//             // console.log(files)
 
-//             let formData = new FormData()
-//             files.forEach(file => {
-//                 formData.append('images[]', file)
-//             })
+//             // let formData = new FormData()
+//             // files.forEach(file => {
+//             //     formData.append('images[]', file)
+//             // })
 
-//             let imageUrls = await $wire.uploadIt({files: formData})
+//             let imageUrls = await $wire.saveImages()
 
 //             replacePlaceholder(editor, id, imageUrls)
 //         },
@@ -457,3 +466,4 @@ document.addEventListener('flux:editor', (e) => {
 //         })
 //     })
 // })
+

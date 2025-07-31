@@ -28,7 +28,7 @@ new class extends Component {
 <div>
     <flux:button wire:click="$refresh">Refresh</flux:button>
     <flux:text>Content: {{ var_export($content, true) }}</flux:text>
-    <flux:editor wire:model="content" toolbar="heading | bold italic strike | bullet ordered blockquote | link | align | image" />
+    <flux:editor wire:model.live="content" toolbar="heading | bold italic strike | bullet ordered blockquote | link | align | image" />
     <p>https://placehold.co/800x400</p>
     <p>https://placehold.co/800x400/6A00F5/white</p>
 

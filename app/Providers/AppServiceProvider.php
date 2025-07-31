@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\LivewireManager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
         //         resource_path('views/livewire'),
         //     ]);
         // });
+
+        // LivewireManager::$v4 = false;
     }
 
     /**
