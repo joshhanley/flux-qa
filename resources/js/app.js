@@ -1,6 +1,8 @@
+import '@joshhanley/markdown-editor'
+
 // import './milkdown.js'
 
-import './markdown-editor.js'
+// import './markdown-editor.js'
 
 // import Table from '@tiptap/extension-table'
 // import TableCell from '@tiptap/extension-table-cell'
