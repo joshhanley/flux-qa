@@ -35,6 +35,7 @@ Route::get('randomasdasd', function () {
 });
 
 Route::view('sample2', 'sample');
+Route::view('sticky-header', 'sticky-header');
 
 Route::get('table-test', function () {
     sleep(1);

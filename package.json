@@ -16,6 +16,8 @@
         "@alpinejs/sort": "^3.14.9",
         "@joshhanley/markdown-editor": "file:../../Development/packages/markdown-editor",
         "@milkdown/crepe": "^7.15.2",
+        "@milkdown/kit": "^7.15.2",
+        "@milkdown/theme-nord": "^7.15.2",
         "@tiptap-pro/extension-file-handler": "^2.17.8",
         "@tiptap/extension-image": "^2.11.7",
         "@tiptap/extension-link": "^2.11.7",
@@ -24,6 +26,7 @@
         "@tiptap/extension-table-header": "^2.11.7",
         "@tiptap/extension-table-row": "^2.11.7",
         "@tiptap/extension-youtube": "^2.11.7",
-        "daisyui": "^5.0.35"
+        "daisyui": "^5.0.35",
+        "shiki": "^3.9.2"
     }
 }
