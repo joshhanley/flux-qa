@@ -20,9 +20,9 @@
     {{ $slot }}
 
     @persist('toast')
-        {{-- <flux:toast.group> --}}
+        <flux:toast.group>
             <flux:toast /> 
-        {{-- </flux:toast.group> --}}
+        </flux:toast.group>
     @endpersist
 
     {{-- @persist('toast') --}}
