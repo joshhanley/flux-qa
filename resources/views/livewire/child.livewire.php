@@ -7,5 +7,5 @@ new class extends Component {
 }; ?>
 
 <div>
-    <button wire:click="$refresh">Child refresh</button>
+    <flux:button wire:click="$refresh">Refresh component</flux:button>
 </div>
