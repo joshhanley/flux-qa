@@ -1,3 +1,76 @@
+// import Image from '@tiptap/extension-image'
+
+// document.addEventListener('flux:editor', (e) => {
+//     e.detail.registerExtensions([
+//         Image.configure({
+//             inline: false,
+//             allowBase64: false,
+//             HTMLAttributes: {
+//                 style: 'max-width: 100%; height: auto;'
+//             }
+//         }),
+//     ])
+// })
+
+// import Image from '@tiptap/extension-image'
+
+// document.addEventListener('flux:editor', (e) => {
+//     e.detail.registerExtension(Image)
+
+//     e.detail.init(({ editor }) => {
+//         editor.on('create', ({ editor }) => {
+//             let toolbar = editor.options.element.closest('ui-editor').querySelector('ui-toolbar')
+
+//             let imageToolbarElement = toolbar.querySelector('[data-editor="image"]')
+
+//             if (! imageToolbarElement) return
+
+//             let toolbarButton = imageToolbarElement.querySelector('[data-match-target]')
+//             let input = imageToolbarElement.querySelector('[data-editor="image:url"]')
+//             let insertButton = imageToolbarElement.querySelector('[data-editor="image:insert"]')
+
+//             if (! toolbarButton || ! input) return
+
+//             let insertImage = () => {
+//                 let url = input.value?.trim();
+
+//                 if (url === '') return;
+
+//                 editor.chain().focus().setImage({ src: url }).run();
+
+//                 input.value = '';
+//             }
+
+//             input.addEventListener('keydown', e => {
+//                 if (['ArrowLeft', 'ArrowRight'].includes(e.key) || /^[a-zA-Z0-9]$/.test(e.key)) {
+//                     e.stopPropagation();
+//                 }
+//             })
+//             input.addEventListener('input', e => e.stopPropagation())
+//             input.addEventListener('change', e => e.stopPropagation())
+//             input.addEventListener('keydown', e => ['Enter'].includes(e.key) && insertImage())
+
+//             insertButton.addEventListener('click', insertImage)
+
+//             editor.on('transaction', ({ editor }) => {
+//                 if (editor.isActive('image')) {
+//                     toolbarButton.setAttribute('data-match', '')
+
+//                     let attrs = editor.getAttributes('image')
+//                     input.value = attrs.src || ''
+//                 } else {
+//                     toolbarButton.removeAttribute('data-match')
+//                     input.value = ''
+//                 }
+//             })
+//         })
+//     })
+// })
+
+
+
+
+
 // import '@joshhanley/markdown-editor'
 
 // import './milkdown.js'

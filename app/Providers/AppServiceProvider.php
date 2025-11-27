@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Blaze\Blaze;
+use Livewire\Livewire;
 use Livewire\LivewireManager;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,7 +20,16 @@ class AppServiceProvider extends ServiceProvider
         //     ]);
         // });
 
-        // LivewireManager::$v4 = false;
+        Blaze::disable();
+
+        // app('blaze')->debug();
+
+        // Livewire::addNamespace(
+        //     namespace: 'foo',
+        //     classNamespace: \App\Foo::class,
+        //     classPath: app_path('Foo'),
+        //     classViewPath: resource_path('views/foo'),
+        // );
     }
 
     /**

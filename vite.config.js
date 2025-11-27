@@ -6,27 +6,27 @@ import fs from 'fs';
 
 export default defineConfig({
     server: {
-        // host: 'fluxqa.test',
+        host: 'fluxqa.test',
         // host: '0.0.0.0',
         // port: 5184,
         // https: false,
         // https: true,
-        // https: {
-        //     key: fs.readFileSync('/Users/josh/Library/Application Support/Herd/config/valet/Certificates/fluxqa.test.key'),
-        //     cert: fs.readFileSync('/Users/josh/Library/Application Support/Herd/config/valet/Certificates/fluxqa.test.crt'),
-        // },
+        https: {
+            key: fs.readFileSync('/Users/josh/Library/Application Support/Herd/config/valet/Certificates/fluxqa.test.key'),
+            cert: fs.readFileSync('/Users/josh/Library/Application Support/Herd/config/valet/Certificates/fluxqa.test.crt'),
+        },
         // origin: 'http://192.168.4.46:5184',
         // origin: 'http://fluxqa.test:5184',
-        // cors: {
-        //     // origin: 'http://192.168.4.46', // <- this is the actual origin (no path)
-        //     origin: 'http://fluxqa.test', // <- this is the actual origin (no path)
-        // },
+        cors: {
+            // origin: 'http://192.168.4.46', // <- this is the actual origin (no path)
+            origin: 'https://fluxqa.test', // <- this is the actual origin (no path)
+        },
         // hmr: {
-        //     // host: '192.168.4.46',
-        //     host: 'fluxqa.test',
-        //     protocol: 'ws',
-        //     // protocol: 'wss',
-        //     port: 5184,
+            // host: '192.168.4.46',
+            // host: 'fluxqa.test',
+            // protocol: 'ws',
+            // protocol: 'wss',
+            // port: 5184,
         // },
     },
     plugins: [

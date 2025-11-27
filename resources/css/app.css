@@ -28,6 +28,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 /* This allows a section to be light while the rest of the page is dark */
 /* @custom-variant dark (&:where(.dark, .dark *):not(.light *)); */
+/* @custom-variant dark (&:where(.dark, .dark *):not(.light, .light *,.not-dark, .not-dark *)); */
 
 @theme {
     --font-sans: Inter, sans-serif;
@@ -58,4 +59,8 @@
         --color-accent-content: var(--color-green-300);
         --color-accent-foreground: var(--color-white);
     }
+} */
+
+/* [data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
 } */

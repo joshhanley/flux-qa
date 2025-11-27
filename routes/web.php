@@ -20,13 +20,17 @@ use Livewire\Volt\Volt;
 |
 */
 
-Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/fluxqa.test/livewire/update', $handle)->name('update-custom');
-});
+// Livewire::setUpdateRoute(function ($handle) {
+//     return Route::post('/fluxqa.test/livewire/update', $handle)->name('update-custom');
+// });
 
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/fluxqa.test/livewire/livewire.js', $handle)->name('script-custom');
-});
+// Livewire::setScriptRoute(function ($handle) {
+//     return Route::get('/fluxqa.test/livewire/livewire.js', $handle)->name('script-custom');
+// });
+
+Route::livewire('admin', 'playground')->name('admin.dashboard');
+Route::livewire('admin/pages', 'playground')->name('admin.pages-index');
+Route::livewire('admin/users', 'playground')->name('admin.users-index');
 
 Route::get('exploit', Exploit::class);
 
@@ -36,6 +40,8 @@ Route::get('randomasdasd', function () {
 
 Route::view('sample2', 'sample');
 Route::view('sticky-header', 'sticky-header');
+
+Route::livewire('playground/islands', 'pages::playground.islands')->name('playground.islands');
 
 Route::get('table-test', function () {
     sleep(1);
@@ -95,6 +101,14 @@ Route::get('nativemodal', function () {
 foreach (Components::get() as $component) {
     Route::livewire('/'.$component, $component);
 }
+
+Route::get('blaze', function () {
+    ray()->clearScreen();
+
+    return view('blaze');
+});
+
+Route::livewire('/dashboard', 'pages::dashboard')->name('dashboard');
 
 Route::livewire('/', 'index')->name('home');
 Route::livewire('/test', 'index')->name('test');

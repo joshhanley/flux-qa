@@ -9,6 +9,7 @@
     <div id="hiddens"></div>
 
     <form action="/inputs" method="POST">
+        <flux:time-picker name="start_at_time" label="Start at" :value="old('start_at_time', request()->input('start_at_time', '08:00'))"/>
         {{-- <input type="checkbox" name="checkbox" value="foo" />
 
         <input type="radio" name="radio" value="foo" />
@@ -52,10 +53,10 @@
             <!-- ... -->
         </flux:autocomplete> --}}
 
-        <flux:subheading size="lg">Calendar</flux:subheading>
+        {{-- <flux:subheading size="lg">Calendar</flux:subheading> --}}
 
         {{-- <flux:calendar name="calendar" label="Calendar" :value="old('calendar', request()->input('calendar'))" /> --}}
-        <flux:calendar name="calendarrange" mode="range" label="Calendar Range" :value="old('calendarrange', request()->input('calendarrange'))" />
+        {{-- <flux:calendar name="calendarrange" mode="range" label="Calendar Range" :value="old('calendarrange', request()->input('calendarrange'))" /> --}}
         {{-- <flux:calendar name="calendarmultiple" multiple label="Calendar Multiple" :value="old('calendarmultiple', request()->input('calendarmultiple'))" /> --}}
         {{-- <flux:date-picker name="datepickerpreset" mode="range" label="Date Picker Preset" :value="old('datepickerpreset', request()->input('datepickerpreset'))" with-presets /> --}}
 
