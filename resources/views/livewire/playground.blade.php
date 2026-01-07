@@ -1,17 +1,24 @@
 <?php
 
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Url;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
 new class extends Component {
     //
 }; ?>
 
 <div>
-    <flux:sidebar.nav>
-        <flux:sidebar.item icon="squares-2x2" :href="route('admin.dashboard')" :current="request()->routeIs('admin.dashboard')" wire:navigate.hover>{{ __('Dashboard') }}</flux:sidebar.item>
-        <flux:sidebar.item icon="cursor-arrow-ripple" :href="route('admin.pages-index')" :current="request()->routeIs('admin.pages-index')" wire:navigate.hover>{{ __('Pages') }}</flux:sidebar.item>
-        <flux:sidebar.item icon="users" :href="route('admin.users-index')" :current="request()->routeIs('admin.users-index')" wire:navigate.hover>{{ __('Users') }}</flux:sidebar.item>
-    </flux:sidebar.nav>
+    <flux:select 
+        variant="listbox" 
+        placeholder="Choose industry..."
+        name="industry"
+    >
+        <flux:select.option value="1">Photography</flux:select.option>
+        <flux:select.option value="2">Design services</flux:select.option>
+        <flux:select.option value="3" selected>Web development</flux:select.option>
+        <flux:select.option value="4">Accounting</flux:select.option>
+        <flux:select.option value="5">Legal services</flux:select.option>
+        <flux:select.option value="6">Consulting</flux:select.option>
+        <flux:select.option value="7">Other</flux:select.option>
+    </flux:select>
 </div>
