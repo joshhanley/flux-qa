@@ -108,7 +108,15 @@ Route::get('blaze', function () {
     return view('blaze');
 });
 
+Route::livewire('/test-pages', \App\Livewire\Pages\Pages::class)->name('test-pages');
+
+Route::livewire('/show-user/{user}', 'pages::show-user')
+    ->middleware('can:view,user')
+    ->name('show-user');
+
 Route::livewire('/dashboard', 'pages::dashboard')->name('dashboard');
+
+Route::livewire('/test-javascript', 'pages::test-javascript')->name('test-javascript');
 
 Route::livewire('/', 'index')->name('home');
 Route::livewire('/test', 'index')->name('test');

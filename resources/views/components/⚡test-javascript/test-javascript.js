@@ -1,0 +1,1 @@
+console.log($wire, $wire.el, this)

@@ -6,15 +6,6 @@ new class extends Component {
     //
 } ?>
 
-<div>
-    @island
-        <div>
-            <p>Outer island</p>
-            <div>
-                @island
-                    <p>Inner island</p>
-                @endisland
-            </div>
-        </div>
-    @endisland
+<div class="flex items-center">
+    <div wire:transition="bob">Bob</div>
 </div>

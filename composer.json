@@ -8,11 +8,14 @@
         "php": "^8.2",
         "calebporzio/sushi": "^2.5",
         "laravel/framework": "^11.9",
+        "laravel/nightwatch": "^1.21",
         "laravel/tinker": "^2.9",
+        "league/flysystem-aws-s3-v3": "^3.30",
         "livewire/blaze": "dev-main",
         "livewire/flux": "dev-main",
         "livewire/flux-pro": "dev-main",
         "livewire/livewire": "dev-main as v4.0.0-beta.1",
+        "my-vendor/my-livewire-package": "dev-main",
         "openai-php/laravel": "^0.11.0",
         "spatie/laravel-ray": "^1.37"
     },
@@ -93,6 +96,18 @@
         "livewire/blaze": {
             "type": "path",
             "url": "/Users/josh/Development/packages/blaze"
+        },
+        "spatie/laravel-flare": {
+            "type": "path",
+            "url": "/Users/josh/Development/packages/laravel-flare"
+        },
+        "spatie/laravel-ignition": {
+            "type": "path",
+            "url": "/Users/josh/Development/packages/laravel-ignition"
+        },
+        "my-vendor/my-livewire-package": {
+            "type": "path",
+            "url": "/Users/josh/Development/packages/my-livewire-package"
         }
     }
 }

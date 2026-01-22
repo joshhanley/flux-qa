@@ -4,16 +4,15 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public function render()
+    public function mount()
     {
-        return $this->view()
-            ->layout('layouts::app-data-current'); 
+        // throw new \Exception('Thrown from pages::dashboard mount');
     }
 };
 ?>
 
 <div>
-    Dashboard
-    <div class="h-[1000px]"></div>
-    <flux:link href="/playground" wire:navigate>Playground</flux:link>
+    @php
+        throw new \Exception('Thrown from pages::dashboard view');
+    @endphp
 </div>

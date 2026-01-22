@@ -1,3 +1,9 @@
+import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm';
+ 
+Livewire.start()
+
+
+
 // import Image from '@tiptap/extension-image'
 
 // document.addEventListener('flux:editor', (e) => {
