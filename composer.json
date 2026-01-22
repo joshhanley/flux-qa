@@ -95,18 +95,6 @@
         "livewire/blaze": {
             "type": "path",
             "url": "/Users/josh/Development/packages/blaze"
-        },
-        "spatie/laravel-flare": {
-            "type": "path",
-            "url": "/Users/josh/Development/packages/laravel-flare"
-        },
-        "spatie/laravel-ignition": {
-            "type": "path",
-            "url": "/Users/josh/Development/packages/laravel-ignition"
-        },
-        "my-vendor/my-livewire-package": {
-            "type": "path",
-            "url": "/Users/josh/Development/packages/my-livewire-package"
         }
     }
 }
