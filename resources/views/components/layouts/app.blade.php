@@ -13,7 +13,7 @@
     </script>
 
     @fluxAppearance()
-    @livewireStyles
+    {{-- @livewireStyles --}}
 
     {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
 </head>
@@ -76,7 +76,7 @@
     </script> --}}
 
     @fluxScripts()
-    @livewireScriptConfig
+    {{-- @livewireScriptConfig --}}
 </body>
 
 </html>

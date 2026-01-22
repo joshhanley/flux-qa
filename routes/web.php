@@ -123,7 +123,8 @@ Route::livewire('/test', 'index')->name('test');
 Route::livewire('/other', 'index')->name('other');
 Route::livewire('/class-component', ClassComponent::class)->name('class-component');
 Route::livewire('/view-class-component','view-class-component')->name('view-class-component');
-Route::livewire('/playground/{id?}', 'playground')->name('playground');
+// Route::livewire('/playground/{user}', 'playground')->name('playground');
+// Route::livewire('/playground/{id?}', 'playground')->name('playground');
 Route::livewire('/playground2/{id?}', 'playground2')->name('playground2');
 // Route::livewire('/playground/{id?}', 'playground')->name('playground');
 

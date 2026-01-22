@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "527d139881f03c8059a553f055dbda25",
+    "content-hash": "6b3a8e2a8a34fa6ff674d4e93ecafd1b",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2427,14 +2427,14 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux",
-                "reference": "d0ee58e35411f0edec749616070d65fd928b64b7"
+                "reference": "3ada3b2644215fd1ccb7003ce8e6bc185c22e70a"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0|^12.0",
                 "illuminate/support": "^10.0|^11.0|^12.0",
                 "illuminate/view": "^10.0|^11.0|^12.0",
                 "laravel/prompts": "^0.1|^0.2|^0.3",
-                "livewire/livewire": "^3.7.3|^4.0",
+                "livewire/livewire": "^3.7.4|^4.0",
                 "php": "^8.1",
                 "symfony/console": "^6.0|^7.0"
             },
@@ -2484,15 +2484,15 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/flux-pro",
-                "reference": "e652e5aea21a0d1e07bc1a7a1bdd0cab41fb9e95"
+                "reference": "6c7259941b0914b768f0cd024b126d102a375858"
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0|^12.0",
                 "illuminate/support": "^10.0|^11.0|^12.0",
                 "illuminate/view": "^10.0|^11.0|^12.0",
                 "laravel/prompts": "^0.1.24|^0.2|^0.3",
-                "livewire/flux": "2.10.2|dev-main",
-                "livewire/livewire": "^3.7.3|^4.0",
+                "livewire/flux": "2.11.1|dev-main",
+                "livewire/livewire": "^3.7.4|^4.0",
                 "php": "^8.1",
                 "symfony/console": "^6.0|^7.0"
             },
@@ -2558,7 +2558,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/josh/Development/packages/livewire",
-                "reference": "643bef8c8bf7ce08d02867345c8956581f16ba66"
+                "reference": "40e32800a1ff9f777c9b32b1f4878ab9990f99f2"
             },
             "require": {
                 "illuminate/database": "^10.0|^11.0|^12.0",
@@ -2788,40 +2788,6 @@
                 "source": "https://github.com/jmespath/jmespath.php/tree/2.8.0"
             },
             "time": "2024-09-04T18:46:31+00:00"
-        },
-        {
-            "name": "my-vendor/my-livewire-package",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "/Users/josh/Development/packages/my-livewire-package",
-                "reference": "d187714b971f0f5bbf26ee890f8606cd4e40f878"
-            },
-            "require": {
-                "illuminate/support": "^11.0|^12.0",
-                "livewire/livewire": "^4.0",
-                "php": "^8.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "MyVendor\\MyLivewirePackage\\MyLivewirePackageServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "MyVendor\\MyLivewirePackage\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A test Laravel package with Livewire components",
-            "transport-options": {
-                "relative": false
-            }
         },
         {
             "name": "nesbot/carbon",
@@ -12823,8 +12789,7 @@
         "livewire/blaze": 20,
         "livewire/flux": 20,
         "livewire/flux-pro": 20,
-        "livewire/livewire": 20,
-        "my-vendor/my-livewire-package": 20
+        "livewire/livewire": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

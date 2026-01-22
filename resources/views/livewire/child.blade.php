@@ -1,24 +1,13 @@
 <?php
 
-use Livewire\Attributes\Reactive;
+use Livewire\Attributes\Modelable;
 use Livewire\Component;
 
 new class extends Component {
-    #[Reactive]
-    public $count = 0;
-
-    public function updated()
-    {
-        ray('updated', $this->count);
-    }
-
-    public function increment()
-    {
-        $this->count++;
-    }
+    #[Modelable]
+    public string $some;
 }; ?>
 
 <div>
-    Child count: {{ $count }}
-    <flux:button wire:click="increment">Increment</flux:button>
+    {{ $some }}
 </div>
